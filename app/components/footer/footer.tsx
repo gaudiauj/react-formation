@@ -2,6 +2,7 @@ import {
   Box,
   chakra,
   Container,
+  Link,
   Stack,
   Text,
   useColorModeValue,
@@ -43,7 +44,7 @@ const SocialButton = ({
   );
 };
 
-export default function SmallWithLogoLeft() {
+export default function SmallCentered() {
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
@@ -53,22 +54,42 @@ export default function SmallWithLogoLeft() {
         as={Stack}
         maxW={"6xl"}
         py={4}
-        direction={{ base: "column", md: "row" }}
         spacing={4}
-        justify={{ base: "center", md: "space-between" }}
-        align={{ base: "center", md: "center" }}
+        justify={"center"}
+        align={"center"}
       >
         <Logo width="200px" />
-        <Text>© 2023 react-formation </Text>
         <Stack direction={"row"} spacing={6}>
-          <SocialButton label={"Twitter"} href={"#"}>
-            <FaTwitter />
-          </SocialButton>
-          <SocialButton label={"YouTube"} href={"#"}>
-            <FaYoutube />
-          </SocialButton>
+          <Link href={"/conduct"}>code de conduite</Link>
+          {/* <Link href={"#"}>Diversité</Link> */}
         </Stack>
       </Container>
+
+      <Box
+        borderTopWidth={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.700")}
+      >
+        <Container
+          as={Stack}
+          maxW={"6xl"}
+          py={4}
+          direction={{ base: "column", md: "row" }}
+          spacing={4}
+          justify={{ base: "center", md: "space-between" }}
+          align={{ base: "center", md: "center" }}
+        >
+          <Text>© 2023 React Formation</Text>
+          <Stack direction={"row"} spacing={6}>
+            <SocialButton label={"Twitter"} href={"#"}>
+              <FaTwitter />
+            </SocialButton>
+            <SocialButton label={"YouTube"} href={"#"}>
+              <FaYoutube />
+            </SocialButton>
+          </Stack>
+        </Container>
+      </Box>
     </Box>
   );
 }

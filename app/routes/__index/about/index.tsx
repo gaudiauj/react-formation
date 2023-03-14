@@ -1,0 +1,123 @@
+import {
+  Container,
+  SimpleGrid,
+  Image,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  StackDivider,
+  Icon,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import {
+  IoAnalyticsSharp,
+  IoLogoBitcoin,
+  IoSearchSharp,
+} from "react-icons/io5";
+import type { ReactElement } from "react";
+
+interface FeatureProps {
+  text: string;
+  iconBg: string;
+  icon?: ReactElement;
+}
+
+const Feature = ({ text, icon, iconBg }: FeatureProps) => {
+  return (
+    <Stack direction={"row"} align={"center"}>
+      <Flex
+        w={8}
+        h={8}
+        align={"center"}
+        justify={"center"}
+        rounded={"full"}
+        bg={iconBg}
+      >
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{text}</Text>
+    </Stack>
+  );
+};
+
+export default function SplitWithImage() {
+  return (
+    <Container maxW={"5xl"} py={12}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+        <Stack spacing={4}>
+          <Text
+            textTransform={"uppercase"}
+            color={"blue.400"}
+            fontWeight={600}
+            fontSize={"sm"}
+            bg={useColorModeValue("blue.50", "blue.900")}
+            p={2}
+            alignSelf={"flex-start"}
+            rounded={"md"}
+          >
+            Qui somme nous ?
+          </Text>
+          <Heading as="h1">Une entreprise dédié à la formation</Heading>
+          <Text color={"gray.500"} fontSize={"lg"}>
+            Je suis Jean fondateur de React-Formation. Mon aventure dans le
+            monde du developpement web commence à mes 12 ans, ou je découvre sur
+            le vieille ordinateur familial, la programation. Adepte du site du
+            zéro maintenant devenu depuis
+            <a href="https://openclassrooms.com/fr/">openclassroom</a>, j'ai
+            suivi les tutoriel sur le c, html, javascript et php.
+            <br /> Cette passion me suis donc depuis mon adolescence et c'est
+            tout naturellement que j'en fais mon métier. En 2015 la vrai
+            aventure commence et je commence mon premier travail en tant que
+            developpeur full-stack PHP, js. En 2017 je me spécialise dans le
+            front, et plus particulierement React.
+            <br /> Depuis j'ai eu la chance de travailler pour de nombreuse
+            entreprise, de la petite startup et ses 2 confondateurs, à la grosse
+            multinational et ses milliers de collaborateurs. Et un constat,
+            j'aime échanger, partager et apprendre.
+            <br /> Je me décide donc à lancer mon entreprise de formation sur
+            mon sujet de prédilection, React. Mon objectif, aider les entreprise
+            à construire des application, robuste, rapide et bien tester, mais
+            surtout aider les developpeurs à mieux comprendre le fonctionnement
+            de React et d'être plus confiant, plus rapide et plus impliqué dans
+            leur travail.
+          </Text>
+          <Stack
+            spacing={8}
+            divider={
+              <StackDivider
+                borderColor={useColorModeValue("gray.100", "gray.700")}
+              />
+            }
+          >
+            <Heading fontSize={"md"}>
+              Pourquoi choisir react-formation ?
+            </Heading>
+            <Feature
+              icon={
+                <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />
+              }
+              iconBg={useColorModeValue("yellow.100", "yellow.900")}
+              text={"Une formation par un formateur spécialiste et passioné"}
+            />
+            <Feature
+              icon={<Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />}
+              iconBg={useColorModeValue("green.100", "green.900")}
+              text={"Une formation sur mesure pour vos collaborateurs"}
+            />
+          </Stack>
+        </Stack>
+        <Flex>
+          <Image
+            rounded={"md"}
+            alt={"feature image"}
+            src={
+              "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+            objectFit={"cover"}
+          />
+        </Flex>
+      </SimpleGrid>
+    </Container>
+  );
+}

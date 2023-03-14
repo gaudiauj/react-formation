@@ -104,6 +104,7 @@ export default function ContactFormWithSocialButtons() {
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <Heading
+              as="h1"
               fontSize={{
                 base: "4xl",
                 md: "5xl",
