@@ -8,7 +8,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaYoutube, FaLinkedin } from "react-icons/fa";
 import type { ReactNode } from "react";
 import Logo from "../../assets/logo";
 
@@ -81,8 +81,11 @@ export default function SmallCentered() {
         >
           <Text>© 2023 React Formation</Text>
           <Stack direction={"row"} spacing={6}>
-            <SocialButton label={"Twitter"} href={"#"}>
-              <FaTwitter />
+            <SocialButton
+              label={"Linkedin"}
+              href={"https://fr.linkedin.com/in/jean-gaudiau-50b10439"}
+            >
+              <FaLinkedin />
             </SocialButton>
             <SocialButton label={"YouTube"} href={"#"}>
               <FaYoutube />

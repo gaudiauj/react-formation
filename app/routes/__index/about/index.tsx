@@ -10,11 +10,7 @@ import {
   Icon,
   useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  IoAnalyticsSharp,
-  IoLogoBitcoin,
-  IoSearchSharp,
-} from "react-icons/io5";
+import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
 import type { ReactElement } from "react";
 
 interface FeatureProps {
