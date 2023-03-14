@@ -33,6 +33,7 @@ export default function index() {
     base: false,
     lg: true,
   });
+
   const color = useColorModeValue("gray.800", "gray.300");
   return (
     <Stack
