@@ -27,7 +27,7 @@ export const meta: MetaFunction = () => {
   };
 };
 
-export default function index() {
+export default function Index() {
   const height = useBreakpointValue({ base: "20%", md: "30%" });
   const displayPrice = useBreakpointValue({
     base: false,
