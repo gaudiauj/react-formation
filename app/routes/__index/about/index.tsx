@@ -12,11 +12,26 @@ import {
 } from "@chakra-ui/react";
 import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
 import type { ReactElement } from "react";
+import type { MetaFunction } from "@remix-run/server-runtime";
 
 interface FeatureProps {
   text: string;
   iconBg: string;
   icon?: ReactElement;
+}
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "react-formation | découvrir ",
+    description:
+      "Decouvrer l'histoire de react-formation et de son créateur jean gaudiau",
+  };
+};
+
+export function headers() {
+  return {
+    "Cache-Control": "max-age=3600000, stale-while-revalidate=1800000",
+  };
 }
 
 const Feature = ({ text, icon, iconBg }: FeatureProps) => {
