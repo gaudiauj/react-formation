@@ -27,6 +27,12 @@ export const meta: MetaFunction = () => {
   };
 };
 
+export function headers() {
+  return {
+    "Cache-Control": "max-age=3600000, stale-while-revalidate=1800000",
+  };
+}
+
 export default function Index() {
   const height = useBreakpointValue({ base: "20%", md: "30%" });
   const displayPrice = useBreakpointValue({

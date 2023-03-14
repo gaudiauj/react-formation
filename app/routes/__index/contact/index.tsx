@@ -38,6 +38,12 @@ export const meta: MetaFunction = () => {
   };
 };
 
+export function headers() {
+  return {
+    "Cache-Control": "max-age=3600000, stale-while-revalidate=1800000",
+  };
+}
+
 export const action = async ({ request }: ActionArgs) => {
   const formData = await request.formData();
 
