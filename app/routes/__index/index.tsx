@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/server-runtime";
-import HomeImage from "public/home.jpg";
+import HomeImage from "public/home.webp";
 
 import {
   Button,
