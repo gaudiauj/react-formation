@@ -28,6 +28,7 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "React-formation",
   viewport: "width=device-width,initial-scale=1",
+  "msvalidate.01": "E459DDB6D00ADF264FB9B4CB51EB0C55",
 });
 
 export async function loader({ request }: LoaderArgs) {
