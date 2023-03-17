@@ -7,6 +7,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
   useLoaderData,
 } from "@remix-run/react";
 
@@ -21,7 +22,6 @@ import {
   extendTheme,
   withDefaultColorScheme,
 } from "@chakra-ui/react";
-import { url } from "inspector";
 import { createUrlView } from "./models/urlView.server";
 
 export const meta: MetaFunction = () => ({
@@ -39,7 +39,6 @@ export async function loader({ request }: LoaderArgs) {
       console.error(e);
     }
   }
-
   return json({
     user: await getUser(request),
     uiCookie: request.headers.get("cookie") ?? "",
@@ -81,7 +80,7 @@ const Document = withEmotionCache(
 
     const CHAKRA_COOKIE_COLOR_KEY = "chakra-ui-color-mode";
 
-    let { uiCookie } = useLoaderData();
+    let { uiCookie } = useLoaderData() || {};
 
     // the client get the cookies from the document
     // because when we do a client routing, the loader can have stored an outdated value
@@ -92,6 +91,9 @@ const Document = withEmotionCache(
     // get and store the color mode from the cookies.
     // It'll update the cookies if there isn't any and we have set a default value
     let colorMode = useMemo(() => {
+      if (!uiCookie) {
+        return DEFAULT_COLOR_MODE;
+      }
       let color = getColorMode(uiCookie);
 
       if (!color && DEFAULT_COLOR_MODE) {
@@ -173,6 +175,28 @@ const theme = extendTheme(
   { colors },
   withDefaultColorScheme({ colorScheme: "brand" })
 );
+
+export function CatchBoundary() {
+  const caught = useCatch();
+
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <title>{`${caught.status} ${caught.statusText}`}</title>
+        <Links />
+      </head>
+      <body>
+        <div className="error-container">
+          <h1>
+            {caught.status} {caught.statusText}
+          </h1>
+        </div>
+        <LiveReload />
+      </body>
+    </html>
+  );
+}
 
 export default function App() {
   return (

@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import type { LoaderArgs } from "@remix-run/node";
+import type { LoaderArgs, MetaFunction } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { getAllUrlView } from "~/models/urlView.server";
@@ -7,15 +7,27 @@ import { Flex, Link as UiLink } from "@chakra-ui/react";
 import {
   TableContainer,
   Table,
-  TableCaption,
   Thead,
   Tr,
   Th,
   Tbody,
   Td,
 } from "@chakra-ui/react";
+import isAdmin from "~/utils/isAdmin.server";
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "react-formation | admin ",
+    robots: "noindex,nofollow",
+  };
+};
 
 export const loader = async ({ request }: LoaderArgs) => {
+  if (await isAdmin(request)) {
+    throw new Response("Not Found", {
+      status: 404,
+    });
+  }
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "0");
   if (isNaN(page)) {

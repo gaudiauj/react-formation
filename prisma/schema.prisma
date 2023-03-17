@@ -44,3 +44,14 @@ model urlView {
 
   createdAt DateTime @default(now())
 }
+
+model contactForm {
+  id     Int @id @default(autoincrement())
+  email String
+  name    String
+  firm String
+  message String
+  phone String
+
+  createdAt DateTime @default(now())
+}

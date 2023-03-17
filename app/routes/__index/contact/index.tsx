@@ -23,12 +23,13 @@ import {
 import invariant from "tiny-invariant";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { BsLinkedin, BsPerson, BsFillBuildingFill } from "react-icons/bs";
-import { EmailIcon } from "@chakra-ui/icons";
+import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import type { ActionArgs } from "@remix-run/server-runtime";
 import { json } from "@remix-run/node";
 import { sendContactMail } from "~/utils/email.server";
 
 import type { MetaFunction } from "@remix-run/node"; // or cloudflare/deno
+import { createContactForm } from "~/models/contact";
 
 export const meta: MetaFunction = () => {
   return {
@@ -51,6 +52,7 @@ export const action = async ({ request }: ActionArgs) => {
   const email = formData.get("email");
   const message = formData.get("message");
   const firm = formData.get("firm");
+  const phone = formData.get("phone");
 
   const errors = {
     name: name ? false : "Le nom est obligatoire",
@@ -61,6 +63,7 @@ export const action = async ({ request }: ActionArgs) => {
   invariant(typeof name === "string", "name must be a string");
   invariant(typeof email === "string", "email must be a string");
   invariant(typeof message === "string", "message must be a string");
+  invariant(typeof phone === "string", "phone must be a string");
   invariant(
     typeof firm === "string" || typeof firm === "undefined",
     "firm must be a string or undefined"
@@ -68,7 +71,10 @@ export const action = async ({ request }: ActionArgs) => {
   let success = !hasErrors;
   if (!hasErrors) {
     try {
-      await sendContactMail({ name, email, message, firm });
+      await Promise.allSettled([
+        sendContactMail({ name, email, message, firm, phone }),
+        createContactForm({ name, email, message, firm, phone }),
+      ]);
     } catch (e) {
       console.log(e);
       success = false;
@@ -174,6 +180,20 @@ export default function ContactFormWithSocialButtons() {
                           autoComplete="organization"
                           id="firm"
                           placeholder="Votre Société"
+                        />
+                      </InputGroup>
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel>Numéro de téléphone (facultatif)</FormLabel>
+
+                      <InputGroup>
+                        <InputLeftElement children={<PhoneIcon />} />
+                        <Input
+                          type="phone"
+                          name="phone"
+                          autoComplete="phone"
+                          id="phone"
+                          placeholder="Votre numéro de téléphone"
                         />
                       </InputGroup>
                     </FormControl>

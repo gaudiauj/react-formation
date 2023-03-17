@@ -6,6 +6,7 @@ export type ContactMailProps = {
   email: string;
   name: string;
   message: string;
+  phone: string;
 };
 
 export async function sendContactMail({
@@ -13,6 +14,7 @@ export async function sendContactMail({
   name,
   message,
   email,
+  phone,
 }: ContactMailProps) {
   const transport = nodemailer.createTransport(
     smtp({
@@ -28,7 +30,7 @@ export async function sendContactMail({
     from: "jean@react-formation.fr",
     to: "contact@react-formation.fr",
     subject: `formulaire de contact ${name}`,
-    text: `${name} de la société ${firm} t'as contacté pour : ${message}. Tu peux le contacter sur ${email}`,
+    text: `${name} de la société ${firm} t'as contacté pour : ${message}. Tu peux le contacter sur ${email} ou ${phone}`,
   };
   return transport.sendMail(mailOptions);
 }
