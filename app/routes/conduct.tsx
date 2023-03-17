@@ -6,8 +6,16 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import type { MetaFunction } from "@remix-run/node";
 
-export default function Index() {
+export const meta: MetaFunction = () => {
+  return {
+    title: "react-formation | code de conduite ",
+    description: "Code de conduite des ateliers de formation",
+  };
+};
+
+export function Index() {
   return (
     <Flex p={8} flex={1} align={"center"} justify={"center"}>
       <Stack spacing={6} w={"full"} maxW={"xl"}>
