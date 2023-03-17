@@ -21,6 +21,8 @@ import {
   extendTheme,
   withDefaultColorScheme,
 } from "@chakra-ui/react";
+import { url } from "inspector";
+import { createUrlView } from "./models/urlView.server";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -29,7 +31,15 @@ export const meta: MetaFunction = () => ({
 });
 
 export async function loader({ request }: LoaderArgs) {
-  console.log("request", new URL(request.url));
+  const urlInfo = new URL(request.url);
+  if (urlInfo.host === "react-formation.fr") {
+    try {
+      createUrlView({ pathname: urlInfo.pathname, search: urlInfo.search });
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return json({
     user: await getUser(request),
     uiCookie: request.headers.get("cookie") ?? "",

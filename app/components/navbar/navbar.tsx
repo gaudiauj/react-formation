@@ -23,6 +23,7 @@ import {
   SunIcon,
 } from "@chakra-ui/icons";
 import Logo from "~/assets/logo";
+import { Link as RemixLink } from "@remix-run/react";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -56,7 +57,7 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Link href="/">
+          <Link to="/" as={RemixLink} prefetch="intent">
             <Logo width="130px" />
           </Link>
 
@@ -106,7 +107,9 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? "#"}
+                as={RemixLink}
+                prefetch="intent"
+                to={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -145,12 +148,14 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <Link
-      href={href}
+      to={href || ""}
       role={"group"}
       display={"block"}
       p={2}
       rounded={"md"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      as={RemixLink}
+      prefetch="intent"
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
@@ -200,8 +205,8 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? "#"}
+        as={RemixLink}
+        to={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -236,7 +241,13 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link
+                key={child.label}
+                py={2}
+                to={child.href || ""}
+                as={RemixLink}
+                prefetch="intent"
+              >
                 {child.label}
               </Link>
             ))}

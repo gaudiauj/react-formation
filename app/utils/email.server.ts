@@ -14,7 +14,6 @@ export async function sendContactMail({
   message,
   email,
 }: ContactMailProps) {
-  console.log(process.env);
   const transport = nodemailer.createTransport(
     smtp({
       host: "in.mailjet.com",
