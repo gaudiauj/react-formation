@@ -9,6 +9,7 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
 import type { ReactElement } from "react";
@@ -72,24 +73,36 @@ export default function SplitWithImage() {
           <Heading as="h1">Une entreprise dédié à la formation</Heading>
           <Text color={"gray.500"} fontSize={"lg"}>
             Je suis Jean fondateur de React-Formation. Mon aventure dans le
-            monde du developpement web commence à mes 12 ans, ou je découvre sur
-            le vieille ordinateur familial, la programation. Adepte du site du
-            zéro maintenant devenu depuis
-            <a href="https://openclassrooms.com/fr/">openclassroom</a>, j'ai
-            suivi les tutoriel sur le c, html, javascript et php.
-            <br /> Cette passion me suis donc depuis mon adolescence et c'est
-            tout naturellement que j'en fais mon métier. En 2015 la vrai
-            aventure commence et je commence mon premier travail en tant que
-            developpeur full-stack PHP, js. En 2017 je me spécialise dans le
-            front, et plus particulierement React.
-            <br /> Depuis j'ai eu la chance de travailler pour de nombreuse
-            entreprise, de la petite startup et ses 2 confondateurs, à la grosse
-            multinational et ses milliers de collaborateurs. Et un constat,
+            monde du développement web commence à mes 12 ans, ou je découvre sur
+            le vieil ordinateur familial, la programmation. Adepte du site du
+            zéro maintenant devenu depuis{" "}
+            <Link
+              href="https://openclassrooms.com/fr/"
+              color="teal.500"
+              isExternal
+            >
+              openclassroom
+            </Link>
+            , j'ai suivi les tutoriels sur le C, HMTL, Javascript et Php.
+          </Text>
+          <Text color={"gray.500"} fontSize={"lg"}>
+            Cette passion me suis donc depuis mon adolescence et c'est tout
+            naturellement que j'en fais mon métier. En 2015 la vraie aventure
+            commence et je commence mon premier travail en tant que développeur
+            Full-stack PHP, js. En 2017 je me spécialise dans le front, et plus
+            Particulièrement React.
+          </Text>
+          <Text color={"gray.500"} fontSize={"lg"}>
+            Depuis j'ai eu la chance de travailler pour de nombreuses
+            entreprises; de la petite startup et ses 2 cofondateurs, à la grosse
+            multinational et ses milliers de collaborateurs. Et un constat;
             j'aime échanger, partager et apprendre.
-            <br /> Je me décide donc à lancer mon entreprise de formation sur
-            mon sujet de prédilection, React. Mon objectif, aider les entreprise
-            à construire des application, robuste, rapide et bien tester, mais
-            surtout aider les developpeurs à mieux comprendre le fonctionnement
+          </Text>
+          <Text color={"gray.500"} fontSize={"lg"}>
+            Je me décide donc à lancer mon entreprise de formation sur mon sujet
+            de prédilection, React. Mon objectif, aider les entreprises à
+            construire des application, robuste, rapide et bien testé, mais
+            surtout aider les développeurs à mieux comprendre le fonctionnement
             de React et d'être plus confiant, plus rapide et plus impliqué dans
             leur travail.
           </Text>
@@ -102,14 +115,14 @@ export default function SplitWithImage() {
             }
           >
             <Heading fontSize={"md"}>
-              Pourquoi choisir react-formation ?
+              Pourquoi choisir React-formation ?
             </Heading>
             <Feature
               icon={
                 <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />
               }
               iconBg={useColorModeValue("yellow.100", "yellow.900")}
-              text={"Une formation par un formateur spécialiste et passioné"}
+              text={"Une formation par un formateur spécialiste et passionné"}
             />
             <Feature
               icon={<Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />}
@@ -121,7 +134,7 @@ export default function SplitWithImage() {
         <Flex>
           <Image
             rounded={"md"}
-            alt={"feature image"}
+            alt={""}
             src={
               "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
             }

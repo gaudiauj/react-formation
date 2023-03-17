@@ -29,6 +29,7 @@ export const meta: MetaFunction = () => ({
 });
 
 export async function loader({ request }: LoaderArgs) {
+  console.log("request", new URL(request.url));
   return json({
     user: await getUser(request),
     uiCookie: request.headers.get("cookie") ?? "",

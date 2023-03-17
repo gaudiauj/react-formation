@@ -78,19 +78,19 @@ export default function Index() {
             <List spacing={3}>
               <ListItem>
                 <ListIcon as={CheckIcon} color="blue.400" />
-                Des formations sur React.js en présentiel ou remote
+                Des formations sur React.js en présentiel où remote
               </ListItem>
               <ListItem>
                 <ListIcon as={CheckIcon} color="blue.400" />
-                Enseignement des fondamentaux et des sujets expert
+                Enseignement des fondamentaux et des sujets experts
               </ListItem>
               <ListItem>
                 <ListIcon as={CheckIcon} color="blue.400" />
-                Des exercices pratique tout au long de la formation
+                Des exercices pratiques tout au long de la formation
               </ListItem>
               <ListItem>
                 <ListIcon as={CheckIcon} color="blue.400" />
-                Une formation sur mesure selon vos besoin
+                Une formation sur mesure selon vos besoins
               </ListItem>
               <ListItem>
                 <ListIcon as={CheckIcon} color="blue.400" />
