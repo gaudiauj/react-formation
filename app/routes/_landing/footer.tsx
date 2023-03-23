@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
+import { Link as RemixLink } from "@remix-run/react";
 import { FaYoutube, FaLinkedin } from "react-icons/fa";
 import type { ReactNode } from "react";
 import Logo from "../../assets/logo";
@@ -60,8 +61,12 @@ export default function SmallCentered() {
       >
         <Logo width="200px" />
         <Stack direction={"row"} spacing={6}>
-          <Link href={"/conduct"}>code de conduite</Link>
-          {/* <Link href={"#"}>Diversité</Link> */}
+          <Link as={RemixLink} to={"/conduct"}>
+            code de conduite
+          </Link>
+          <Link as={RemixLink} to={"/rgpd"}>
+            rgpd
+          </Link>
         </Stack>
       </Container>
 
@@ -80,7 +85,10 @@ export default function SmallCentered() {
           align={{ base: "center", md: "center" }}
         >
           <Text>© 2023 React Formation</Text>
-          <Stack direction={"row"} spacing={6}>
+          <Stack direction={"row"} spacing={6} alignItems="center">
+            <a href="mailto:contact@react-formation.fr">
+              contact@react-formation.fr
+            </a>
             <SocialButton
               label={"Linkedin"}
               href={"https://fr.linkedin.com/in/jean-gaudiau-50b10439"}

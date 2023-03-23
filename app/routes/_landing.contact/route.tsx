@@ -12,6 +12,7 @@ import {
   Link,
   Stack,
   Textarea,
+  Text,
   Tooltip,
   useClipboard,
   useColorModeValue,
@@ -21,7 +22,12 @@ import {
   FormErrorMessage,
 } from "@chakra-ui/react";
 import invariant from "tiny-invariant";
-import { Form, useActionData, useNavigation } from "@remix-run/react";
+import {
+  Form,
+  useActionData,
+  useNavigation,
+  Link as RemixLink,
+} from "@remix-run/react";
 import { BsLinkedin, BsPerson, BsFillBuildingFill } from "react-icons/bs";
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import type { ActionArgs } from "@remix-run/server-runtime";
@@ -118,7 +124,6 @@ export default function ContactFormWithSocialButtons() {
             >
               Nous contacter
             </Heading>
-
             <Stack
               spacing={{ base: 4, md: 8, lg: 12 }}
               direction={{ base: "column", md: "row" }}
@@ -167,6 +172,16 @@ export default function ContactFormWithSocialButtons() {
                 shadow="base"
                 w="80vw"
               >
+                <Heading
+                  fontSize={{
+                    base: "l",
+                  }}
+                  mb={4}
+                >
+                  Faites-nous savoir vos besoins, demandes de formation, ou
+                  questions générales. Nous répondons généralement dans un délai
+                  d'un jour.
+                </Heading>
                 <Form method="post" autoComplete="on">
                   <VStack spacing={5}>
                     <FormControl>
@@ -266,6 +281,9 @@ export default function ContactFormWithSocialButtons() {
                         Le message n'a pas pu être envoyé
                       </Alert>
                     )}
+                    <Link as={RemixLink} to="/rgpd" color={"teal.400"}>
+                      comment sont traitées vos données ?
+                    </Link>
                   </VStack>
                 </Form>
               </Box>
