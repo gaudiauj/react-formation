@@ -28,6 +28,16 @@ declare global {
       cleanupUser: typeof cleanupUser;
 
       /**
+       * Deletes the message with the given email
+       *
+       * @returns {typeof cleanupUser}
+       * @memberof Chainable
+       * @example
+       *    cy.cleanupUser({ email: 'whatever@example.com' })
+       */
+      cleanupMessage: typeof cleanupMessage;
+
+      /**
        * Extends the standard visit command to wait for the page to load
        *
        * @returns {typeof visitAndCheck}
@@ -73,11 +83,23 @@ function cleanupUser({ email }: { email?: string } = {}) {
   cy.clearCookie("__session");
 }
 
+function cleanupMessage({ email }: { email?: string } = {}) {
+  if (email) {
+    deleteMessageByEmail(email);
+  }
+}
+
 function deleteUserByEmail(email: string) {
   cy.exec(
     `npx ts-node --require tsconfig-paths/register ./cypress/support/delete-user.ts "${email}"`
   );
   cy.clearCookie("__session");
+}
+
+function deleteMessageByEmail(email: string) {
+  cy.exec(
+    `npx ts-node --require tsconfig-paths/register ./cypress/support/delete-message.ts "${email}"`
+  );
 }
 
 // We're waiting a second because of this issue happen randomly
@@ -93,3 +115,4 @@ function visitAndCheck(url: string, waitTime: number = 1000) {
 Cypress.Commands.add("login", login);
 Cypress.Commands.add("cleanupUser", cleanupUser);
 Cypress.Commands.add("visitAndCheck", visitAndCheck);
+Cypress.Commands.add("cleanupMessage", cleanupMessage);

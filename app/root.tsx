@@ -11,7 +11,6 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import { getUser } from "./session.server";
 import { withEmotionCache } from "@emotion/react";
 import type { DocumentProps } from "postcss";
 import { useContext, useEffect, useMemo } from "react";
@@ -41,7 +40,6 @@ export async function loader({ request }: LoaderArgs) {
     }
   }
   return json({
-    user: await getUser(request),
     uiCookie: request.headers.get("cookie") ?? "",
   });
 }

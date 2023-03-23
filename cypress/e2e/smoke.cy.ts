@@ -13,39 +13,42 @@ describe("smoke tests", () => {
 
     cy.then(() => ({ email: loginForm.email })).as("user");
 
-    cy.visitAndCheck("/");
-
-    cy.findByRole("link", { name: /sign up/i }).click();
+    cy.visitAndCheck("/join");
 
     cy.findByRole("textbox", { name: /email/i }).type(loginForm.email);
     cy.findByLabelText(/password/i).type(loginForm.password);
     cy.findByRole("button", { name: /create account/i }).click();
+    cy.cleanupUser();
 
-    cy.findByRole("link", { name: /notes/i }).click();
-    cy.findByRole("button", { name: /logout/i }).click();
-    cy.findByRole("link", { name: /log in/i });
+    // cy.findByRole("button", { name: /logout/i }).click();
+    // cy.findByRole("link", { name: /log in/i });
   });
 
-  xit("should allow you to make a note", () => {
-    const testNote = {
-      title: faker.lorem.words(1),
-      body: faker.lorem.sentences(1),
+  it("should allow to contacts", () => {
+    const testContact = {
+      society: faker.lorem.words(1),
+      name: faker.internet.userName(),
+      phone: faker.phone.number(),
+      email: faker.internet.email(),
+      message: faker.lorem.sentence(20),
     };
-    cy.login();
-
     cy.visitAndCheck("/");
 
-    cy.findByRole("link", { name: /notes/i }).click();
-    cy.findByText("No notes yet");
-
-    cy.findByRole("link", { name: /\+ new note/i }).click();
-
-    cy.findByRole("textbox", { name: /title/i }).type(testNote.title);
-    cy.findByRole("textbox", { name: /body/i }).type(testNote.body);
-    cy.findByRole("button", { name: /save/i }).click();
-
-    cy.findByRole("button", { name: /delete/i }).click();
-
-    cy.findByText("No notes yet");
+    cy.findByRole("link", { name: /contacter/i }).click();
+    cy.findByLabelText(/Société/i).type(testContact.society, { force: true });
+    cy.findByLabelText(/nom/i).type(testContact.name, { force: true });
+    cy.findByLabelText(/numéro/i).type(testContact.phone, { force: true });
+    cy.findByLabelText(/email/i).type(testContact.email, { force: true });
+    cy.findByLabelText(/message/i).type(testContact.message, { force: true });
+    cy.findByRole("button", { name: /envoyer/i }).click();
+    cy.findByText(/a bien été envoyé/i);
+    cy.login({ email: "ok@react-formation.fr" });
+    cy.visitAndCheck("/admin/pageview");
+    cy.visitAndCheck("/admin/message");
+    cy.findByText(testContact.message).should("exist");
+    cy.findByText(testContact.email).should("exist");
+    cy.cleanupMessage({ email: testContact.email });
+    cy.reload();
+    cy.findByText(testContact.email).should("not.exist");
   });
 });

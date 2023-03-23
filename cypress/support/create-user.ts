@@ -1,3 +1,4 @@
+import { getUserByEmail } from "~/models/user.server";
 // Use this to create a new user and login with that user
 // Simply call this with:
 // npx ts-node --require tsconfig-paths/register ./cypress/support/create-user.ts username@example.com
@@ -16,11 +17,14 @@ async function createAndLogin(email: string) {
   if (!email) {
     throw new Error("email required for login");
   }
-  if (!email.endsWith("@example.com")) {
-    throw new Error("All test emails must end in @example.com");
+  if (!email.endsWith("@react-formation.fr")) {
+    throw new Error("All test emails must end in @react-formation.fr");
   }
 
-  const user = await createUser(email, "myreallystrongpassword");
+  let user = await getUserByEmail(email);
+  if (!user) {
+    user = await createUser(email, "myreallystrongpassword");
+  }
 
   const response = await createUserSession({
     request: new Request("test://test"),

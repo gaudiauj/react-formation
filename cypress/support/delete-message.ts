@@ -10,22 +10,19 @@ import { prisma } from "~/db.server";
 
 installGlobals();
 
-async function deleteUser(email: string) {
+async function deleteMessage(email: string) {
   if (!email) {
     throw new Error("email required for login");
   }
-  if (!email.endsWith("@react-formation.fr")) {
-    throw new Error("All test emails must end in @react-formation.fr");
-  }
 
   try {
-    await prisma.user.delete({ where: { email } });
+    await prisma.contactForm.deleteMany({ where: { email } });
   } catch (error) {
     if (
       error instanceof PrismaClientKnownRequestError &&
       error.code === "P2025"
     ) {
-      console.log("User not found, so no need to delete");
+      console.log("email not found, so no need to delete");
     } else {
       throw error;
     }
@@ -34,4 +31,4 @@ async function deleteUser(email: string) {
   }
 }
 
-deleteUser(process.argv[2]);
+deleteMessage(process.argv[2]);

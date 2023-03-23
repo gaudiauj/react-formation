@@ -1,41 +1,26 @@
 import {
   Box,
-  Button,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
   IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Link,
   Stack,
-  Textarea,
-  Text,
   Tooltip,
   useClipboard,
   useColorModeValue,
   VStack,
-  Alert,
-  AlertIcon,
-  FormErrorMessage,
 } from "@chakra-ui/react";
 import invariant from "tiny-invariant";
-import {
-  Form,
-  useActionData,
-  useNavigation,
-  Link as RemixLink,
-} from "@remix-run/react";
-import { BsLinkedin, BsPerson, BsFillBuildingFill } from "react-icons/bs";
-import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
+import { useActionData, useNavigation } from "@remix-run/react";
+import { BsLinkedin } from "react-icons/bs";
+import { EmailIcon } from "@chakra-ui/icons";
 import type { ActionArgs } from "@remix-run/server-runtime";
 import { json } from "@remix-run/node";
 import { sendContactMail } from "~/utils/email.server";
 
 import type { MetaFunction } from "@remix-run/node"; // or cloudflare/deno
 import { createContactForm } from "~/models/contact";
+import Form from "./Form";
 
 export const meta: MetaFunction = () => {
   return {
@@ -61,9 +46,9 @@ export const action = async ({ request }: ActionArgs) => {
   const phone = formData.get("phone");
 
   const errors = {
-    name: name ? false : "Le nom est obligatoire",
-    email: email ? false : "L'email est obligatoire",
-    message: message ? false : "Le message est obligatoire",
+    name: name ? "" : "Le nom est obligatoire",
+    email: email ? "" : "L'email est obligatoire",
+    message: message ? "" : "Le message est obligatoire",
   };
   const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
   invariant(typeof name === "string", "name must be a string");
@@ -135,7 +120,7 @@ export default function ContactFormWithSocialButtons() {
                   hasArrow
                 >
                   <IconButton
-                    aria-label="email"
+                    aria-label="mail"
                     variant="ghost"
                     size="lg"
                     fontSize="3xl"
@@ -182,110 +167,7 @@ export default function ContactFormWithSocialButtons() {
                   questions générales. Nous répondons généralement dans un délai
                   d'un jour.
                 </Heading>
-                <Form method="post" autoComplete="on">
-                  <VStack spacing={5}>
-                    <FormControl>
-                      <FormLabel>Société (facultatif)</FormLabel>
-
-                      <InputGroup>
-                        <InputLeftElement children={<BsFillBuildingFill />} />
-                        <Input
-                          type="text"
-                          name="firm"
-                          autoComplete="organization"
-                          id="firm"
-                          placeholder="Votre Société"
-                        />
-                      </InputGroup>
-                    </FormControl>
-                    <FormControl>
-                      <FormLabel>Numéro de téléphone (facultatif)</FormLabel>
-
-                      <InputGroup>
-                        <InputLeftElement children={<PhoneIcon />} />
-                        <Input
-                          type="phone"
-                          name="phone"
-                          autoComplete="phone"
-                          id="phone"
-                          placeholder="Votre numéro de téléphone"
-                        />
-                      </InputGroup>
-                    </FormControl>
-                    <FormControl isRequired isInvalid={!!actionData?.name}>
-                      <FormLabel>Nom</FormLabel>
-
-                      <InputGroup>
-                        <InputLeftElement children={<BsPerson />} />
-                        <Input
-                          type="text"
-                          name="name"
-                          id="name"
-                          autoComplete="name"
-                          placeholder="Votre nom"
-                        />
-                      </InputGroup>
-                      <FormErrorMessage>{actionData?.name}</FormErrorMessage>
-                    </FormControl>
-
-                    <FormControl isRequired isInvalid={!!actionData?.email}>
-                      <FormLabel>Email</FormLabel>
-
-                      <InputGroup>
-                        <InputLeftElement children={<EmailIcon />} />
-                        <Input
-                          type="email"
-                          name="email"
-                          autoComplete="email"
-                          id="email"
-                          placeholder="Votre Email"
-                        />
-                      </InputGroup>
-                      <FormErrorMessage>{actionData?.email}</FormErrorMessage>
-                    </FormControl>
-
-                    <FormControl isRequired>
-                      <FormLabel>Message</FormLabel>
-
-                      <Textarea
-                        name="message"
-                        id="message"
-                        placeholder="Votre Message"
-                        rows={6}
-                        resize="none"
-                      />
-                    </FormControl>
-
-                    <Button
-                      colorScheme="blue"
-                      type="submit"
-                      bg="blue.400"
-                      color="white"
-                      _hover={{
-                        bg: "blue.500",
-                      }}
-                      isDisabled={isCreating}
-                      isLoading={isCreating}
-                    >
-                      Envoyer
-                    </Button>
-                    {actionData?.success && (
-                      <Alert status="success">
-                        <AlertIcon />
-                        Le message a bien été envoyé
-                      </Alert>
-                    )}
-                    {actionData && !actionData?.success && (
-                      <Alert status="error">
-                        <AlertIcon />
-                        Le message n'a pas pu être envoyé
-                      </Alert>
-                    )}
-                    <Link as={RemixLink} to="/rgpd" color={"teal.400"}>
-                      comment sont traitées vos données ?
-                    </Link>
-                  </VStack>
-                </Form>
+                <Form isLoading={isCreating} actionData={actionData} />
               </Box>
             </Stack>
           </VStack>
