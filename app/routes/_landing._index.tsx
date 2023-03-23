@@ -34,6 +34,7 @@ export function headers() {
 }
 
 export default function Index() {
+  console.log("index");
   const height = useBreakpointValue({ base: "20%", md: "30%" });
   const displayPrice = useBreakpointValue({
     base: false,
@@ -106,10 +107,10 @@ export default function Index() {
               position={"relative"}
             >
               <Button as={Link} rounded={"full"} href="/contact">
-                Reserver
+                Réserver
               </Button>
               <Button as={Link} variant={"link"} size={"sm"}>
-                Detail des formations
+                Détail des formations
               </Button>
               {displayPrice && (
                 <Box position={"absolute"} right={170}>

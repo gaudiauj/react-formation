@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
   };
 };
 
-export function Index() {
+export default function Index() {
   return (
     <Flex p={8} flex={1} align={"center"} justify={"center"}>
       <Stack spacing={6} w={"full"} maxW={"xl"}>

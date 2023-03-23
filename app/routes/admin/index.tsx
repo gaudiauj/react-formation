@@ -25,6 +25,9 @@ export default function Index() {
       <UiLink as={Link} py={2} to={"/admin/pageView"}>
         vue des pages
       </UiLink>
+      <UiLink as={Link} py={2} to={"/admin/message"}>
+        messages
+      </UiLink>
     </>
   );
 }
