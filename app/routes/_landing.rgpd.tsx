@@ -10,8 +10,8 @@ import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return {
-    title: "react-formation | code de conduite ",
-    description: "Code de conduite des ateliers de formation",
+    title: "react-formation | rgpd ",
+    description: "Information rgpd",
   };
 };
 
