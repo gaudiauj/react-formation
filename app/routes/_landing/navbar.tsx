@@ -266,19 +266,8 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Les formations",
-    children: [
-      {
-        label: "Formation de base",
-        subLabel: "Formation pour apprendre les bases de React",
-        href: "#",
-      },
-      {
-        label: "Formation avancée",
-        subLabel: "Formation sur les concepts avancé de React",
-        href: "#",
-      },
-    ],
+    label: "La formation",
+    href: "/formations",
   },
   {
     label: "Qui somme nous ?",

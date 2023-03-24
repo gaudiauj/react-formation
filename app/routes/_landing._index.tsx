@@ -16,8 +16,8 @@ import {
   ListItem,
   Icon,
   createIcon,
-  Link,
 } from "@chakra-ui/react";
+import { Link } from "@remix-run/react";
 import { CheckIcon } from "@chakra-ui/icons";
 
 export const meta: MetaFunction = () => {
@@ -34,7 +34,6 @@ export function headers() {
 }
 
 export default function Index() {
-  console.log("index");
   const height = useBreakpointValue({ base: "20%", md: "30%" });
   const displayPrice = useBreakpointValue({
     base: false,
@@ -106,10 +105,10 @@ export default function Index() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Button as={Link} rounded={"full"} href="/contact">
+              <Button as={Link} rounded={"full"} to="/contact">
                 Réserver
               </Button>
-              <Button as={Link} variant={"link"} size={"sm"}>
+              <Button as={Link} variant={"link"} size={"sm"} to="/formations">
                 Détail des formations
               </Button>
               {displayPrice && (
