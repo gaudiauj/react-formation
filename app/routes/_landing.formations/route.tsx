@@ -10,11 +10,26 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+import type { MetaFunction } from "@remix-run/node";
 
 interface FeatureProps {
   title: string;
   text: string;
   icon: ReactElement;
+}
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "react-formation | formation",
+    description:
+      "Pourquoi suivre une formation React avec react-formation ? découvrez notre formation react sur mesure et gagner en productivité et en efficacité",
+  };
+};
+
+export function headers() {
+  return {
+    "Cache-Control": "max-age=3600000, stale-while-revalidate=1800000",
+  };
 }
 
 const Feature = ({ title, text, icon }: FeatureProps) => {
