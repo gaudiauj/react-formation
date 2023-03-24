@@ -74,7 +74,7 @@ const FeatureWithoutIcon = ({
 
 export default function SimpleThreeColumns() {
   return (
-    <Box as={"main"} m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}>
+    <Box as={"main"} m={{ base: 5, md: 10, lg: 10 }} p={{ base: 5, lg: 10 }}>
       <Heading as={"h1"} mb={10} fontSize={{ base: "4xl", md: "4xl" }}>
         La formation React
       </Heading>
