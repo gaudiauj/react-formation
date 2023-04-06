@@ -1,7 +1,0 @@
--- CreateTable
-CREATE TABLE "urlView" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "pathname" TEXT NOT NULL,
-    "search" TEXT NOT NULL,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
