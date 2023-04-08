@@ -54,13 +54,14 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
 };
 
 export default function SplitWithImage() {
+  const textColor = useColorModeValue("gray.600", "gray.200");
   return (
     <Container maxW={"5xl"} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4}>
           <Text
             textTransform={"uppercase"}
-            color={"blue.600"}
+            color={useColorModeValue("brand.500", "brand.100")}
             fontWeight={600}
             fontSize={"sm"}
             bg={useColorModeValue("gray.50", "gray.900")}
@@ -71,34 +72,34 @@ export default function SplitWithImage() {
             Qui somme nous ?
           </Text>
           <Heading as="h1">Une entreprise dédié à la formation</Heading>
-          <Text color={"gray.600"} fontSize={"lg"}>
+          <Text color={textColor} fontSize={"xl"}>
             Je suis Jean fondateur de React-Formation. Mon aventure dans le
             monde du développement web commence à mes 12 ans, ou je découvre sur
             le vieil ordinateur familial, la programmation. Adepte du site du
             zéro maintenant devenu depuis{" "}
             <Link
               href="https://openclassrooms.com/fr/"
-              color="teal.600"
+              color={useColorModeValue("teal.600", "teal.200")}
               isExternal
             >
               openclassroom
             </Link>
             , j'ai suivi les tutoriels sur le C, HMTL, Javascript et Php.
           </Text>
-          <Text color={"gray.600"} fontSize={"lg"}>
+          <Text color={textColor} fontSize={"xl"}>
             Cette passion me suis donc depuis mon adolescence et c'est tout
             naturellement que j'en fais mon métier. En 2015 la vraie aventure
             commence et je commence mon premier travail en tant que développeur
             Full-stack PHP, js. En 2017 je me spécialise dans le front, et plus
             Particulièrement React.
           </Text>
-          <Text color={"gray.600"} fontSize={"lg"}>
+          <Text color={textColor} fontSize={"xl"}>
             Depuis j'ai eu la chance de travailler pour de nombreuses
             entreprises; de la petite startup et ses 2 cofondateurs, à la grosse
             multinational et ses milliers de collaborateurs. Et un constat;
             j'aime échanger, partager et apprendre.
           </Text>
-          <Text color={"gray.600"} fontSize={"lg"}>
+          <Text color={textColor} fontSize={"xl"}>
             Je me décide donc à lancer mon entreprise de formation sur mon sujet
             de prédilection, React. Mon objectif, aider les entreprises à
             construire des application, robuste, rapide et bien testé, mais

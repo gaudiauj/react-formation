@@ -33,6 +33,7 @@ export function headers() {
 }
 
 const Feature = ({ title, text, icon }: FeatureProps) => {
+  const textColor = useColorModeValue("gray.600", "gray.200");
   return (
     <Stack as={"article"}>
       <Flex
@@ -50,7 +51,7 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
       <Heading as={"h3"} fontWeight={600} fontSize={{ base: "md" }}>
         {title}
       </Heading>
-      <Text color={"gray.600"}>{text}</Text>
+      <Text color={textColor}>{text}</Text>
     </Stack>
   );
 };
@@ -62,6 +63,7 @@ const FeatureWithoutIcon = ({
   title: string;
   texts: string[];
 }) => {
+  const textColor = useColorModeValue("gray.600", "gray.100");
   return (
     <Stack as={"article"} mt={4}>
       <Box
@@ -78,7 +80,7 @@ const FeatureWithoutIcon = ({
         <ul>
           {texts.map((text) => (
             <li key={text}>
-              <Text color={"gray.600"}>{text}</Text>
+              <Text color={textColor}>{text}</Text>
             </li>
           ))}
         </ul>

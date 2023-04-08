@@ -12,6 +12,7 @@ import {
   AlertIcon,
   Input,
   Link,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Form, Link as RemixLink } from "@remix-run/react";
 import { BsFillBuildingFill, BsPerson } from "react-icons/bs";
@@ -27,6 +28,7 @@ export type ContactFormProps = {
 };
 
 export default function ({ isLoading, actionData }: ContactFormProps) {
+  const linkColor = useColorModeValue("teal.600", "teal.100");
   return (
     <Form method="post" autoComplete="on">
       <VStack spacing={5}>
@@ -122,7 +124,7 @@ export default function ({ isLoading, actionData }: ContactFormProps) {
             Le message n'a pas pu être envoyé
           </Alert>
         )}
-        <Link as={RemixLink} to="/rgpd" color={"teal.600"}>
+        <Link as={RemixLink} to="/rgpd" color={linkColor}>
           comment sont traitées vos données ?
         </Link>
       </VStack>
