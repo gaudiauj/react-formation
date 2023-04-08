@@ -45,7 +45,7 @@ export default function Index() {
     <Stack
       minH={"calc(100vh - 60px)"}
       direction={{ base: "column", md: "row" }}
-      bg={useColorModeValue("gray.100", "gray.900")}
+      bg={useColorModeValue("gray.50", "gray.900")}
     >
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
@@ -70,11 +70,11 @@ export default function Index() {
               React
             </Text>
             <br />{" "}
-            <Text color={"blue.400"} as={"span"}>
+            <Text color={"blue.500"} as={"span"}>
               Formation
             </Text>{" "}
           </Heading>
-          <Box bg={useColorModeValue("gray.50", "gray.900")} px={6} py={10}>
+          <Box bg={useColorModeValue("white", "gray.900")} px={6} py={10}>
             <List spacing={3}>
               <ListItem>
                 <ListIcon as={CheckIcon} color="blue.400" />

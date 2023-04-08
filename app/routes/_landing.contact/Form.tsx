@@ -100,10 +100,10 @@ export default function ({ isLoading, actionData }: ContactFormProps) {
         <Button
           colorScheme="blue"
           type="submit"
-          bg="blue.400"
+          bg="brand.500"
           color="white"
           _hover={{
-            bg: "blue.500",
+            bg: "brand.600",
           }}
           isDisabled={isLoading}
           isLoading={isLoading}
@@ -122,7 +122,7 @@ export default function ({ isLoading, actionData }: ContactFormProps) {
             Le message n'a pas pu être envoyé
           </Alert>
         )}
-        <Link as={RemixLink} to="/rgpd" color={"teal.400"}>
+        <Link as={RemixLink} to="/rgpd" color={"teal.600"}>
           comment sont traitées vos données ?
         </Link>
       </VStack>

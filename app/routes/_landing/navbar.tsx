@@ -14,6 +14,7 @@ import {
   useDisclosure,
   useColorMode,
 } from "@chakra-ui/react";
+import { SkipNavLink } from "@chakra-ui/skip-nav";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -31,6 +32,7 @@ export default function WithSubnavigation() {
 
   return (
     <Box as="nav" aria-label="Navigation principal">
+      <SkipNavLink>Skip to content</SkipNavLink>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
