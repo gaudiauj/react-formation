@@ -137,6 +137,9 @@ export default function Index() {
           </Box>
         </Stack>
       </Flex>
+      <Flex flex={1}>
+        <Image alt={""} objectFit={"cover"} src={HomeImage} />
+      </Flex>
     </Stack>
   );
 }
