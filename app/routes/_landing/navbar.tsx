@@ -31,7 +31,13 @@ export default function WithSubnavigation() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box as="nav" aria-label="Navigation principal">
+    <Box
+      as="header"
+      aria-label="Navigation principal"
+      position={"fixed"}
+      w={"100%"}
+      zIndex={999}
+    >
       <SkipNavLink>Skip to content</SkipNavLink>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
@@ -43,6 +49,7 @@ export default function WithSubnavigation() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        w={"100%"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -63,7 +70,7 @@ export default function WithSubnavigation() {
             <Logo width="130px" />
           </Link>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex as="nav" display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -89,7 +96,7 @@ export default function WithSubnavigation() {
         </Stack>
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity>
+      <Collapse as="nav" in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
     </Box>

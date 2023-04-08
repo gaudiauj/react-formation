@@ -57,7 +57,7 @@ export default function SplitWithImage() {
   const textColor = useColorModeValue("gray.600", "gray.200");
   return (
     <Container maxW={"5xl"} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} mt={8}>
         <Stack spacing={4}>
           <Text
             textTransform={"uppercase"}
@@ -72,7 +72,7 @@ export default function SplitWithImage() {
             Qui somme nous ?
           </Text>
           <Heading as="h1">Une entreprise dédié à la formation</Heading>
-          <Text color={textColor} fontSize={"xl"}>
+          <Text color={textColor} fontSize={"lg"}>
             Je suis Jean fondateur de React-Formation. Mon aventure dans le
             monde du développement web commence à mes 12 ans, ou je découvre sur
             le vieil ordinateur familial, la programmation. Adepte du site du
@@ -86,20 +86,20 @@ export default function SplitWithImage() {
             </Link>
             , j'ai suivi les tutoriels sur le C, HMTL, Javascript et Php.
           </Text>
-          <Text color={textColor} fontSize={"xl"}>
+          <Text color={textColor} fontSize={"lg"}>
             Cette passion me suis donc depuis mon adolescence et c'est tout
             naturellement que j'en fais mon métier. En 2015 la vraie aventure
             commence et je commence mon premier travail en tant que développeur
             Full-stack PHP, js. En 2017 je me spécialise dans le front, et plus
             Particulièrement React.
           </Text>
-          <Text color={textColor} fontSize={"xl"}>
+          <Text color={textColor} fontSize={"lg"}>
             Depuis j'ai eu la chance de travailler pour de nombreuses
             entreprises; de la petite startup et ses 2 cofondateurs, à la grosse
             multinational et ses milliers de collaborateurs. Et un constat;
             j'aime échanger, partager et apprendre.
           </Text>
-          <Text color={textColor} fontSize={"xl"}>
+          <Text color={textColor} fontSize={"lg"}>
             Je me décide donc à lancer mon entreprise de formation sur mon sujet
             de prédilection, React. Mon objectif, aider les entreprises à
             construire des application, robuste, rapide et bien testé, mais

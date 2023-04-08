@@ -16,6 +16,8 @@ import {
   ListItem,
   Icon,
   createIcon,
+  SimpleGrid,
+  Link as UiLink,
 } from "@chakra-ui/react";
 import { Link } from "@remix-run/react";
 import { CheckIcon } from "@chakra-ui/icons";
@@ -35,6 +37,7 @@ export function headers() {
 
 export default function Index() {
   const height = useBreakpointValue({ base: "20%", md: "30%" });
+  const linkColor = useColorModeValue("teal.600", "teal.100");
   const displayPrice = useBreakpointValue({
     base: false,
     lg: true,
@@ -42,105 +45,294 @@ export default function Index() {
 
   const color = useColorModeValue("gray.800", "gray.300");
   return (
-    <Stack
-      minH={"calc(100vh - 60px)"}
-      direction={{ base: "column", md: "row" }}
-      bg={useColorModeValue("gray.50", "gray.900")}
-    >
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={6} w={"full"} maxW={"lg"}>
-          <Heading as="h1" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-            <Text
-              as={"span"}
-              position={"relative"}
-              css={{
-                zIndex: 1,
-              }}
-              _after={{
-                content: "''",
-                width: "full",
-                height: height,
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: "blue.300",
-                zIndex: -1,
-              }}
+    <>
+      <Stack
+        minH={"calc(100vh - 40px)"}
+        direction={{ base: "column", md: "row" }}
+        bg={useColorModeValue("gray.50", "gray.900")}
+      >
+        <Flex p={8} flex={1} align={"center"} justify={"center"}>
+          <Stack spacing={6} w={"full"} maxW={"lg"}>
+            <Heading as="h1" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+              <Text
+                as={"span"}
+                position={"relative"}
+                css={{
+                  zIndex: 1,
+                }}
+                _after={{
+                  content: "''",
+                  width: "full",
+                  height: height,
+                  position: "absolute",
+                  bottom: 1,
+                  left: 0,
+                  bg: "blue.300",
+                  zIndex: -1,
+                }}
+              >
+                React
+              </Text>
+              <br />{" "}
+              <Text color={"blue.500"} as={"span"}>
+                Formation
+              </Text>{" "}
+            </Heading>
+            <Box bg={useColorModeValue("white", "gray.900")} px={6} py={10}>
+              <List spacing={3} fontSize={"xl"}>
+                <ListItem>
+                  <ListIcon as={CheckIcon} color="blue.400" />
+                  Des formations sur React.js à distance où en présentiel
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CheckIcon} color="blue.400" />
+                  Enseignement des fondamentaux et des sujets avancé
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CheckIcon} color="blue.400" />
+                  Des exercices pratiques tout au long de la formation
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CheckIcon} color="blue.400" />
+                  Une formation sur mesure selon vos besoins
+                </ListItem>
+                <ListItem>
+                  <ListIcon as={CheckIcon} color="blue.400" />
+                  Typescript ou JS
+                </ListItem>
+              </List>
+              <Stack
+                direction={"column"}
+                spacing={3}
+                mt={4}
+                align={"center"}
+                alignSelf={"center"}
+                position={"relative"}
+              >
+                <Button as={Link} rounded={"full"} to="/contact">
+                  Réserver
+                </Button>
+                <Button as={Link} variant={"link"} size={"sm"} to="/formations">
+                  Détail des formations
+                </Button>
+                {displayPrice && (
+                  <Box position={"absolute"} right={170}>
+                    <Icon
+                      as={Arrow}
+                      color={color}
+                      w={71}
+                      position={"absolute"}
+                      right={-71}
+                      top={"10px"}
+                    />
+                    <Text
+                      fontSize={"lg"}
+                      fontFamily={"Caveat"}
+                      position={"absolute"}
+                      right={"-125px"}
+                      top={"-15px"}
+                      transform={"rotate(10deg)"}
+                    >
+                      à partir de 450€
+                    </Text>
+                  </Box>
+                )}
+              </Stack>{" "}
+            </Box>
+          </Stack>
+        </Flex>
+        <Flex flex={1}>
+          <Image alt={""} objectFit={"cover"} src={HomeImage} />
+        </Flex>
+      </Stack>
+      <Stack
+        minH={"calc(100vh - 60px)"}
+        p={8}
+        bg={useColorModeValue("gray.50", "gray.900")}
+      >
+        <Heading
+          as="h2"
+          mb={4}
+          fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+        >
+          Questions fréquentes
+        </Heading>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
             >
-              React
+              Notre équipe utilise typescript/javascript est-ce que le contenu
+              sera adapté ?
+            </Heading>
+            <Text>
+              Bien que les ateliers React ne concernent pas spécifiquement
+              TypeScript, nous avons notre contenu en TypeScript car il est
+              extrêmement populaire et la plupart de nos clients le demandent.
+              Si les participants ne font pas de TS, ne vous inquiétez pas, nous
+              enseignerons les bases au fur et à mesure.
             </Text>
-            <br />{" "}
-            <Text color={"blue.500"} as={"span"}>
-              Formation
-            </Text>{" "}
-          </Heading>
-          <Box bg={useColorModeValue("white", "gray.900")} px={6} py={10}>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={CheckIcon} color="blue.400" />
-                Des formations sur React.js à distance où en présentiel
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckIcon} color="blue.400" />
-                Enseignement des fondamentaux et des sujets experts
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckIcon} color="blue.400" />
-                Des exercices pratiques tout au long de la formation
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckIcon} color="blue.400" />
-                Une formation sur mesure selon vos besoins
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckIcon} color="blue.400" />
-                Typescript ou JS
-              </ListItem>
-            </List>
-            <Stack
-              direction={"column"}
-              spacing={3}
-              mt={4}
-              align={"center"}
-              alignSelf={"center"}
-              position={"relative"}
-            >
-              <Button as={Link} rounded={"full"} to="/contact">
-                Réserver
-              </Button>
-              <Button as={Link} variant={"link"} size={"sm"} to="/formations">
-                Détail des formations
-              </Button>
-              {displayPrice && (
-                <Box position={"absolute"} right={170}>
-                  <Icon
-                    as={Arrow}
-                    color={color}
-                    w={71}
-                    position={"absolute"}
-                    right={-71}
-                    top={"10px"}
-                  />
-                  <Text
-                    fontSize={"md"}
-                    fontFamily={"Caveat"}
-                    position={"absolute"}
-                    right={"-125px"}
-                    top={"-15px"}
-                    transform={"rotate(10deg)"}
-                  >
-                    à partir de 450€
-                  </Text>
-                </Box>
-              )}
-            </Stack>{" "}
           </Box>
-        </Stack>
-      </Flex>
-      <Flex flex={1}>
-        <Image alt={""} objectFit={"cover"} src={HomeImage} />
-      </Flex>
-    </Stack>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              Combien de personnes peuvent assister à la formation ?
+            </Heading>
+            <Text>
+              Nous n'avons pas de limite de participants, nos formateurs peuvent
+              s'adapter. Cependant la formation comportant de nombreux exercices
+              pratiques et d'échange avec le formateur, nous conseillons des
+              sessions de 4 à 6 personnes.
+            </Text>
+          </Box>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              est-ce que la formation est en personne ou à distance ?
+            </Heading>
+            <Text>
+              Notre formation peut être en présentiel ou à distance. Si possible
+              nous préférons la formation en présentiel car cela permet de créer
+              un lien plus fort entre les participants et le formateur et de
+              facilité la formation. Nous nous déplaçons gratuitement à Paris,
+              un surcout sera appliqué pour les villes en région parisienne.
+              Nous pouvons aussi nous déplacer ailleurs mais le logement et les
+              frais de déplacement seront à la charge du client.
+            </Text>
+          </Box>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              Comment enseignez-vous le State React ?
+            </Heading>
+            <Text>
+              Nous commençons par React Context. Parfois, nous recevons
+              également des demandes spéciales pour Redux ou MobX. Nous faisons
+              souvent une comparaison de Redux à Context à un niveau conceptuel
+              élevé.
+            </Text>
+          </Box>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              Allons-nous rencontrer le formateur à l'avance ?
+            </Heading>
+            <Text>
+              Bien sur. Il y aura un "appel logistique" entre vous et notre
+              formateur pour établir les détails du programme et la date de
+              début.
+            </Text>
+          </Box>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              Que se passe-t-il si notre équipe a une expérience différente ?
+            </Heading>
+            <Text>
+              Nous avons cela très souvent. Les entreprises enverront 15
+              personnes suivre une formation où la moitié n'ont absolument
+              aucune expérience, certaines en ont un peu, et d'autre plus de 5
+              ans. Nous conseillons de faire des groupes de niveau homogène.
+              Cependant même si ce n'est pas possible, en raison de la
+              profondeur et des détails dans lesquels nous entrons, tout le
+              monde apprendra quelque chose.
+            </Text>
+          </Box>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              Comment fonctionne la tarification ?
+            </Heading>
+            <Text>
+              Nous facturons par participant. L'accord permettra une flexibilité
+              au cas où vous auriez besoin d'ajouter ou de supprimer des
+              participants de dernière minute. Vous pouvez nous{" "}
+              <UiLink to={"/contact"} color={linkColor} as={Link}>
+                contacter
+              </UiLink>{" "}
+              pour en discuter en personne.
+            </Text>
+          </Box>
+          <Box
+            bg={useColorModeValue("white", "gray.900")}
+            px={6}
+            py={10}
+            rounded={"md"}
+          >
+            <Heading
+              as="h3"
+              mb={4}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
+              Les formations sont-elles enregistrés ?
+            </Heading>
+            <Text>
+              En général, elles ne le sont pas, à moins que cela soit stipulés
+              dans le contrat.{" "}
+              <UiLink to={"/contact"} color={linkColor} as={Link}>
+                Contactez
+              </UiLink>{" "}
+              nous pour en discuter.
+            </Text>
+          </Box>
+        </SimpleGrid>
+      </Stack>
+    </>
   );
 }
 
