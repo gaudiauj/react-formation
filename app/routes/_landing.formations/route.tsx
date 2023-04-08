@@ -9,7 +9,7 @@ import {
   Heading,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+import { FcAssistant, FcDonate, FcInTransit, FcSupport } from "react-icons/fc";
 import type { MetaFunction } from "@remix-run/node";
 
 interface FeatureProps {
@@ -96,7 +96,14 @@ export default function SimpleThreeColumns() {
       <Heading as={"h2"} mb={5} fontSize={{ base: "2xl", md: "2xl" }}>
         Pourquoi former vos équipes sur React est-il bénéfique ?
       </Heading>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+        <Feature
+          icon={<Icon as={FcSupport} w={10} h={10} />}
+          title={"Une meilleur qualité pour vos projets"}
+          text={
+            "Notres objectifs premier est de vous aider à créer des applications de qualité. Nous voulons que vous puissiez vous concentrer sur le développement de fonctionnalités, et non sur la résolution de problèmes de performance ou de bugs. C'est pourquoi nous vous proposons une formation axé autour des fondamentaux de React et sur les tests, afin que vos équipes puissent créer des applications robustes et performantes."
+          }
+        />
         <Feature
           icon={<Icon as={FcDonate} w={10} h={10} />}
           title={"Investir dans les compétences de vos équipes"}
@@ -119,10 +126,10 @@ export default function SimpleThreeColumns() {
           }
         />
       </SimpleGrid>
-      <Heading as={"h2"} mb={4} mt={4} fontSize={{ base: "2xl", md: "2xl" }}>
+      <Heading as={"h2"} mb={4} mt={8} fontSize={{ base: "2xl", md: "2xl" }}>
         Contenu de la formation :
       </Heading>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
         <FeatureWithoutIcon
           title={"Présentation générale"}
           texts={[
