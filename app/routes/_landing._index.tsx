@@ -167,7 +167,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Notre équipe utilise typescript/javascript est-ce que le contenu
               sera adapté ?
@@ -189,7 +189,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Combien de personnes peuvent assister à la formation ?
             </Heading>
@@ -209,7 +209,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               est-ce que la formation est en personne ou à distance ?
             </Heading>
@@ -232,7 +232,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Comment enseignez-vous le State React ?
             </Heading>
@@ -252,7 +252,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Allons-nous rencontrer le formateur à l'avance ?
             </Heading>
@@ -271,7 +271,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Que se passe-t-il si notre équipe a une expérience différente ?
             </Heading>
@@ -294,7 +294,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Comment fonctionne la tarification ?
             </Heading>
@@ -317,7 +317,7 @@ export default function Index() {
             <Heading
               as="h3"
               mb={4}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Les formations sont-elles enregistrés ?
             </Heading>
