@@ -8,9 +8,12 @@ import {
   Flex,
   Heading,
   useColorModeValue,
+  Button,
+  Center,
 } from "@chakra-ui/react";
 import { FcAssistant, FcDonate, FcInTransit, FcSupport } from "react-icons/fc";
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 
 interface FeatureProps {
   title: string;
@@ -224,6 +227,11 @@ export default function SimpleThreeColumns() {
           texts={["l'accessibilité en général", "React et l'accessibilité"]}
         />
       </SimpleGrid>
+      <Flex justifyContent={"center"} mt={8}>
+        <Button as={Link} rounded={"full"} to="/contact">
+          Réserver
+        </Button>
+      </Flex>
     </Box>
   );
 }
