@@ -36,7 +36,7 @@ export default function WithSubnavigation() {
       aria-label="Navigation principal"
       position={"fixed"}
       w={"100%"}
-      zIndex={999}
+      zIndex={9999}
     >
       <SkipNavLink>Skip to content</SkipNavLink>
       <Flex
@@ -96,7 +96,7 @@ export default function WithSubnavigation() {
         </Stack>
       </Flex>
 
-      <Collapse as="nav" in={isOpen} animateOpacity>
+      <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
     </Box>
@@ -199,6 +199,7 @@ const MobileNav = () => {
       bg={useColorModeValue("white", "gray.800")}
       p={4}
       display={{ md: "none" }}
+      as="nav"
     >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
