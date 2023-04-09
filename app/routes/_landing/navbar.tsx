@@ -24,7 +24,7 @@ import {
   SunIcon,
 } from "@chakra-ui/icons";
 import Logo from "~/assets/logo";
-import { Link as RemixLink } from "@remix-run/react";
+import { NavLink as RemixLink } from "@remix-run/react";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -129,6 +129,7 @@ const DesktopNav = () => {
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
+                _activeLink={{ fontWeight: "bold" }}
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -219,7 +220,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={() => children && onToggle}>
       <Flex
         py={2}
         as={RemixLink}
@@ -264,6 +265,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                 to={child.href || ""}
                 as={RemixLink}
                 prefetch="intent"
+                _activeLink={{ fontWeight: "bold" }}
               >
                 {child.label}
               </Link>
