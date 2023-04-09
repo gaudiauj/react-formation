@@ -9,7 +9,6 @@ import {
   Heading,
   useColorModeValue,
   Button,
-  Center,
 } from "@chakra-ui/react";
 import { FcAssistant, FcDonate, FcInTransit, FcSupport } from "react-icons/fc";
 import type { MetaFunction } from "@remix-run/node";
@@ -68,7 +67,7 @@ const FeatureWithoutIcon = ({
 }) => {
   const textColor = useColorModeValue("gray.600", "gray.100");
   return (
-    <Stack as={"article"} mt={4}>
+    <Stack as={"article"}>
       <Box
         maxW={"320px"}
         w={"full"}
