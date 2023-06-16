@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async ({ request }: LoaderArgs) => {
-  if (await isAdmin(request)) {
+  if (!(await isAdmin(request))) {
     throw new Response("Not Found", {
       status: 404,
     });

@@ -319,15 +319,20 @@ export default function Index() {
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
-              Les formations sont-elles enregistrés ?
+              La formation React est-elle utile pour mon entreprise ?
             </Heading>
             <Text>
-              En général, elles ne le sont pas, à moins que cela soit stipulés
-              dans le contrat.{" "}
+              Former vos collaborateurs est toujours utiles. Vos projets seront
+              de meilleure qualité, vos développeurs seront plus productifs. Si
+              vous avez des questions, n'hésitez pas à nous{" "}
               <UiLink to={"/contact"} color={linkColor} as={Link}>
-                Contactez
+                contacter
               </UiLink>{" "}
-              nous pour en discuter.
+              pour en discuter ou à regarder le détails de la{" "}
+              <UiLink to={"/contact"} color={linkColor} as={Link}>
+                formations
+              </UiLink>
+              .
             </Text>
           </Box>
         </SimpleGrid>

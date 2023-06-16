@@ -11,7 +11,7 @@ import type { MetaFunction } from "@remix-run/node";
 export const meta: MetaFunction = () => {
   return {
     title: "react-formation | rgpd ",
-    description: "Information rgpd",
+    description: "comment sont traitées vos données sur react-formation ?",
   };
 };
 
