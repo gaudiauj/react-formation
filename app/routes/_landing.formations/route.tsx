@@ -9,6 +9,8 @@ import {
   Heading,
   useColorModeValue,
   Button,
+  OrderedList,
+  ListItem,
 } from "@chakra-ui/react";
 import { FcAssistant, FcDonate, FcInTransit, FcSupport } from "react-icons/fc";
 import type { MetaFunction } from "@remix-run/node";
@@ -136,99 +138,83 @@ export default function SimpleThreeColumns() {
         />
       </SimpleGrid>
       <Heading as={"h2"} mb={4} mt={8} fontSize={{ base: "2xl", md: "2xl" }}>
-        Contenu de la formation :
+        Plan de la formation React
       </Heading>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-        <FeatureWithoutIcon
-          title={"Présentation générale"}
-          texts={[
-            "Historique de React et des framework web",
-            "React API from scratch",
-            "Introduction à JSX",
-            "Créer ses premiers composants",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"Les hooks"}
-          texts={[
-            "UseState",
-            "Le cycle de vie d'un composant",
-            "UseEffect",
-            "UseRef",
-            "Les custom hooks",
-            "Gérer les effets de bord",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"Les hooks avancé"}
-          texts={[
-            "UseReducer",
-            "UseCallback",
-            "UseContext",
-            "UseLayoutEffect",
-            "UseImperativeHandle",
-            "UseDebugValue",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"les modéles (patterns) avancé"}
-          texts={[
-            "Context dans react",
-            "Coumpound components",
-            "State reducer",
-            "Controlled et uncontrolled components",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"Optimiser les perfomances"}
-          texts={[
-            "introduction à React suspense",
-            "Code spliting",
-            "UseMemo",
-            "Optimiser les context",
-            "Introduction au SSR",
-            "Introduction au server components",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"Tester les applications React"}
-          texts={[
-            "Les tests unitaires, fonctionnel, d'intégration et end to end",
-            "React testing library et ses bonnes pratiques",
-            "Ne pas tester les détails d'implémentation",
-            "Tester les formulaires",
-            "Mocker les requêtes HTTP",
-            "Mocker les api et modules externes",
-            "Cypress",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"les frameworks"}
-          texts={[
-            "Le SSR en détail",
-            "CSR, SSR, SSG, ISR focus sur les différentes méthodes",
-            "Focus sur Next.js ou Remix.run",
-            "le routing",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"les outils"}
-          texts={[
-            "Redux et ses bonnes pratiques",
-            "Typescript",
-            "Redux toolkit",
-            "React query",
-            "GraphQL",
-          ]}
-        />
-        <FeatureWithoutIcon
-          title={"l'accessibilité"}
-          texts={["l'accessibilité en général", "React et l'accessibilité"]}
-        />
-      </SimpleGrid>
+      <Stack spacing={4}>
+        <OrderedList spacing={4}>
+          <ListItem>
+            <strong>Présentation générale</strong> - Découvrez les bases de
+            React et son historique, ainsi que des frameworks web associés.
+          </ListItem>
+          <ListItem>
+            <strong>React API from scratch</strong> - Apprenez à utiliser l'API
+            de React à partir de zéro pour la création de composants.
+          </ListItem>
+          <ListItem>
+            <strong>Introduction à JSX</strong> - Explorez JSX, une extension de
+            syntaxe utilisée dans React pour décrire les composants.
+          </ListItem>
+          <ListItem>
+            <strong>Créer ses premiers composants</strong> - Maîtrisez la
+            création de composants et leur utilisation dans des applications
+            React.
+          </ListItem>
+          <ListItem>
+            <strong>Les hooks</strong> - Plongez dans les hooks, notamment
+            useState, useEffect, useRef, et explorez leur utilisation avancée.
+          </ListItem>
+          <ListItem>
+            <strong>Le cycle de vie d'un composant</strong> - Comprenez le cycle
+            de vie d'un composant React et apprenez à le gérer efficacement.
+          </ListItem>
+          <ListItem>
+            <strong>Les custom hooks</strong> - Découvrez comment créer vos
+            propres hooks personnalisés pour une logique réutilisable.
+          </ListItem>
+          <ListItem>
+            <strong>Gérer les effets de bord</strong> - Explorez les techniques
+            pour gérer les effets de bord dans vos applications React.
+          </ListItem>
+          <ListItem>
+            <strong>Les hooks avancés</strong> - Approfondissez vos
+            connaissances des hooks avec des concepts tels que useReducer,
+            useCallback, useContext, et plus encore.
+          </ListItem>
+          <ListItem>
+            <strong>Les modèles (patterns) avancés</strong> - Découvrez des
+            modèles avancés tels que le contexte dans React, les composants
+            composés, les state reducers, et les composants contrôlés et non
+            contrôlés.
+          </ListItem>
+          <ListItem>
+            <strong>Optimiser les performances</strong> - Apprenez à optimiser
+            les performances de vos applications React en utilisant des
+            techniques telles que React Suspense, le code splitting, useMemo, et
+            l'optimisation du contexte.
+          </ListItem>
+          <ListItem>
+            <strong>Tester les applications React</strong> - Explorez les
+            différentes méthodes de test pour les applications React, y compris
+            les tests unitaires, fonctionnels, d'intégration et end-to-end.
+            Découvrez également React Testing Library et des bonnes pratiques de
+            test.
+          </ListItem>
+          <ListItem>
+            <strong>Les frameworks</strong> - Plongez dans des frameworks
+            populaires tels que Redux, TypeScript, Redux Toolkit, React Query,
+            GraphQL, et découvrez comment ils peuvent améliorer votre flux de
+            travail de développement.
+          </ListItem>
+          <ListItem>
+            <strong>L'accessibilité</strong> - Comprenez l'importance de
+            l'accessibilité en général dans le développement web et découvrez
+            comment React facilite la création d'applications accessibles.
+          </ListItem>
+        </OrderedList>
+      </Stack>
       <Flex justifyContent={"center"} mt={8}>
         <Button as={Link} rounded={"full"} to="/contact">
-          Réserver
+          Réserver votre formation React
         </Button>
       </Flex>
     </Box>
