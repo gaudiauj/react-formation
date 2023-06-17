@@ -329,8 +329,8 @@ export default function Index() {
                 contacter
               </UiLink>{" "}
               pour en discuter ou à regarder le détails de la{" "}
-              <UiLink to={"/contact"} color={linkColor} as={Link}>
-                formations
+              <UiLink to={"/formations"} color={linkColor} as={Link}>
+                formation
               </UiLink>
               .
             </Text>
