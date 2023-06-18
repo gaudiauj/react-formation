@@ -23,9 +23,9 @@ interface FeatureProps {
 
 export const meta: MetaFunction = () => {
   return {
-    title: "react-formation | découvrir ",
+    title: "À propos de React-Formation | Formation en entreprise sur React",
     description:
-      "Decouvrer l'histoire de react-formation et de son créateur jean gaudiau",
+      "Découvrez l'expertise de React-Formation en matière de formations en entreprise sur React. Apprenez-en plus sur notre parcours et notre approche personnalisée pour vous aider à développer vos compétences en développement web.",
   };
 };
 

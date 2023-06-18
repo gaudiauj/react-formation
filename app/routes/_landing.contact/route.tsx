@@ -24,9 +24,9 @@ import Form from "./Form";
 
 export const meta: MetaFunction = () => {
   return {
-    title: "react-formation | contact",
+    title: "Contactez React-Formation | Formation en entreprise sur React",
     description:
-      "Contactez nous sur linkedin ou mail pour reserver une formation React sur mesure",
+      "Contactez l'équipe de React-Formation pour obtenir des informations supplémentaires sur nos formations en entreprise sur React. Réservez dès maintenant votre session de formation personnalisée et développez les compétences de vos équipes en développement web.",
   };
 };
 
