@@ -26,7 +26,7 @@ export const meta: MetaFunction = () => {
   return {
     title: " Formation en entreprise sur React | React-Formation",
     description:
-      "Boostez votre équipe en développement web avec nos formations en entreprise sur React. Réservez dès maintenant une session de formation pratique dispensée directement dans votre entreprise avec React-Formation, en présentiel ou en remote",
+      "Réservez dès maintenant une session de formation pratique dispensée directement dans votre entreprise avec React-Formation, en présentiel ou en remote",
   };
 };
 
