@@ -27,7 +27,31 @@ import { createUrlView } from "./models/urlView.server";
 export function meta() {
   return [
     { title: "React-formation" },
-
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        url: "https://www.react-formation.com",
+        logo: "https://react-formation.fr/logo.jpg",
+        name: "react-formation",
+        description:
+          "React formation fournis des formation en entreprise en présentiel ou à distance sur React.js",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "25 avenue de saint ouen",
+          addressLocality: "Paris",
+          addressCountry: "FR",
+          addressRegion: "Ile-de-France",
+          postalCode: "75017",
+        },
+        vatID: "FR81904869567",
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: "contact@react-formation.fr",
+          telephone: "+33662798445",
+        },
+      },
+    },
     // you can now add SEO related <links>
     //{ tagName: "link", rel: "canonical", href: "..." },
 
@@ -129,6 +153,31 @@ const Document = withEmotionCache(
             content="E459DDB6D00ADF264FB9B4CB51EB0C55"
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <script type="application/ld+json">
+            {`
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "url": "https://www.react-formation.fr",
+                "logo": "https://react-formation.fr/logo.jpg",
+                "name": "react-formation",
+                "description": "React formation fournis des formations en entreprise, en présentiel ou à distance sur React.js",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "25 avenue de saint ouen",
+                  "addressLocality": "Paris",
+                  "addressCountry": "FR",
+                  "addressRegion": "Ile-de-France",
+                  "postalCode": "75017"
+                },
+                "vatID": "FR81904869567",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "email": "contact@react-formation.fr",
+                  "telephone": "+33662798445"
+                }
+              }`}
+          </script>
           <Meta />
           <Links />
           {serverStyleData?.map(({ key, ids, css }) => (
