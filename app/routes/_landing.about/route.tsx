@@ -27,7 +27,8 @@ export const meta: MetaFunction = () => {
       title: "À propos de React-Formation | Formation en entreprise sur React",
     },
     {
-      description:
+      name: "description",
+      content:
         "Découvrez l'expertise de React-Formation en matière de formations en entreprise sur React. Apprenez-en plus sur notre parcours et notre approche personnalisée pour vous aider à développer vos compétences en développement web.",
     },
   ];

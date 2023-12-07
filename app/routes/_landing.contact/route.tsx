@@ -25,7 +25,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: "Contactez React-Formation | Formation en entreprise sur React" },
     {
-      description:
+      name: "description",
+      content:
         "Contactez l'équipe de React-Formation pour obtenir des informations supplémentaires sur nos formations en entreprise sur React. Réservez dès maintenant votre session de formation personnalisée et développez les compétences de vos équipes en développement web.",
     },
   ];

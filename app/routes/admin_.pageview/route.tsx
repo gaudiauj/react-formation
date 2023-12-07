@@ -19,7 +19,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: "react-formation | admin " },
     {
-      robots: "noindex,nofollow",
+      name: "robots",
+      content: "noindex,nofollow",
     },
   ];
 };

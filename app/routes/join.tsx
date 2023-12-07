@@ -72,7 +72,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: "react-formation | se connecter" },
     {
-      robots: "noindex,nofollow",
+      name: "robots",
+      content: "noindex,nofollow",
     },
   ];
 };

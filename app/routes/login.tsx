@@ -66,7 +66,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: "react-formation | login" },
     {
-      robots: "noindex,nofollow",
+      name: "robots",
+      content: "noindex,nofollow",
     },
   ];
 };

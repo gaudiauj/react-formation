@@ -12,7 +12,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: "react-formation | rgpd " },
     {
-      description: "comment sont traitées vos données sur react-formation ?",
+      name: "description",
+      content: "comment sont traitées vos données sur react-formation ?",
     },
   ];
 };

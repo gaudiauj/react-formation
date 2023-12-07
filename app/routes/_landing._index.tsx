@@ -26,7 +26,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: `Formation en entreprise sur React | React-Formation` },
     {
-      description:
+      name: "description",
+      content:
         "Réservez dès maintenant une session de formation pratique dispensée directement dans votre entreprise avec React-Formation, en présentiel ou en remote",
     },
   ];
@@ -145,7 +146,13 @@ export default function Index() {
           </Stack>
         </Flex>
         <Flex flex={1}>
-          <Image alt={""} objectFit={"cover"} src={HomeImage} />
+          <Image
+            alt={""}
+            objectFit={"cover"}
+            src={HomeImage}
+            height={"auto"}
+            width={"100%"}
+          />
         </Flex>
       </Stack>
       <Stack
