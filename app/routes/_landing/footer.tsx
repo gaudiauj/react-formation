@@ -9,7 +9,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { Link as RemixLink } from "@remix-run/react";
-import { FaYoutube, FaLinkedin } from "react-icons/fa/index.js";
+import { FaYoutube, FaLinkedin } from "react-icons/fa";
 import type { ReactNode } from "react";
 import Logo from "../../assets/logo";
 

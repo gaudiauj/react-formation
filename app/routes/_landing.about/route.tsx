@@ -11,7 +11,7 @@ import {
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
-import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5/index.js";
+import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
 import type { ReactElement } from "react";
 import type { MetaFunction } from "@remix-run/node";
 

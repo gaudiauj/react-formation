@@ -15,7 +15,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Form, Link as RemixLink } from "@remix-run/react";
-import { BsFillBuildingFill, BsPerson } from "react-icons/bs/index.js";
+import { BsFillBuildingFill, BsPerson } from "react-icons/bs";
 
 export type ContactFormProps = {
   isLoading: boolean;

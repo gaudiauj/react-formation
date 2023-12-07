@@ -12,12 +12,7 @@ import {
   OrderedList,
   ListItem,
 } from "@chakra-ui/react";
-import {
-  FcAssistant,
-  FcDonate,
-  FcInTransit,
-  FcSupport,
-} from "react-icons/fc/index.js";
+import { FcAssistant, FcDonate, FcInTransit, FcSupport } from "react-icons/fc";
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
