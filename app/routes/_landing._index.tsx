@@ -145,15 +145,15 @@ export default function Index() {
             </Box>
           </Stack>
         </Flex>
-        <Flex flex={1}>
-          <Image
-            alt={""}
-            objectFit={"cover"}
-            src={HomeImage}
-            height={"auto"}
-            width={"100%"}
-          />
-        </Flex>
+        <Flex
+          flex={1}
+          backgroundImage={HomeImage}
+          objectFit={"cover"}
+          backgroundRepeat={"no-repeat"}
+          backgroundSize={"cover"}
+          backgroundPosition={"center center"}
+          minHeight={"400px"}
+        ></Flex>
       </Stack>
       <Stack
         minH={"calc(100vh - 60px)"}
