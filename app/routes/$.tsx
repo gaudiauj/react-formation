@@ -1,14 +1,12 @@
-import type { LoaderArgs, MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "react-formation | 404 ",
-  };
+  return [{ title: `react-formation | 404` }];
 };
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   return { status: "404" };
 };
 

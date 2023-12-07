@@ -12,22 +12,23 @@ import {
 } from "@chakra-ui/react";
 import invariant from "tiny-invariant";
 import { useActionData, useNavigation } from "@remix-run/react";
-import { BsLinkedin } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs/index.js";
 import { EmailIcon } from "@chakra-ui/icons";
-import type { ActionArgs } from "@remix-run/server-runtime";
 import { json } from "@remix-run/node";
 import { sendContactMail } from "~/utils/email.server";
 
-import type { MetaFunction } from "@remix-run/node"; // or cloudflare/deno
+import type { MetaFunction, ActionFunctionArgs } from "@remix-run/node"; // or cloudflare/deno
 import { createContactForm } from "~/models/contact";
 import Form from "./Form";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "Contactez React-Formation | Formation en entreprise sur React",
-    description:
-      "Contactez l'équipe de React-Formation pour obtenir des informations supplémentaires sur nos formations en entreprise sur React. Réservez dès maintenant votre session de formation personnalisée et développez les compétences de vos équipes en développement web.",
-  };
+  return [
+    { title: "Contactez React-Formation | Formation en entreprise sur React" },
+    {
+      description:
+        "Contactez l'équipe de React-Formation pour obtenir des informations supplémentaires sur nos formations en entreprise sur React. Réservez dès maintenant votre session de formation personnalisée et développez les compétences de vos équipes en développement web.",
+    },
+  ];
 };
 
 export function headers() {
@@ -36,7 +37,7 @@ export function headers() {
   };
 }
 
-export const action = async ({ request }: ActionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
 
   const name = formData.get("name");

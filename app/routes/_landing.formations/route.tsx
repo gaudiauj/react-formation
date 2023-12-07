@@ -12,7 +12,12 @@ import {
   OrderedList,
   ListItem,
 } from "@chakra-ui/react";
-import { FcAssistant, FcDonate, FcInTransit, FcSupport } from "react-icons/fc";
+import {
+  FcAssistant,
+  FcDonate,
+  FcInTransit,
+  FcSupport,
+} from "react-icons/fc/index.js";
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
@@ -23,11 +28,13 @@ interface FeatureProps {
 }
 
 export const meta: MetaFunction = () => {
-  return {
-    title: " Plan de formation sur React en entreprise | React-Formation",
-    description:
-      "Pourquoi suivre une formation React avec react-formation ? découvrez notre formation react sur mesure et gagner en productivité et en efficacité. Consultez notre plan de formation détaillé sur React en entreprise. Adaptez votre parcours d'apprentissage avec React-Formation et maîtrisez les concepts et les techniques avancées du développement web avec React.",
-  };
+  return [
+    { title: "Plan de formation sur React en entreprise | React-Formation" },
+    {
+      description:
+        "Pourquoi suivre une formation React avec react-formation ? découvrez notre formation react sur mesure et gagner en productivité et en efficacité. Consultez notre plan de formation détaillé sur React en entreprise. Adaptez votre parcours d'apprentissage avec React-Formation et maîtrisez les concepts et les techniques avancées du développement web avec React.",
+    },
+  ];
 };
 
 export function headers() {

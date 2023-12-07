@@ -1,5 +1,5 @@
-const nodemailer = require("nodemailer");
-const smtp = require("nodemailer-smtp-transport");
+import nodemailer from "nodemailer";
+import smtp from "nodemailer-smtp-transport";
 
 export type ContactMailProps = {
   firm?: string | null;

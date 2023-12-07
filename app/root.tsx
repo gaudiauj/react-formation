@@ -1,4 +1,4 @@
-import type { LoaderArgs, MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -7,8 +7,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
   useLoaderData,
+  useRouteError,
+  isRouteErrorResponse,
 } from "@remix-run/react";
 
 import { withEmotionCache } from "@emotion/react";
@@ -23,14 +24,23 @@ import {
 } from "@chakra-ui/react";
 import { createUrlView } from "./models/urlView.server";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "React-formation",
-  viewport: "width=device-width,initial-scale=1",
-  "msvalidate.01": "E459DDB6D00ADF264FB9B4CB51EB0C55",
-});
+export function meta() {
+  return [
+    { title: "React-formation" },
 
-export async function loader({ request }: LoaderArgs) {
+    // you can now add SEO related <links>
+    //{ tagName: "link", rel: "canonical", href: "..." },
+
+    // and <script type=ld+json>
+    // {
+    //   "script:ld+json": {
+    //     some: "value",
+    //   },
+    // },
+  ];
+}
+
+export async function loader({ request }: LoaderFunctionArgs) {
   const urlInfo = new URL(request.url);
   if (urlInfo.host === "react-formation.fr") {
     try {
@@ -79,7 +89,7 @@ const Document = withEmotionCache(
 
     const CHAKRA_COOKIE_COLOR_KEY = "chakra-ui-color-mode";
 
-    let { uiCookie } = useLoaderData() || {};
+    let { uiCookie } = useLoaderData<any>();
 
     // the client get the cookies from the document
     // because when we do a client routing, the loader can have stored an outdated value
@@ -89,7 +99,7 @@ const Document = withEmotionCache(
 
     // get and store the color mode from the cookies.
     // It'll update the cookies if there isn't any and we have set a default value
-    let colorMode = useMemo(() => {
+    const colorMode = useMemo(() => {
       if (!uiCookie) {
         return DEFAULT_COLOR_MODE;
       }
@@ -113,6 +123,12 @@ const Document = withEmotionCache(
         })}
       >
         <head>
+          <meta charSet="utf-8" />
+          <meta
+            name="msvalidate.01"
+            content="E459DDB6D00ADF264FB9B4CB51EB0C55"
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <Meta />
           <Links />
           {serverStyleData?.map(({ key, ids, css }) => (
@@ -175,25 +191,47 @@ const theme = extendTheme(
   withDefaultColorScheme({ colorScheme: "brand" })
 );
 
-export function CatchBoundary() {
-  const caught = useCatch();
+export function ErrorBoundary() {
+  const error = useRouteError();
+
+  // when true, this is what used to go to `CatchBoundary`
+  if (isRouteErrorResponse(error)) {
+    return (
+      <html lang="fr">
+        <head>
+          <meta charSet="utf-8" />
+          <meta
+            name="msvalidate.01"
+            content="E459DDB6D00ADF264FB9B4CB51EB0C55"
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>{`${error.status} ${error.data.message}`}</title>
+          <Links />
+        </head>
+        <body>
+          <div className="error-container">
+            <h1>
+              {error.status} {error.data.message}
+            </h1>
+          </div>
+          <LiveReload />
+        </body>
+      </html>
+    );
+  }
+
+  // Don't forget to typecheck with your own logic.
+  // Any value can be thrown, not just errors!
+  // let errorMessage = "Unknown error";
+  // if (isDefinitelyAnError(error)) {
+  //   errorMessage = error.message;
+  // }
 
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <title>{`${caught.status} ${caught.statusText}`}</title>
-        <Links />
-      </head>
-      <body>
-        <div className="error-container">
-          <h1>
-            {caught.status} {caught.statusText}
-          </h1>
-        </div>
-        <LiveReload />
-      </body>
-    </html>
+    <div>
+      <h1>Uh oh ...</h1>
+      <p>Something went wrong.</p>
+    </div>
   );
 }
 

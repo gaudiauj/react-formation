@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/server-runtime";
+import type { MetaFunction } from "@remix-run/node";
 import HomeImage from "public/home.webp";
 
 import {
@@ -23,11 +23,13 @@ import { Link } from "@remix-run/react";
 import { CheckIcon } from "@chakra-ui/icons";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: " Formation en entreprise sur React | React-Formation",
-    description:
-      "Réservez dès maintenant une session de formation pratique dispensée directement dans votre entreprise avec React-Formation, en présentiel ou en remote",
-  };
+  return [
+    { title: `Formation en entreprise sur React | React-Formation` },
+    {
+      description:
+        "Réservez dès maintenant une session de formation pratique dispensée directement dans votre entreprise avec React-Formation, en présentiel ou en remote",
+    },
+  ];
 };
 
 export function headers() {

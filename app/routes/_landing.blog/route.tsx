@@ -1,13 +1,11 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import type { LoaderArgs, MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { fetchAPI } from "./blog.api.server";
 import isAdmin from "~/utils/isAdmin.server";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "react-formation | blog ",
-  };
+  return [{ title: "react-formation | blog " }];
 };
 type BlogResponse = {
   data: BlogPost[];
@@ -24,7 +22,7 @@ type BlogPost = {
   };
 };
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   const blogPosts = (await fetchAPI("/blog-posts")) as BlogResponse;
   const isCurrentUserAdmin = await isAdmin(request);
   const blogList = (blogPosts?.data || []).filter(

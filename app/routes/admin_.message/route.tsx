@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import type { LoaderArgs, MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Flex, Link as UiLink } from "@chakra-ui/react";
@@ -16,13 +16,15 @@ import { getAllContact } from "~/models/contact";
 import isAdmin from "~/utils/isAdmin.server";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "react-formation | admin ",
-    robots: "noindex,nofollow",
-  };
+  return [
+    { title: "react-formation | admin " },
+    {
+      robots: "noindex,nofollow",
+    },
+  ];
 };
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   if (!(await isAdmin(request))) {
     throw new Response("Not Found", {
       status: 404,

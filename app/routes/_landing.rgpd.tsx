@@ -9,10 +9,12 @@ import {
 import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "react-formation | rgpd ",
-    description: "comment sont traitées vos données sur react-formation ?",
-  };
+  return [
+    { title: "react-formation | rgpd " },
+    {
+      description: "comment sont traitées vos données sur react-formation ?",
+    },
+  ];
 };
 
 export default function Index() {

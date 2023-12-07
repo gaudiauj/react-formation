@@ -11,9 +11,9 @@ import {
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
-import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5";
+import { IoAnalyticsSharp, IoLogoBitcoin } from "react-icons/io5/index.js";
 import type { ReactElement } from "react";
-import type { MetaFunction } from "@remix-run/server-runtime";
+import type { MetaFunction } from "@remix-run/node";
 
 interface FeatureProps {
   text: string;
@@ -22,11 +22,15 @@ interface FeatureProps {
 }
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "À propos de React-Formation | Formation en entreprise sur React",
-    description:
-      "Découvrez l'expertise de React-Formation en matière de formations en entreprise sur React. Apprenez-en plus sur notre parcours et notre approche personnalisée pour vous aider à développer vos compétences en développement web.",
-  };
+  return [
+    {
+      title: "À propos de React-Formation | Formation en entreprise sur React",
+    },
+    {
+      description:
+        "Découvrez l'expertise de React-Formation en matière de formations en entreprise sur React. Apprenez-en plus sur notre parcours et notre approche personnalisée pour vous aider à développer vos compétences en développement web.",
+    },
+  ];
 };
 
 export function headers() {
