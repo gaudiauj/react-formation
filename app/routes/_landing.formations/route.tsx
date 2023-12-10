@@ -63,39 +63,6 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
   );
 };
 
-const FeatureWithoutIcon = ({
-  title,
-  texts,
-}: {
-  title: string;
-  texts: string[];
-}) => {
-  const textColor = useColorModeValue("gray.600", "gray.100");
-  return (
-    <Stack as={"article"}>
-      <Box
-        maxW={"320px"}
-        w={"full"}
-        bg={useColorModeValue("white", "gray.900")}
-        boxShadow={"md"}
-        rounded={"lg"}
-        p={6}
-      >
-        <Heading as={"h3"} fontWeight={600} fontSize={{ base: "md" }} mb={2}>
-          {title}
-        </Heading>
-        <ul>
-          {texts.map((text) => (
-            <li key={text}>
-              <Text color={textColor}>{text}</Text>
-            </li>
-          ))}
-        </ul>
-      </Box>
-    </Stack>
-  );
-};
-
 export default function SimpleThreeColumns() {
   return (
     <Box as={"main"} p={{ base: 5, lg: 10 }}>

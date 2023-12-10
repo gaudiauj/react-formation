@@ -1,8 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { redirect } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { Flex, Link as UiLink } from "@chakra-ui/react";
+import { json, redirect } from "@remix-run/node";
 import {
   TableContainer,
   Table,
@@ -11,6 +9,8 @@ import {
   Th,
   Tbody,
   Td,
+  Flex,
+  Link as UiLink,
 } from "@chakra-ui/react";
 import { getAllContact } from "~/models/contact";
 import isAdmin from "~/utils/isAdmin.server";

@@ -1,9 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { redirect } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { getAllUrlView } from "~/models/urlView.server";
-import { Flex, Link as UiLink } from "@chakra-ui/react";
 import {
   TableContainer,
   Table,
@@ -12,6 +10,8 @@ import {
   Th,
   Tbody,
   Td,
+  Flex,
+  Link as UiLink,
 } from "@chakra-ui/react";
 import isAdmin from "~/utils/isAdmin.server";
 
