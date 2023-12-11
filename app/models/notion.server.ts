@@ -28,6 +28,7 @@ export const getPageContent = async ({ id }: { id: string }) => {
     const cachedPage = myCache.get(`page-${id}`);
     if (cachedPage) return cachedPage;
     const page = await notion.blocks.children.list({ block_id: id });
+    //@ts-expect-error
     const markdown = page.results[0].code.rich_text[0].plain_text;
     myCache.set(`page-${id}`, markdown, 60 * 60 * 24);
     return markdown;
