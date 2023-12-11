@@ -8,8 +8,11 @@ import createEmotionCache from "./createEmotionCache";
 import createEmotionServer from "@emotion/server/create-instance";
 import { CacheProvider } from "@emotion/react";
 import { ServerStyleContext } from "./uiContext";
+import NodeCache from "node-cache";
 
 const ABORT_DELAY = 5000;
+
+export const myCache = new NodeCache();
 
 export default function handleRequest(
   request: Request,

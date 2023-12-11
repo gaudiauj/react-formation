@@ -38,20 +38,43 @@ model Note {
 }
 
 model urlView {
-  id     Int @id @default(autoincrement())
-  pathname    String
-  search String
+  id       Int    @id @default(autoincrement())
+  pathname String
+  search   String
 
   createdAt DateTime @default(now())
 }
 
+model blog {
+  slug   String
+  title  String
+  id     String   @id @unique
+  image  String
+  tags   String[]
+  status String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  blogPage  blogPage?
+}
+
+model blogPage {
+  id      String @id @unique
+  blog    blog   @relation(fields: [blog_id], references: [id])
+  blog_id String @unique
+  markdown String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model contactForm {
-  id     Int @id @default(autoincrement())
-  email String
+  id      Int    @id @default(autoincrement())
+  email   String
   name    String
-  firm String
+  firm    String
   message String
-  phone String
+  phone   String
 
   createdAt DateTime @default(now())
 }
