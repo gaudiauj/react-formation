@@ -2,7 +2,7 @@ import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getBlogPageFromSlug } from "~/models/blog.server";
 import { getPageContent } from "~/models/notion.server";
-import Markdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 
 export const meta: MetaFunction = () => {
   return [

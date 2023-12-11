@@ -39,8 +39,8 @@
     "@remix-run/server-runtime": "2.3.1",
     "bcryptjs": "^2.4.3",
     "framer-motion": "^6.5.1",
-    "is-plain-object": "^5.0.0",
     "isbot": "^3.6.5",
+    "markdown-to-jsx": "^7.3.2",
     "node-cache": "^5.1.2",
     "nodemailer": "^6.9.1",
     "nodemailer-smtp-transport": "^2.7.4",
@@ -48,7 +48,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-markdown": "^8.0.7",
     "tiny-invariant": "^1.3.1"
   },
   "devDependencies": {
