@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion";
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css";
+import { m } from "framer-motion";
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
@@ -43,6 +44,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 export default function Index() {
   const { markdown, blogData } = useLoaderData<typeof loader>();
+  console.log({ markdown, blogData });
   useEffect(() => {
     const isHighlight = document.querySelector(".hljs");
     if (!isHighlight) {
