@@ -31,7 +31,6 @@
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
-    "@nasa-gcn/remix-seo": "^2.0.0",
     "@notionhq/client": "^2.2.14",
     "@prisma/client": "^4.9.0",
     "@remix-run/node": "2.3.1",

@@ -18,6 +18,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
   return json({});
 }
 
+export const handle = {
+  getSitemapEntries: () => null,
+};
+
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const email = formData.get("email");

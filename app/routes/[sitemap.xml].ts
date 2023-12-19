@@ -1,4 +1,3 @@
-import { generateSitemap } from "@nasa-gcn/remix-seo";
 import { routes } from "@remix-run/dev/server-build";
 import { type DataFunctionArgs } from "@remix-run/node";
 import { getDomainUrl } from "~/utils/getDomainUrl";
@@ -81,12 +80,6 @@ export async function loader({ request }: DataFunctionArgs) {
       "Content-Type": "application/xml",
       "X-Content-Type-Options": "nosniff",
       "Cache-Control": "public, max-age=3600",
-    },
-  });
-  return generateSitemap(request, routes, {
-    siteUrl: getDomainUrl(request),
-    headers: {
-      "Cache-Control": `public, max-age=${60 * 5}`,
     },
   });
 }
