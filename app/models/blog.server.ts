@@ -11,6 +11,8 @@ export type Blog = {
   image: string;
   status: string;
   tags: string[];
+  date: Date | null;
+  lastChange: Date | null;
 };
 
 export async function createBlog({
@@ -20,27 +22,26 @@ export async function createBlog({
   tags,
   image,
   status,
+  date,
+  lastChange,
 }: Blog) {
+  const updateObject: any = {
+    id,
+    title,
+    slug,
+    tags,
+    image,
+    status,
+  };
+  updateObject.date = date ? date : null;
+  updateObject.lastChange = lastChange ? lastChange : null;
+
   return prisma.blog.upsert({
     where: {
       id,
     },
-    update: {
-      id,
-      title,
-      slug,
-      tags,
-      image,
-      status,
-    },
-    create: {
-      id,
-      title,
-      slug,
-      tags,
-      image,
-      status,
-    },
+    update: updateObject,
+    create: updateObject,
   });
 }
 

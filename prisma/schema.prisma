@@ -52,6 +52,8 @@ model blog {
   image  String
   tags   String[]
   status String
+  date DateTime?
+  lastChange DateTime?
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt

@@ -4,7 +4,7 @@ import type {
   MetaFunction,
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getBlogPageFromSlug } from "~/models/blog.server";
+import { getBlogListFromDb, getBlogPageFromSlug } from "~/models/blog.server";
 import Markdown from "markdown-to-jsx";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
@@ -30,6 +30,18 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   { rel: "stylesheet", href: allyDark },
 ];
+
+export const handle = {
+  getSitemapEntries: async () => {
+    const blogs = await getBlogListFromDb();
+    const onlineBlogs = blogs.filter((blog) => blog.status === "Done");
+    return onlineBlogs.map((blog) => ({
+      url: `/blog/${blog.slug}`,
+      lastmod: blog.lastChange || blog.date,
+      priority: 0.7,
+    }));
+  },
+};
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const isCurrentUserAdmin = await isAdmin(request);

@@ -13,6 +13,10 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const handle = {
+  getSitemapEntries: () => null,
+};
+
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   if (!(await isAdmin(request))) {
     throw new Response("Not Found", {

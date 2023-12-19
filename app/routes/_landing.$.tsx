@@ -10,6 +10,10 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   return { status: "404" };
 };
 
+export const handle = {
+  getSitemapEntries: () => null,
+};
+
 export default function NotFound() {
   return (
     <Box textAlign="center" py={10} px={6}>

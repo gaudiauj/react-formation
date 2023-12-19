@@ -27,6 +27,8 @@ export async function createAndUpdateBlogFromNotion(
       image: blog.image,
       status: blog.status,
       tags: blog.tags,
+      date: blog.date,
+      lastChange: blog.lastChange,
     });
   });
 

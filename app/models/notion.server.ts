@@ -49,7 +49,18 @@ export type Blog = {
 export const parseProperties = (database: QueryDatabaseResponse): Blog[] =>
   database.results.map((row) => {
     const id = row.id;
+
     const properties = (row as DatabaseObjectResponse).properties;
+    //  @ts-expect-error
+    const date = properties?.date?.date?.start
+      ? //  @ts-expect-error
+        new Date(properties?.date?.date?.start)
+      : "";
+    //  @ts-expect-error
+    const lastChange = properties?.lastChange?.date?.start
+      ? //  @ts-expect-error
+        new Date(properties?.lastChange?.date?.start)
+      : "";
     //@ts-expect-error
     const title = properties?.name?.title[0]?.plain_text ?? "";
     const tags =
@@ -67,5 +78,5 @@ export const parseProperties = (database: QueryDatabaseResponse): Blog[] =>
     //@ts-expect-error
     const image = properties?.image?.url ?? "";
 
-    return { id, title, tags, image, status, slug };
+    return { id, title, tags, image, status, slug, date, lastChange };
   });
