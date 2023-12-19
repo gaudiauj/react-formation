@@ -23,7 +23,6 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Index() {
   const { blogList } = useLoaderData<typeof loader>();
 
-  console.log({ blogList });
   return (
     <ul>
       {blogList.map((blog) => (
