@@ -214,7 +214,16 @@ const colors = {
 };
 
 const theme = extendTheme(
-  { colors },
+  {
+    colors,
+    styles: {
+      global: {
+        a: {
+          color: "teal.600",
+        },
+      },
+    },
+  },
   withDefaultColorScheme({ colorScheme: "brand" })
 );
 

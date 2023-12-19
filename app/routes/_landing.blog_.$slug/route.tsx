@@ -51,5 +51,5 @@ export default function Index() {
     }
   }, []);
 
-  return <Markdown>{markdown}</Markdown>;
+  return <Markdown className="blog">{markdown}</Markdown>;
 }

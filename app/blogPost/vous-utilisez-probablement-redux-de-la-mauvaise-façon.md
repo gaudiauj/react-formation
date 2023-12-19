@@ -138,11 +138,11 @@ const lotterieReducer = (state = initialState, action) => {
 };
 ```
 
-Vous commencez à voir le souci ? Car le marketing oui, ils ont reçus seulement 500 événements de tracking alors qu'en base de données, on en a eu 2000 nouvelles todo !
-Mais il est ou le problême ?
+Vous commencez à voir le souci ? Car le marketing oui, ils ont reçu seulement 500 événements de tracking alors qu'en base de données, on en a eu 2000 nouvelles todo !
+Mais il est ou le problème ?
 Mauvaise nouvelle, vous avez oublié de rajouter le dispatch sur le deuxième bouton en haut de page :( .
 
-Ça peut sembler un peu bête mais je suis certain que ça vous est déjà arriver d'oublier de mettre à jour une partie de votre code, 2 actions similaires à 2 endroits différents. Mais alors comment mieux faire ?
+Ça peut sembler un peu bête, mais je suis certain que ça vous est déjà arrivé d'oublier de mettre à jour une partie de votre code, 2 actions similaires à 2 endroits différents. Mais alors comment mieux faire ?
 
 ## Comment bien utiliser Redux ?
 

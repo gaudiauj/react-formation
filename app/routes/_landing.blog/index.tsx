@@ -3,6 +3,7 @@ import { Link as UiLink } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion";
 import isAdmin from "~/utils/isAdmin.server";
+import { b } from "@chakra-ui/toast/dist/toast.provider-ab09bc2e";
 
 export const meta: MetaFunction = () => {
   return [
@@ -23,6 +24,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Index() {
   const { blogList } = useLoaderData<typeof loader>();
 
+  console.log({ blogList });
   return (
     <ul>
       {blogList.map((blog) => (
