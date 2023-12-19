@@ -5,14 +5,13 @@ import type {
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getBlogPageFromSlug } from "~/models/blog.server";
-import { getPageContent } from "~/models/notion.server";
 import Markdown from "markdown-to-jsx";
-import { Heading } from "@chakra-ui/react";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import styles from "./blog.css";
 import { useEffect } from "react";
-
+import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion";
+import isAdmin from "~/utils/isAdmin.server";
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
@@ -35,51 +34,23 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
+  const isCurrentUserAdmin = await isAdmin(request);
   const blogData = await getBlogPageFromSlug({ slug: params.slug || "" });
-  const markdown = await getPageContent({ id: blogData?.id || "" });
-  return { markdown };
+  const pageContent = await getMarkdownAndUpdateFromNotion(
+    params.slug || "",
+    !!isCurrentUserAdmin
+  );
+  return { markdown: pageContent?.markdown || "", blogData };
 };
 
 export default function Index() {
-  const { markdown } = useLoaderData<typeof loader>();
+  const { markdown, blogData } = useLoaderData<typeof loader>();
   useEffect(() => {
-    console.log("coucou");
     const isHighlight = document.querySelector(".hljs");
     if (!isHighlight) {
-      console.log("wesh");
       hljs.highlightAll();
     }
   }, []);
 
-  return (
-    <div>
-      <Markdown
-        options={{
-          overrides: {
-            h1: {
-              component: Heading,
-              props: {
-                as: "h1",
-              },
-            },
-            h2: {
-              component: Heading,
-              props: {
-                as: "h2",
-              },
-            },
-            h3: {
-              component: Heading,
-              props: {
-                as: "h3",
-                size: "md",
-              },
-            },
-          },
-        }}
-      >
-        {markdown}
-      </Markdown>
-    </div>
-  );
+  return <Markdown>{markdown}</Markdown>;
 }

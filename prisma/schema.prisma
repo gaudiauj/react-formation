@@ -59,9 +59,8 @@ model blog {
 }
 
 model blogPage {
-  id      String @id @unique
   blog    blog   @relation(fields: [blog_id], references: [id])
-  blog_id String @unique
+  blog_id String @unique @id
   markdown String
 
   createdAt DateTime @default(now())

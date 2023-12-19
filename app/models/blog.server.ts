@@ -25,7 +25,14 @@ export async function createBlog({
     where: {
       id,
     },
-    update: {},
+    update: {
+      id,
+      title,
+      slug,
+      tags,
+      image,
+      status,
+    },
     create: {
       id,
       title,
@@ -52,6 +59,35 @@ export async function getBlogPageFromSlug({ slug }: { slug: string }) {
     },
     include: {
       blogPage: true,
+    },
+  });
+}
+
+export async function createMarkdown({
+  markdown,
+  blogPostId,
+}: {
+  markdown: string;
+  blogPostId: string;
+}) {
+  return prisma.blogPage.upsert({
+    where: {
+      blog_id: blogPostId,
+    },
+    update: {
+      markdown,
+    },
+    create: {
+      markdown,
+      blog_id: blogPostId,
+    },
+  });
+}
+
+export async function getMarkdownFromDb({ blog_id }: { blog_id: string }) {
+  return prisma.blogPage.findUnique({
+    where: {
+      blog_id,
     },
   });
 }
