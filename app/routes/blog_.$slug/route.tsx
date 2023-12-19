@@ -12,6 +12,7 @@ import styles from "./blog.css";
 import { useEffect } from "react";
 import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion";
 import isAdmin from "~/utils/isAdmin.server";
+import allyDark from "highlight.js/styles/a11y-dark.min.css";
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
@@ -27,10 +28,7 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
-  {
-    rel: "stylesheet",
-    href: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css",
-  },
+  { rel: "stylesheet", href: allyDark },
 ];
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {

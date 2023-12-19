@@ -2,24 +2,24 @@
 
 ## introduction
 
-Je suis developpeur web depuis un peu plus de 8 ans. Depuis ces 8 ans, j'ai connu angular, vue.js, aurelia.js, react.js, Embersjs. Et franchement ils ont tous à leur façon révolutionner le web front. Les SPA, l'approche composant plutôt que balancer des script à droite à gauche, et surtout un state gérer par ces frameworks. De bases un state, c'est super, ça permet de communiquer de la data entre différente partie de l'application de façon efficace. Dans la pratique chaque framework (ou librairie :) ) gère les choses de manière un peu différente. Et c'est la ou Redux est apparu qui se défini comme
+Je suis développeur web depuis un peu plus de 8 ans. Depuis ces 8 ans, j'ai connu angular, vue.js, aurelia.js, react.js, Embersjs. Et franchement ils ont tous à leur façon révolutionné le web front. Les SPA, l'approche composant plutôt que balancer des script à droite à gauche, et surtout un state gérer par ces frameworks. De bases un state, c'est super, ça permet de communiquer de la data entre différentes parties de l'application de façon efficace. Dans la pratique chaque framework (Ou librairie :) ) gère les choses de manière un peu différente. Et c'est là où Redux est apparu, qui se définit comme :
 
 > Redux a Predictable State Container for JS Apps
 
-Redux viens avec sa philosophie et tant que 'state manager' agnostique, et qui peux donc être utilisé sur l'ensemble des frameworks.
+Redux vient avec sa philosophie et tant que 'state manager' agnostique, et qui peux donc être utilisé sur l'ensemble des frameworks.
 
 ## Redux
 
 Petit disclaimer, je suis expert sur React donc l'ensemble des exemples sont fait sur React. Mais aujourd'hui vu qu'on parle de redux, l'ensemble de ce que je vais dire rester vrai même si vous utilisez angular, svelte ou du vanilla js etc.
-L'une des raisons pour lesquelles Redux a connu un tel succès sur React était le fait que React-Redux a résolu le problème de '[props drilling](https://kentcdodds.com/blog/prop-drilling)'. Le fait que vous puissiez partager des données entre différentes parties de votre arborescence en passant simplement votre composant dans une fonction à régler un des plus gros soucis de React à l'époque. Le soucis c'est que toute la philosophie dêrrière Redux à été mise de coter, et il à été utiliser seulement pour regler ce soucis de 'props driling'. Même si React c'est bien amèliorer dans la gestion de son state, redux est encore très souvent utiliser, et souvent mal optimiser. J'ai récement travailler sur un projet dont mon rôle etait de supprimer Redux pour mettre du contexst React à la place. La raison principal :
+L'une des raisons pour lesquelles Redux a connu un tel succès sur React était le fait que React-Redux a résolu le problème de '[props drilling](https://kentcdodds.com/blog/prop-drilling)'. Le fait que vous puissiez partager des données entre différentes parties de votre arborescence en passant simplement votre composant dans une fonction à régler un des plus gros soucis de React à l'époque. Le souci, c'est que toute la philosophie derrière Redux a été mise de coter, et il a été utilisé seulement pour régler ce souci de 'props driling'. Même si React c'est bien améliorer dans la gestion de son stage, redux est encore très souvent utiliser, et souvent mal optimiser. J'ai récemment travaillé sur un projet dont mon rôle était de supprimer Redux pour mettre du context React à la place. La raison principale :
 
-> Redux c'est lent, et compliqué à utiliser, beaucoup trop verbeux.
+> Redux, c'est lent, et compliqué à utiliser, beaucoup trop verbeux.
 
-Dans les fait le soucis c'est pas Redux mais comment il à été utilisé
+Dans les faits le souci ce n'est pas Redux, mais comment il a été utilisé
 
 ## Un petit exemple de ce qu'il ne faut pas faire
 
-Dans un code Redux typique, les actions sont couramment utilisées comme setters. Par exemple voilà à quoi peux ressembler un code d'une petite todo app :
+Dans un code Redux typique, les actions sont couramment utilisées comme setters. Par exemple voilà à quoi peux ressembler un code d'une petite todo app
 
 ```js
 // Component/Button.js
@@ -65,8 +65,8 @@ const todoReducer = (state = initialState, action) => {
 };
 ```
 
-Jusque la, tout semble assez facile et rien de choquant.
-Sauf qu'un jour votre equipe marketing à une super idée ! ils veulent rajouter des tracking sur l'ajout de todo. Pas de soucis pour vous, il suffit de rajouter un dispatch !
+Jusque-là, tout semble assez facile et rien de choquant.
+Sauf qu'un jour votre équipe marketing à une super idée ! Ils veulent rajouter des tracking sur l'ajout de todo. Pas de soucis pour vous, il suffit de rajouter un dispatch !
 
 ```js
 // Component/Button.js
@@ -102,7 +102,7 @@ const marketingReducer = (state = initialState, action) => {
 };
 ```
 
-Puis une autre super idée le Marketing, encore eux, veulent rajouter une lotterie sur l'ajout des todos, easy peasy :
+Puis une autre super idée le Marketing, encore eux, veulent rajouter une loterie sur l'ajout des todos, easy peasy :
 
 ```js
 // Component/Button.js
@@ -138,17 +138,17 @@ const lotterieReducer = (state = initialState, action) => {
 };
 ```
 
-Vous commencez à voir le soucis ? car le marketing oui, ils ont reçus seulement 500 evénément de tracking alors qu'en base de donnée on en à eu 2000 nouvelles todo !
-Mais il est ou le soucis ?
-Mauvaise nouvelle vous avez oublier de rajouter le dispatch sur le deuxième bouton en haut de page :( .
+Vous commencez à voir le souci ? Car le marketing oui, ils ont reçus seulement 500 événements de tracking alors qu'en base de données, on en a eu 2000 nouvelles todo !
+Mais il est ou le problême ?
+Mauvaise nouvelle, vous avez oublié de rajouter le dispatch sur le deuxième bouton en haut de page :( .
 
-Ca peux sembler un peux bête mais je suis certain que ca vous est dèjà arriver d'oublier de mettre à jour une partie de votre code, 2 actions similaires à 2 endroits différents. Mais alors comment mieux faire ?
+Ça peut sembler un peu bête mais je suis certain que ça vous est déjà arriver d'oublier de mettre à jour une partie de votre code, 2 actions similaires à 2 endroits différents. Mais alors comment mieux faire ?
 
 ## Comment bien utiliser Redux ?
 
 ### L'Approche Événementielle avec redux
 
-Dans les bonne pratiques de Redux il y'a une chose qui est très souvent oublié ou juste pas connu, c'est de [traiter les actions comme des événement et pas des setters](https://redux.js.org/style-guide/#model-actions-as-events-not-setters). Alors qu'est ce que ça donne quand on essaye de prendre ça en compte.
+Dans les bonnes pratiques de Redux, il y a une chose qui est très souvent oubliée ou juste pas connu, c'est [de traiter les actions comme des événement et pas des setters](https://redux.js.org/style-guide/#model-actions-as-events-not-setters). Alors qu'est ce que ça donne quand on essaye de prendre ça en compte.
 
 Reprennons notre bouton :
 
@@ -169,9 +169,9 @@ const AddTodoButton = ({ todo }) => {
 };
 ```
 
-Vous voyer la différence ? c'est pas forcément évident à voir, mais on dispatch pas la même action, on est passé de `addTodo` à `onAddTodo`. Et ça fait toute la différence.
+Vous voyez la différence ? Ce n'est pas forcément évident à voir, mais on dispatch pas la même action, on est passé de `addTodo` à `onAddTodo`. Et ça fait toute la différence.
 
-Pourquoi ? et bien regardon maintenant le reducers :
+Pourquoi ? Et bien regardons maintenant le reducers :
 
 ```js
 // reducers/todoReducer.js
