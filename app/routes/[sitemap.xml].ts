@@ -74,12 +74,18 @@ export async function loader({ request }: DataFunctionArgs) {
       return true;
     });
 
-  return new Response(toXmlSitemap(routesFlat), {
-    status: 200,
-    headers: {
-      "Content-Type": "application/xml",
-      "X-Content-Type-Options": "nosniff",
-      "Cache-Control": "public, max-age=3600",
-    },
-  });
+  return new Response(
+    toXmlSitemap([
+      ...routesFlat,
+      { url: `${getDomainUrl(request)}/`, priority: 1 },
+    ]),
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/xml",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "public, max-age=3600",
+      },
+    }
+  );
 }
