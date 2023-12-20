@@ -10,7 +10,7 @@ import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import styles from "./blog.css";
 import { useEffect } from "react";
-import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion";
+import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css";
 import type { blog } from "@prisma/client";
@@ -28,6 +28,35 @@ export const meta: MetaFunction = ({ data }) => {
     {
       name: "image",
       content: blogData.image || "https://react-formation.fr/logo.jpg",
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org/",
+        "@type": "BlogPosting",
+        headline: blogData.title,
+        description: blogData.metaDescription || blogData.title,
+        datePublished: new Date(blogData?.date || "").toISOString(),
+        dateModified: blogData?.lastChange
+          ? new Date(blogData?.lastChange || "").toISOString()
+          : new Date(blogData?.date || "").toISOString(),
+        author: {
+          "@type": "Person",
+          name: "Jean Gaudiau",
+          url: "https://www.linkedin.com/in/jean-gaudiau-50b10439/",
+        },
+        images: [
+          `https://react-formation.fr/${blogData?.slug}_100.png`,
+          `https://react-formation.fr/${blogData?.slug}_133.png`,
+          `https://react-formation.fr/${blogData?.slug}_178.png`,
+        ],
+        publisher: {
+          "@type": "Organization",
+          name: "react-formation",
+          logo: "https://react-formation.fr/logo.jpg",
+        },
+        image: [blogData?.image || "https://react-formation.fr/logo.jpg"],
+        keywords: blogData?.tags || [],
+      },
     },
   ];
 };

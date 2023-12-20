@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { Link as UiLink } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion";
+import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
 
 export const meta: MetaFunction = () => {
