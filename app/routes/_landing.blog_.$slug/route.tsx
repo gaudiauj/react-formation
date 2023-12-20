@@ -45,9 +45,9 @@ export const meta: MetaFunction = ({ data }) => {
           url: "https://www.linkedin.com/in/jean-gaudiau-50b10439/",
         },
         images: [
-          `https://react-formation.fr/${blogData?.slug}_100.png`,
-          `https://react-formation.fr/${blogData?.slug}_133.png`,
-          `https://react-formation.fr/${blogData?.slug}_178.png`,
+          `https://react-formation.fr/resized/${blogData?.slug}_100.png`,
+          `https://react-formation.fr/resized/${blogData?.slug}_133.png`,
+          `https://react-formation.fr/resized/${blogData?.slug}_178.png`,
         ],
         publisher: {
           "@type": "Organization",
