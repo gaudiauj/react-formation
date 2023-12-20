@@ -29,6 +29,7 @@ export async function createAndUpdateBlogFromNotion(
       tags: blog.tags,
       date: blog.date,
       lastChange: blog.lastChange,
+      metaDescription: blog.metaDescription,
     });
   });
 

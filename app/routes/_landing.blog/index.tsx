@@ -8,8 +8,9 @@ export const meta: MetaFunction = () => {
   return [
     { title: "react-formation | blog " },
     {
-      name: "robots",
-      content: "noindex,nofollow",
+      name: "description",
+      content:
+        "Les dernières nouvelles et articles de blog de react-formation ! venez apprendre react avec nous",
     },
   ];
 };

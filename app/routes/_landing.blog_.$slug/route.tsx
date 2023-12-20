@@ -13,15 +13,21 @@ import { useEffect } from "react";
 import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion";
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css";
+import type { blog } from "@prisma/client";
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({ data }) => {
+  const blogData = (data as any).blogData as blog;
   return [
-    { title: "react-formation | blog " },
+    { title: `${blogData.title} | react-formation` },
     {
-      name: "robots",
-      content: "noindex,nofollow",
+      name: "description",
+      content: blogData.metaDescription || blogData.title,
+    },
+    {
+      name: "image",
+      content: blogData.image || "https://react-formation.fr/logo.jpg",
     },
   ];
 };
@@ -45,11 +51,12 @@ export const handle = {
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const isCurrentUserAdmin = await isAdmin(request);
-  const blogData = await getBlogPageFromSlug({ slug: params.slug || "" });
   const pageContent = await getMarkdownAndUpdateFromNotion(
     params.slug || "",
     !!isCurrentUserAdmin
   );
+  const blogData = await getBlogPageFromSlug({ slug: params.slug || "" });
+
   return { markdown: pageContent?.markdown || "", blogData };
 };
 

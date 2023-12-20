@@ -13,6 +13,7 @@ export type Blog = {
   tags: string[];
   date: Date | null;
   lastChange: Date | null;
+  metaDescription: string | null;
 };
 
 export async function createBlog({
@@ -24,6 +25,7 @@ export async function createBlog({
   status,
   date,
   lastChange,
+  metaDescription,
 }: Blog) {
   const updateObject: any = {
     id,
@@ -32,6 +34,7 @@ export async function createBlog({
     tags,
     image,
     status,
+    metaDescription,
   };
   updateObject.date = date ? date : null;
   updateObject.lastChange = lastChange ? lastChange : null;

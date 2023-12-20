@@ -61,6 +61,10 @@ export const parseProperties = (database: QueryDatabaseResponse): Blog[] =>
       ? //  @ts-expect-error
         new Date(properties?.lastChange?.date?.start)
       : "";
+
+    const metaDescription =
+      //@ts-expect-error
+      properties?.metaDescription?.rich_text[0]?.plain_text ?? "";
     //@ts-expect-error
     const title = properties?.name?.title[0]?.plain_text ?? "";
     const tags =
@@ -78,5 +82,15 @@ export const parseProperties = (database: QueryDatabaseResponse): Blog[] =>
     //@ts-expect-error
     const image = properties?.image?.url ?? "";
 
-    return { id, title, tags, image, status, slug, date, lastChange };
+    return {
+      id,
+      title,
+      tags,
+      image,
+      status,
+      slug,
+      date,
+      lastChange,
+      metaDescription,
+    };
   });
