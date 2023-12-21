@@ -10,7 +10,7 @@ Redux vient avec sa philosophie et tant que 'state manager' agnostique, et qui p
 
 ## Redux
 
-Petit disclaimer, je suis expert sur React donc l'ensemble des exemples sont fait sur React. Mais aujourd'hui vu qu'on parle de redux, l'ensemble de ce que je vais dire rester vrai même si vous utilisez angular, svelte ou du vanilla js etc.
+Petit disclaimer, je suis expert sur React donc l'ensemble des exemples sont fait sur React. Mais aujourd'hui vu qu'on parle de redux, l'ensemble de ce que je vais dire reste vrai même si vous utilisez angular, svelte ou du vanilla js etc.
 L'une des raisons pour lesquelles Redux a connu un tel succès sur React était le fait que React-Redux a résolu le problème de '[props drilling](https://kentcdodds.com/blog/prop-drilling)'. Le fait que vous puissiez partager des données entre différentes parties de votre arborescence en passant simplement votre composant dans une fonction à régler un des plus gros soucis de React à l'époque. Le souci, c'est que toute la philosophie derrière Redux a été mise de coter, et il a été utilisé seulement pour régler ce souci de 'props driling'. Même si React c'est bien améliorer dans la gestion de son stage, redux est encore très souvent utiliser, et souvent mal optimiser. J'ai récemment travaillé sur un projet dont mon rôle était de supprimer Redux pour mettre du context React à la place. La raison principale :
 
 > Redux, c'est lent, et compliqué à utiliser, beaucoup trop verbeux.

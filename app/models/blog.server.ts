@@ -45,6 +45,9 @@ export async function createBlog({
     },
     update: updateObject,
     create: updateObject,
+    include: {
+      blogPage: true,
+    },
   });
 }
 
