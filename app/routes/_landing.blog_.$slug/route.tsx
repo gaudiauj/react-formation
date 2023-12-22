@@ -14,6 +14,8 @@ import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion.ser
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css";
 import type { blog } from "@prisma/client";
+import { countWords } from "~/utils/countWords";
+import { Tag, HStack} from '@chakra-ui/react'
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
@@ -89,9 +91,12 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   return { markdown: pageContent?.markdown || "", blogData };
 };
 
+  // ... (previous imports and code)
+
 export default function Index() {
   const { markdown, blogData } = useLoaderData<typeof loader>();
   console.log({ markdown, blogData });
+  console.log(blogData?.image);
   useEffect(() => {
     const isHighlight = document.querySelector(".hljs");
     if (!isHighlight) {
@@ -99,5 +104,44 @@ export default function Index() {
     }
   }, []);
 
-  return <Markdown className="blog">{markdown}</Markdown>;
+
+    
+  
+
+  const formatDate = (dateString: string) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const date = new Date(dateString);
+    // @ts-ignore
+    return date.toLocaleDateString('fr-FR', options);
+  };
+
+  const wordCount = countWords(markdown);
+  const readingTime = Math.round(wordCount / 200);
+
+  console.log('nombre de mot', wordCount);
+  console.log(blogData?.tags)
+
+  return (
+    <div className="blog-content">
+      <img
+      src={blogData?.image}
+      alt="Introduction Image"
+      className="intro-image"
+    />
+      <HStack>
+      {
+        blogData?.tags.map((tag) => <Tag color="white"  colorScheme="brand" key={tag}>{tag}</Tag>)
+      }
+       
+      </HStack>
+      {blogData?.date && (
+        <p className="date">Publier le : {formatDate(blogData?.date)}</p>
+      )}
+      {blogData?.lastChange && (
+        <p className="date-change">Modifié le : {formatDate(blogData?.lastChange)}</p>
+      )}
+      <p className="time-to-read">Temps de lecture : {readingTime} min</p>
+      <Markdown className="blog">{markdown}</Markdown>
+    </div>
+  );
 }
