@@ -28,7 +28,7 @@ export type ContactFormProps = {
 };
 
 export default function ({ isLoading, actionData }: ContactFormProps) {
-  const linkColor = useColorModeValue("teal.600", "teal.100");
+  const linkColor = useColorModeValue("brand.700", "brand.100");
   return (
     <Form method="post" autoComplete="on">
       <VStack spacing={5}>

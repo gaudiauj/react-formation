@@ -24,7 +24,7 @@ const SocialButton = ({
 }) => {
   return (
     <chakra.button
-      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+      bg={useColorModeValue("blackAlpha.100", "brand.100")}
       rounded={"full"}
       w={8}
       h={8}
@@ -36,7 +36,7 @@ const SocialButton = ({
       justifyContent={"center"}
       transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
+        bg: useColorModeValue("blackAlpha.200", "brand.700"),
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -46,6 +46,8 @@ const SocialButton = ({
 };
 
 export default function SmallCentered() {
+  const linkColor = useColorModeValue("brand.700", "brand.100");
+
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
@@ -86,9 +88,9 @@ export default function SmallCentered() {
         >
           <Text>© 2023 React Formation</Text>
           <Stack direction={"row"} spacing={6} alignItems="center">
-            <a href="mailto:contact@react-formation.fr">
+            <Link href="mailto:contact@react-formation.fr" color={linkColor}>
               contact@react-formation.fr
-            </a>
+            </Link>
             <SocialButton
               label={"Linkedin"}
               href={"https://fr.linkedin.com/in/jean-gaudiau-50b10439"}

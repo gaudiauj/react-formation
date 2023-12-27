@@ -219,7 +219,7 @@ const theme = extendTheme(
     styles: {
       global: {
         a: {
-          color: "teal.600",
+          color: "brand.600",
         },
       },
     },

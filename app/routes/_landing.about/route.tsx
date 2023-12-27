@@ -84,7 +84,7 @@ export default function SplitWithImage() {
             zéro maintenant devenu depuis{" "}
             <Link
               href="https://openclassrooms.com/fr/"
-              color={useColorModeValue("teal.600", "teal.200")}
+              color={useColorModeValue("brand.600", "brand.100")}
               isExternal
             >
               openclassroom

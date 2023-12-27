@@ -35,7 +35,7 @@ p {
 }
 
 a {
-  color: var(--chakra-colors-brand-500);
+  color: var(--chakra-colors-brand-600);
 }
 
 a:hover {
