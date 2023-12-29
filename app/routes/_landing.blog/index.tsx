@@ -4,7 +4,6 @@ import {
   CardBody,
   Divider,
   Heading,
-  Link as UiLink,
   SimpleGrid,
   Stack,
   Img,
