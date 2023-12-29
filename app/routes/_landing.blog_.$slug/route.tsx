@@ -157,7 +157,7 @@ export default function Index() {
         Temps de lecture :{" "}
         {Math.round(countWords(blogData?.blogPage?.markdown || "") / 200)} min
       </Text>
-      <Container maxW="3xl">
+      <Container maxW="3xl" padding={0}>
         <Markdown className="blog">{markdown}</Markdown>
       </Container>
     </Container>
