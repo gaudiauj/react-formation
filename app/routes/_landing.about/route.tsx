@@ -82,11 +82,7 @@ export default function SplitWithImage() {
             monde du développement web commence à mes 12 ans, ou je découvre sur
             le vieil ordinateur familial, la programmation. Adepte du site du
             zéro maintenant devenu depuis{" "}
-            <Link
-              href="https://openclassrooms.com/fr/"
-              color={useColorModeValue("brand.600", "brand.100")}
-              isExternal
-            >
+            <Link href="https://openclassrooms.com/fr/" isExternal>
               openclassroom
             </Link>
             , j'ai suivi les tutoriels sur le C, HMTL, Javascript et Php.

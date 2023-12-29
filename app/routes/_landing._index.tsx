@@ -40,7 +40,6 @@ export function headers() {
 
 export default function Index() {
   const height = useBreakpointValue({ base: "20%", md: "30%" });
-  const linkColor = useColorModeValue("teal.600", "teal.100");
   const displayPrice = useBreakpointValue({
     base: false,
     lg: true,
@@ -311,7 +310,7 @@ export default function Index() {
               Nous facturons par participant. L'accord permettra une flexibilité
               au cas où vous auriez besoin d'ajouter ou de supprimer des
               participants de dernière minute. Vous pouvez nous{" "}
-              <UiLink to={"/contact"} color={linkColor} as={Link}>
+              <UiLink to={"/contact"} as={Link}>
                 contacter
               </UiLink>{" "}
               pour en discuter en personne.
@@ -334,11 +333,11 @@ export default function Index() {
               Former vos collaborateurs est toujours utiles. Vos projets seront
               de meilleure qualité, vos développeurs seront plus productifs. Si
               vous avez des questions, n'hésitez pas à nous{" "}
-              <UiLink to={"/contact"} color={linkColor} as={Link}>
+              <UiLink to={"/contact"} as={Link}>
                 contacter
               </UiLink>{" "}
               pour en discuter ou à regarder le détails de la{" "}
-              <UiLink to={"/formations"} color={linkColor} as={Link}>
+              <UiLink to={"/formations"} as={Link}>
                 formation
               </UiLink>
               .

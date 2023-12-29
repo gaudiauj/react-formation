@@ -28,7 +28,6 @@ export type ContactFormProps = {
 };
 
 export default function ({ isLoading, actionData }: ContactFormProps) {
-  const linkColor = useColorModeValue("brand.700", "brand.100");
   return (
     <Form method="post" autoComplete="on">
       <VStack spacing={5}>
@@ -124,7 +123,7 @@ export default function ({ isLoading, actionData }: ContactFormProps) {
             Le message n'a pas pu être envoyé
           </Alert>
         )}
-        <Link as={RemixLink} to="/rgpd" color={linkColor}>
+        <Link as={RemixLink} to="/rgpd">
           comment sont traitées vos données ?
         </Link>
       </VStack>

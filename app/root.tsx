@@ -22,6 +22,8 @@ import {
   cookieStorageManagerSSR,
   extendTheme,
   withDefaultColorScheme,
+  defineStyle,
+  defineStyleConfig,
 } from "@chakra-ui/react";
 import { createUrlView } from "./models/urlView.server";
 import "@fontsource/lato/400.css";
@@ -85,6 +87,20 @@ export const links: LinksFunction = () => {
     // ...
   ];
 };
+
+const brandPrimary = defineStyle({
+  color: "brand.600",
+  fontWeight: 500,
+
+  // let's also provide dark mode alternatives
+  _dark: {
+    color: "brand.100",
+  },
+});
+
+export const linkTheme = defineStyleConfig({
+  baseStyle: brandPrimary,
+});
 
 const Document = withEmotionCache(
   // @ts-ignore
@@ -225,16 +241,12 @@ const colors = {
 const theme = extendTheme(
   {
     colors,
-    styles: {
-      global: {
-        a: {
-          color: "brand.600",
-        },
-      },
-    },
     fonts: {
       heading: `'lato', sans-serif`,
       body: `'lato', sans-serif`,
+    },
+    components: {
+      Link: linkTheme,
     },
   },
 

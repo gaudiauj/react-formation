@@ -13,6 +13,7 @@ import {
   useColorModeValue,
   useDisclosure,
   useColorMode,
+  useTheme,
 } from "@chakra-ui/react";
 import { SkipNavLink } from "@chakra-ui/skip-nav";
 import {
@@ -29,6 +30,7 @@ import { NavLink as RemixLink } from "@remix-run/react";
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const theme = useTheme();
 
   return (
     <>
@@ -72,7 +74,13 @@ export default function WithSubnavigation() {
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Link to="/" as={RemixLink} prefetch="intent">
-              <Logo width="130px" />
+              <Logo
+                width="130px"
+                color={useColorModeValue(
+                  theme.colors.brand[500],
+                  theme.colors.brand[200]
+                )}
+              />
             </Link>
 
             <Flex as="nav" display={{ base: "none", md: "flex" }} ml={10}>

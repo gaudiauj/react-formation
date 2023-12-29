@@ -136,7 +136,10 @@ export default function ContactFormWithSocialButtons() {
                   />
                 </Tooltip>
 
-                <Link href="https://www.linkedin.com/in/jean-gaudiau-50b10439/">
+                <Link
+                  href="https://www.linkedin.com/in/jean-gaudiau-50b10439/"
+                  isExternal
+                >
                   <IconButton
                     aria-label="linkedin"
                     variant="ghost"

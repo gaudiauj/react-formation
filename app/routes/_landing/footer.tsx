@@ -6,6 +6,7 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  useTheme,
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { Link as RemixLink } from "@remix-run/react";
@@ -47,6 +48,7 @@ const SocialButton = ({
 
 export default function SmallCentered() {
   const linkColor = useColorModeValue("brand.700", "brand.100");
+  const theme = useTheme();
 
   return (
     <Box
@@ -61,7 +63,13 @@ export default function SmallCentered() {
         justify={"center"}
         align={"center"}
       >
-        <Logo width="200px" />
+        <Logo
+          width="200px"
+          color={useColorModeValue(
+            theme.colors.brand[500],
+            theme.colors.brand[200]
+          )}
+        />
         <Stack direction={"row"} spacing={6}>
           <Link as={RemixLink} to={"/conduct"}>
             code de conduite
