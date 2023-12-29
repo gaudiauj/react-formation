@@ -1,8 +1,21 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { Link as UiLink } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Divider,
+  Heading,
+  Link as UiLink,
+  SimpleGrid,
+  Stack,
+  Img,
+  Text,
+  List,
+  AspectRatio,
+} from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
+import { countWords } from "~/utils/countWords";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,18 +34,68 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   return { blogList };
 };
 
+export const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+
 export default function Index() {
   const { blogList } = useLoaderData<typeof loader>();
 
   return (
-    <ul>
+    <SimpleGrid
+      columns={3}
+      spacing={16}
+      as="ul"
+      marginBottom={32}
+      padding={16}
+      minChildWidth={275}
+    >
       {blogList.map((blog) => (
-        <li key={blog.id}>
+        <List key={blog.id} as="li">
           <UiLink as={Link} to={`/blog/${blog.slug}`}>
-            {blog.title}
+            <Card maxW="sm">
+              <CardBody>
+                <AspectRatio ratio={4 / 3}>
+                  <Img
+                    src={
+                      blog.image ||
+                      "https://react-formation.fr/blogEffectDependencies.webp"
+                    }
+                    alt=""
+                    borderRadius="lg"
+                    role="presentation"
+                    width={"100%"}
+                    height={"100%"}
+                  />
+                </AspectRatio>
+
+                <Stack mt="6" spacing="3">
+                  {!!blog.date && (
+                    <Text color={"gray.500"} size="sm">
+                      <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+                    </Text>
+                  )}
+
+                  <Text color={"gray.500"} size="sm">
+                    Temps de lecture :{" "}
+                    {Math.round(
+                      countWords(blog?.blogPage?.markdown || "") / 200
+                    )}{" "}
+                    min
+                  </Text>
+                  <Heading size="md">{blog.title}</Heading>
+                </Stack>
+              </CardBody>
+              <Divider />
+            </Card>
           </UiLink>
-        </li>
+        </List>
       ))}
-    </ul>
+    </SimpleGrid>
   );
 }

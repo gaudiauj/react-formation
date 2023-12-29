@@ -14,19 +14,38 @@ h3 {
   color: var(--chakra-colors-brand-400);
 }
 
+p {
+  font-size: var(--chakra-fontSizes-lg);
+  @media screen and (min-width: 48em) {
+    font-size: var(--chakra-fontSizes-md);
+  }
+}
+
 h1 {
-  font-size: 2.5em;
+  font-size: var(--chakra-fontSizes-3xl);
   margin-bottom: 0.5em;
+  font-weight: var(--chakra-fontWeights-medium);
+  @media only screen and (min-width: 48em) {
+    font-size: var(--chakra-fontSizes-4xl);
+  }
 }
 
 h2 {
-  font-size: 2em;
+  font-size: var(--chakra-fontSizes-2xl);
+  font-weight: var(--chakra-fontWeights-medium);
   margin-bottom: 0.4em;
+  @media only screen and (min-width: 48em) {
+    font-size: var(--chakra-fontSizes-3xl);
+  }
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: var(--chakra-fontSizes-xl);
+  font-weight: var(--chakra-fontWeights-medium);
   margin-bottom: 0.3em;
+  @media only screen and (min-width: 48em) {
+    font-size: var(--chakra-fontSizes-2xl);
+  }
 }
 
 /* Paragraph and link styles */

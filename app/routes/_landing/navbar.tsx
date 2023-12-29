@@ -293,6 +293,10 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "/about",
   },
   {
+    label: "Blog",
+    href: "/blog",
+  },
+  {
     label: "Nous contacter",
     href: "/contact",
   },

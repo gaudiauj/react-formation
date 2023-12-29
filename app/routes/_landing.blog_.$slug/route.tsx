@@ -3,7 +3,8 @@ import type {
   LoaderFunctionArgs,
   MetaFunction,
 } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
+import { useLoaderData, Link } from "@remix-run/react";
 import { getBlogListFromDb, getBlogPageFromSlug } from "~/models/blog.server";
 import Markdown from "markdown-to-jsx";
 import hljs from "highlight.js/lib/core";
@@ -14,6 +15,19 @@ import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion.ser
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css";
 import type { blog } from "@prisma/client";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Text,
+  Container,
+  AspectRatio,
+  Img,
+} from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { countWords } from "~/utils/countWords";
+import { formatDate } from "../_landing.blog";
+
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
@@ -35,10 +49,10 @@ export const meta: MetaFunction = ({ data }) => {
         "@type": "BlogPosting",
         headline: blogData.title,
         description: blogData.metaDescription || blogData.title,
-        datePublished: new Date(blogData?.date || "").toISOString(),
+        datePublished: new Date(blogData?.date || Date.now()).toISOString(),
         dateModified: blogData?.lastChange
-          ? new Date(blogData?.lastChange || "").toISOString()
-          : new Date(blogData?.date || "").toISOString(),
+          ? new Date(blogData?.lastChange).toISOString()
+          : new Date(blogData?.date || Date.now()).toISOString(),
         author: {
           "@type": "Person",
           name: "Jean Gaudiau",
@@ -86,12 +100,15 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   );
   const blogData = await getBlogPageFromSlug({ slug: params.slug || "" });
 
+  if (!blogData) {
+    return redirect("/404");
+  }
+
   return { markdown: pageContent?.markdown || "", blogData };
 };
 
 export default function Index() {
   const { markdown, blogData } = useLoaderData<typeof loader>();
-  console.log({ markdown, blogData });
   useEffect(() => {
     const isHighlight = document.querySelector(".hljs");
     if (!isHighlight) {
@@ -99,5 +116,47 @@ export default function Index() {
     }
   }, []);
 
-  return <Markdown className="blog">{markdown}</Markdown>;
+  return (
+    <Container maxW={"5xl"} py={12} px={8} color="brand.700">
+      <Breadcrumb separator={<ChevronRightIcon color="brand.400" />}>
+        <BreadcrumbItem>
+          <BreadcrumbLink as={Link} to="/blog">
+            blog
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink as={Link} to="#">
+            <Text noOfLines={1}> {blogData.title}</Text>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+      <AspectRatio maxW="4xl" ratio={4 / 3}>
+        <Img
+          src={
+            blogData.image ||
+            "https://react-formation.fr/blogEffectDependencies.webp"
+          }
+          alt=""
+          borderRadius="lg"
+          role="presentation"
+          width={"100%"}
+          height={"100%"}
+        />
+      </AspectRatio>
+      {!!blogData.date && (
+        <Text color={"gray.500"} size="sm">
+          <time dateTime={blogData.date}>{formatDate(blogData.date)}</time>
+        </Text>
+      )}
+
+      <Text color={"gray.500"} size="sm">
+        Temps de lecture :{" "}
+        {Math.round(countWords(blogData?.blogPage?.markdown || "") / 200)} min
+      </Text>
+      <Container maxW="3xl">
+        <Markdown className="blog">{markdown}</Markdown>
+      </Container>
+    </Container>
+  );
 }

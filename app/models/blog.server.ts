@@ -14,6 +14,9 @@ export type Blog = {
   date: Date | null;
   lastChange: Date | null;
   metaDescription: string | null;
+  blogPage?: {
+    markdown: string;
+  } | null;
 };
 
 export async function createBlog({
