@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -16,6 +16,7 @@ import { withEmotionCache } from "@emotion/react";
 import type { DocumentProps } from "postcss";
 import { useContext, useEffect, useMemo } from "react";
 import { ServerStyleContext, ClientStyleContext } from "./uiContext";
+import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   ChakraProvider,
   cookieStorageManagerSSR,
@@ -23,6 +24,7 @@ import {
   withDefaultColorScheme,
 } from "@chakra-ui/react";
 import { createUrlView } from "./models/urlView.server";
+import "@fontsource/lato/400.css";
 
 const organizationData = JSON.stringify({
   "@context": "https://schema.org",
@@ -76,6 +78,13 @@ export async function loader({ request }: LoaderFunctionArgs) {
     uiCookie: request.headers.get("cookie") ?? "",
   });
 }
+
+export const links: LinksFunction = () => {
+  return [
+    ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+    // ...
+  ];
+};
 
 const Document = withEmotionCache(
   // @ts-ignore
@@ -223,7 +232,12 @@ const theme = extendTheme(
         },
       },
     },
+    fonts: {
+      heading: `'lato', sans-serif`,
+      body: `'lato', sans-serif`,
+    },
   },
+
   withDefaultColorScheme({ colorScheme: "brand" })
 );
 

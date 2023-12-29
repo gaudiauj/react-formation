@@ -76,7 +76,7 @@ export default function SplitWithImage() {
           >
             Qui somme nous ?
           </Text>
-          <Heading as="h1">Une entreprise dédié à la formation</Heading>
+          <Heading as="h1">Une entreprise dédiée à la formation</Heading>
           <Text color={textColor} fontSize={"lg"}>
             Je suis Jean fondateur de React-Formation. Mon aventure dans le
             monde du développement web commence à mes 12 ans, ou je découvre sur
@@ -92,16 +92,16 @@ export default function SplitWithImage() {
             , j'ai suivi les tutoriels sur le C, HMTL, Javascript et Php.
           </Text>
           <Text color={textColor} fontSize={"lg"}>
-            Cette passion me suis donc depuis mon adolescence et c'est tout
-            naturellement que j'en fais mon métier. En 2015 la vraie aventure
+            Cette passion me suit donc depuis mon adolescence et c'est tout
+            naturellement que j'en fais mon métier. En 2015, la vraie aventure
             commence et je commence mon premier travail en tant que développeur
-            Full-stack PHP, js. En 2017 je me spécialise dans le front, et plus
+            Full-stack PHP, js. En 201, je me spécialise dans le front, et plus
             Particulièrement React.
           </Text>
           <Text color={textColor} fontSize={"lg"}>
-            Depuis j'ai eu la chance de travailler pour de nombreuses
-            entreprises; de la petite startup et ses 2 cofondateurs, à la grosse
-            multinational et ses milliers de collaborateurs. Et un constat;
+            Depuis, j'ai eu la chance de travailler pour de nombreuses
+            entreprises. De la petite startup et ses 2 cofondateurs, à la grosse
+            multinational et ses milliers de collaborateurs. Et un constat,
             j'aime échanger, partager et apprendre.
           </Text>
           <Text color={textColor} fontSize={"lg"}>
