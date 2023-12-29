@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { Link as UiLink } from "@chakra-ui/react";
+import { Flex, Link as UiLink } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import isAdmin from "~/utils/isAdmin.server";
 
@@ -28,13 +28,16 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export default function Index() {
   return (
-    <>
+    <Flex direction={"column"}>
       <UiLink as={Link} py={2} to={"/admin/pageView"}>
         vue des pages
       </UiLink>
       <UiLink as={Link} py={2} to={"/admin/message"}>
         messages
       </UiLink>
-    </>
+      <UiLink as={Link} py={2} to={"/admin/flushcache"}>
+        cache
+      </UiLink>
+    </Flex>
   );
 }
