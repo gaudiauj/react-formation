@@ -46,7 +46,7 @@ export async function loader({ request }: DataFunctionArgs) {
       return sitMapEntries.map(
         (entry: { url: string; priority: any; lastmod: any }) => {
           return {
-            url: `${getDomainUrl(request)}/${entry.url}`,
+            url: `${getDomainUrl(request)}${entry.url}`,
             priority:
               // @ts-expect-error
               entry.priority || routeData.module.handle?.priority || 0.7,
