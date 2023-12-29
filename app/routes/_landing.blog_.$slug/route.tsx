@@ -145,12 +145,12 @@ export default function Index() {
         />
       </AspectRatio>
       {!!blogData.date && (
-        <Text color={"gray.500"} size="sm">
+        <Text color={"gray.600"} size="sm">
           <time dateTime={blogData.date}>{formatDate(blogData.date)}</time>
         </Text>
       )}
 
-      <Text color={"gray.500"} size="sm">
+      <Text color={"gray.600"} size="sm">
         Temps de lecture :{" "}
         {Math.round(countWords(blogData?.blogPage?.markdown || "") / 200)} min
       </Text>

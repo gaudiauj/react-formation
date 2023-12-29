@@ -9,8 +9,8 @@ import {
   Stack,
   Img,
   Text,
-  List,
   AspectRatio,
+  Container,
 } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion.server";
@@ -47,17 +47,23 @@ export default function Index() {
   const { blogList } = useLoaderData<typeof loader>();
 
   return (
-    <SimpleGrid
-      columns={3}
-      spacing={16}
-      as="ul"
-      marginBottom={32}
-      padding={16}
-      minChildWidth={275}
-    >
-      {blogList.map((blog) => (
-        <List key={blog.id} as="li">
-          <UiLink as={Link} to={`/blog/${blog.slug}`}>
+    <Container maxW={"5xl"} py={12} px={8}>
+      <Heading as="h1" color="brand.500" marginBottom={4}>
+        Les derniers posts de blog
+      </Heading>
+      <Text>
+        Les dernières nouvelles et articles de blog de react-formation !
+      </Text>
+      <Text>venez apprendre react avec nous</Text>
+      <SimpleGrid
+        columns={3}
+        spacing={16}
+        marginBottom={32}
+        padding={16}
+        minChildWidth={275}
+      >
+        {blogList.map((blog) => (
+          <UiLink as={Link} to={`/blog/${blog.slug}`} key={blog.id}>
             <Card maxW="sm">
               <CardBody>
                 <AspectRatio ratio={4 / 3}>
@@ -76,12 +82,12 @@ export default function Index() {
 
                 <Stack mt="6" spacing="3">
                   {!!blog.date && (
-                    <Text color={"gray.500"} size="sm">
+                    <Text color={"gray.600"} size="sm">
                       <time dateTime={blog.date}>{formatDate(blog.date)}</time>
                     </Text>
                   )}
 
-                  <Text color={"gray.500"} size="sm">
+                  <Text color={"gray.600"} size="sm">
                     Temps de lecture :{" "}
                     {Math.round(
                       countWords(blog?.blogPage?.markdown || "") / 200
@@ -94,8 +100,8 @@ export default function Index() {
               <Divider />
             </Card>
           </UiLink>
-        </List>
-      ))}
-    </SimpleGrid>
+        ))}
+      </SimpleGrid>
+    </Container>
   );
 }

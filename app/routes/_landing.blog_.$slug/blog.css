@@ -11,7 +11,7 @@
 h1,
 h2,
 h3 {
-  color: var(--chakra-colors-brand-400);
+  color: var(--chakra-colors-brand-500);
 }
 
 p {
@@ -53,12 +53,13 @@ p {
   margin: 1em 0;
 }
 
-a {
+.blog a {
   color: var(--chakra-colors-brand-600);
+  text-decoration: underline;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--chakra-colors-brand-400);
 }
 
 /* Blockquote styling */
