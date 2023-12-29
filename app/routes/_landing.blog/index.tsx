@@ -60,46 +60,45 @@ export default function Index() {
         spacing={16}
         marginBottom={32}
         padding={16}
-        minChildWidth={275}
+        minChildWidth={{
+          base: "210px",
+          md: "230px",
+        }}
       >
         {blogList.map((blog) => (
-          <UiLink as={Link} to={`/blog/${blog.slug}`} key={blog.id}>
-            <Card maxW="sm">
-              <CardBody>
-                <AspectRatio ratio={4 / 3}>
-                  <Img
-                    src={
-                      blog.image ||
-                      "https://react-formation.fr/blogEffectDependencies.webp"
-                    }
-                    alt=""
-                    borderRadius="lg"
-                    role="presentation"
-                    width={"100%"}
-                    height={"100%"}
-                  />
-                </AspectRatio>
+          <Card as={Link} to={`/blog/${blog.slug}`} key={blog.id} maxW="sm">
+            <CardBody>
+              <AspectRatio ratio={4 / 3}>
+                <Img
+                  src={
+                    blog.image ||
+                    "https://react-formation.fr/blogEffectDependencies.webp"
+                  }
+                  alt=""
+                  borderRadius="lg"
+                  role="presentation"
+                  width={"100%"}
+                  height={"100%"}
+                />
+              </AspectRatio>
 
-                <Stack mt="6" spacing="3">
-                  {!!blog.date && (
-                    <Text color={"gray.600"} size="sm">
-                      <time dateTime={blog.date}>{formatDate(blog.date)}</time>
-                    </Text>
-                  )}
-
+              <Stack mt="6" spacing="3">
+                {!!blog.date && (
                   <Text color={"gray.600"} size="sm">
-                    Temps de lecture :{" "}
-                    {Math.round(
-                      countWords(blog?.blogPage?.markdown || "") / 200
-                    )}{" "}
-                    min
+                    <time dateTime={blog.date}>{formatDate(blog.date)}</time>
                   </Text>
-                  <Heading size="md">{blog.title}</Heading>
-                </Stack>
-              </CardBody>
-              <Divider />
-            </Card>
-          </UiLink>
+                )}
+
+                <Text color={"gray.600"} size="sm">
+                  Temps de lecture :{" "}
+                  {Math.round(countWords(blog?.blogPage?.markdown || "") / 200)}{" "}
+                  min
+                </Text>
+                <Heading size="md">{blog.title}</Heading>
+              </Stack>
+            </CardBody>
+            <Divider />
+          </Card>
         ))}
       </SimpleGrid>
     </Container>
