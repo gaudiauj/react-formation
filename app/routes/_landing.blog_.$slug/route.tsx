@@ -23,6 +23,7 @@ import {
   Container,
   AspectRatio,
   Img,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { countWords } from "~/utils/countWords";
@@ -76,8 +77,8 @@ export const meta: MetaFunction = ({ data }) => {
 };
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-  { rel: "stylesheet", href: allyDark },
+  { rel: "stylesheet", href: styles, defer: true },
+  { rel: "stylesheet", href: allyDark, defer: true },
 ];
 
 export const handle = {
@@ -109,6 +110,8 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 export default function Index() {
   const { markdown, blogData } = useLoaderData<typeof loader>();
+  const infoColor = useColorModeValue("gray.600", "gray.300");
+  const BreadcrumbColor = useColorModeValue("brand.700", "brand.300");
   useEffect(() => {
     const isHighlight = document.querySelector(".hljs");
     if (!isHighlight) {
@@ -117,7 +120,7 @@ export default function Index() {
   }, []);
 
   return (
-    <Container maxW={"5xl"} py={12} px={8} color="brand.700">
+    <Container maxW={"5xl"} py={12} px={8} color={BreadcrumbColor}>
       <Breadcrumb separator={<ChevronRightIcon color="brand.400" />}>
         <BreadcrumbItem>
           <BreadcrumbLink as={Link} to="/blog">
@@ -145,12 +148,12 @@ export default function Index() {
         />
       </AspectRatio>
       {!!blogData.date && (
-        <Text color={"gray.600"} size="sm">
+        <Text color={infoColor} size="sm">
           <time dateTime={blogData.date}>{formatDate(blogData.date)}</time>
         </Text>
       )}
 
-      <Text color={"gray.600"} size="sm">
+      <Text color={infoColor} size="sm">
         Temps de lecture :{" "}
         {Math.round(countWords(blogData?.blogPage?.markdown || "") / 200)} min
       </Text>

@@ -10,6 +10,7 @@ import {
   Text,
   AspectRatio,
   Container,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion.server";
@@ -44,10 +45,11 @@ export const formatDate = (dateString: string) => {
 
 export default function Index() {
   const { blogList } = useLoaderData<typeof loader>();
-
+  const headerColor = useColorModeValue("brand.500", "brand.300");
+  const infoColor = useColorModeValue("gray.600", "gray.300");
   return (
     <Container maxW={"5xl"} py={12} px={8}>
-      <Heading as="h1" color="brand.500" marginBottom={4}>
+      <Heading as="h1" color={headerColor} marginBottom={4}>
         Les derniers posts de blog
       </Heading>
       <Text>
@@ -83,12 +85,12 @@ export default function Index() {
 
               <Stack mt="6" spacing="3">
                 {!!blog.date && (
-                  <Text color={"gray.600"} size="sm">
+                  <Text color={infoColor} size="sm">
                     <time dateTime={blog.date}>{formatDate(blog.date)}</time>
                   </Text>
                 )}
 
-                <Text color={"gray.600"} size="sm">
+                <Text color={infoColor} size="sm">
                   Temps de lecture :{" "}
                   {Math.round(countWords(blog?.blogPage?.markdown || "") / 200)}{" "}
                   min
