@@ -46,6 +46,26 @@ export const meta: MetaFunction = ({ data }) => {
     },
     {
       "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "blog",
+            item: "https://react-formation.fr/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: blogData.title,
+            item: `https://react-formation.fr/blog/${blogData.slug}`,
+          },
+        ],
+      },
+    },
+    {
+      "script:ld+json": {
         "@context": "https://schema.org/",
         "@type": "BlogPosting",
         headline: blogData.title,
