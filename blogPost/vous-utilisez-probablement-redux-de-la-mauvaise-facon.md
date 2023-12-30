@@ -2,16 +2,16 @@
 
 ## introduction
 
-Je suis développeur web depuis un peu plus de 8 ans. Depuis ces 8 ans, j'ai connu angular, vue.js, aurelia.js, react.js, Embersjs. Et franchement ils ont tous à leur façon révolutionné le web front. Les SPA, l'approche composant plutôt que balancer des scripts à droite à gauche, et surtout un state gérer par ces frameworks. De bases un state, c'est super, ça permet de communiquer de la data entre différentes parties de l'application de façon efficace. Dans la pratique chaque framework (Ou librairie :) ) gèrent les choses de manière un peu différente. Et c'est là où Redux est apparu, qui se définit comme :
+Je suis développeur web depuis un peu plus de 8 ans. Pendant ces 8 ans, j'ai connu angular, vue.js, aurelia.js, react.js, Embersjs. Et franchement ils ont tous à leur façon révolutionné le web front. Les SPA, l'approche composant plutôt que balancer des scripts à droite à gauche, et surtout un state gérer par ces frameworks. De base un state, c'est super, ça permet de communiquer de la data entre différentes parties de l'application de façon efficace. Dans la pratique chaque framework (Ou librairie :) ) gère les choses de manière un peu différente. Et c'est là où Redux est apparu, qui se définit comme :
 
 > Redux a Predictable State Container for JS Apps
 
-Redux vient avec sa philosophie et tant que 'state manager' agnostique, et qui peut donc être utilisé sur l'ensemble des frameworks.
+Redux vient avec sa philosophie en tant que 'state manager' agnostique, et qui peut donc être utilisé sur l'ensemble des frameworks.
 
 ## Redux
 
 Petit disclaimer, je suis expert sur React, donc l'ensemble des exemples sont faits sur React. Mais aujourd'hui vu qu'on parle de redux, l'ensemble de ce que je vais dire reste vrai même si vous utilisez angular, svelte où du vanilla js etc.
-L'une des raisons pour lesquelles Redux a connu un tel succès sur React était le fait que React-Redux a résolu le problème de '[props drilling](https://kentcdodds.com/blog/prop-drilling)'. Le fait que vous puissiez partager des données entre différentes parties de votre arborescence en passant simplement votre composant dans une fonction à régler un des plus gros soucis de React à l'époque. Le souci, c'est que toute la philosophie derrière Redux a été mise de coter, et il a été utilisé seulement pour régler ce souci de 'props driling'. Même si React c'est bien améliorer dans la gestion de son stage, redux est encore très souvent utilisé, et souvent mal optimiser. J'ai récemment travaillé sur un projet dont mon rôle était de supprimer Redux pour mettre du context React à la place. La raison principale :
+L'une des raisons pour lesquelles Redux a connu un tel succès sur React était le fait que React-Redux a résolu le problème de '[props drilling](https://kentcdodds.com/blog/prop-drilling)'. Le fait que vous puissiez partager des données entre différentes parties de votre arborescence en passant simplement votre composant dans une fonction à régler un des plus gros soucis de React à l'époque. Le souci, c'est que toute la philosophie derrière Redux a été mise de côté, et il a été utilisé seulement pour régler ce souci de 'props driling'. Même si React c'est bien amélioré dans la gestion de son stage, redux est encore très souvent utilisé, et souvent mal optimisé. J'ai récemment travaillé sur un projet dont mon rôle était de supprimer Redux pour mettre du context React à la place. La raison principale :
 
 > Redux, c'est lent, et compliqué à utiliser, beaucoup trop verbeux.
 
@@ -150,7 +150,7 @@ Mauvaise nouvelle, vous avez oublié de rajouter le dispatch sur le deuxième bo
 
 Dans les bonnes pratiques de Redux, il y a une chose qui est très souvent oubliée ou juste pas connue, c'est [de traiter les actions comme des événements et pas des setters](https://redux.js.org/style-guide/#model-actions-as-events-not-setters). Alors qu'est ce que ça donne quand on essaye de prendre ça en compte.
 
-Reprennons notre bouton :
+Reprenons notre bouton :
 
 ```js
 // Component/Button.js
@@ -220,7 +220,7 @@ const lotterieReducer = (state = initialState, action) => {
 };
 ```
 
-Et ben oui en pensant nos actions comme des événements et non des setters, on peut faire plusieurs actions avec un seul Dispatch. Ca peut paraitre un peu simple, mais je vous assure que sur une grosse app ça fait toute la différence pour la maintenance et la robustesse. Tout simplement en pensant un tout petit peut différement.
+Et ben oui en pensant nos actions comme des événements et non des setters, on peut faire plusieurs actions avec un seul Dispatch. Ca peut paraitre un peu simple, mais je vous assure que sur une grosse app ça fait toute la différence pour la maintenance et la robustesse. Tout simplement en pensant un tout petit peu différement.
 
 ## Avantages de l'approche événementielle :
 
