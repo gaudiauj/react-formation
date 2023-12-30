@@ -79,7 +79,7 @@ export default function SplitWithImage() {
           <Heading as="h1">Une entreprise dédiée à la formation</Heading>
           <Text color={textColor} fontSize={"lg"}>
             Je suis Jean fondateur de React-Formation. Mon aventure dans le
-            monde du développement web commence à mes 12 ans, ou je découvre sur
+            monde du développement web commence à mes 12 ans, où je découvre sur
             le vieil ordinateur familial, la programmation. Adepte du site du
             zéro maintenant devenu depuis{" "}
             <Link href="https://openclassrooms.com/fr/" isExternal>
@@ -90,23 +90,23 @@ export default function SplitWithImage() {
           <Text color={textColor} fontSize={"lg"}>
             Cette passion me suit donc depuis mon adolescence et c'est tout
             naturellement que j'en fais mon métier. En 2015, la vraie aventure
-            commence et je commence mon premier travail en tant que développeur
+            démare et je commence mon premier travail en tant que développeur
             Full-stack PHP, js. En 201, je me spécialise dans le front, et plus
-            Particulièrement React.
+            particulièrement React.
           </Text>
           <Text color={textColor} fontSize={"lg"}>
             Depuis, j'ai eu la chance de travailler pour de nombreuses
             entreprises. De la petite startup et ses 2 cofondateurs, à la grosse
-            multinational et ses milliers de collaborateurs. Et un constat,
+            multinationale et ses milliers de collaborateurs. Et un constat,
             j'aime échanger, partager et apprendre.
           </Text>
           <Text color={textColor} fontSize={"lg"}>
             Je me décide donc à lancer mon entreprise de formation sur mon sujet
             de prédilection, React. Mon objectif, aider les entreprises à
-            construire des application, robuste, rapide et bien testé, mais
+            construire des applications, robustes, rapides et bien testées, mais
             surtout aider les développeurs à mieux comprendre le fonctionnement
-            de React et d'être plus confiant, plus rapide et plus impliqué dans
-            leur travail.
+            de React et à être plus confiants, plus rapides et plus impliqués
+            dans leur travail.
           </Text>
           <Stack
             spacing={8}

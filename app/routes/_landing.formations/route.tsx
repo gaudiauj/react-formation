@@ -80,9 +80,9 @@ export default function SimpleThreeColumns() {
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Feature
           icon={<Icon as={FcSupport} w={10} h={10} />}
-          title={"Une meilleur qualité pour vos projets"}
+          title={"Une meilleure qualité pour vos projets"}
           text={
-            "Notres objectifs premier est de vous aider à créer des applications de qualité. Nous voulons que vous puissiez vous concentrer sur le développement de fonctionnalités, et non sur la résolution de problèmes de performance ou de bugs. C'est pourquoi nous vous proposons une formation axé autour des fondamentaux de React et sur les tests, afin que vos équipes puissent créer des applications robustes et performantes."
+            "Notre objectifs premier est de vous aider à créer des applications de qualité. Nous voulons que vous puissiez vous concentrer sur le développement de fonctionnalités, et non sur la résolution de problèmes de performance ou de bugs. C'est pourquoi nous vous proposons une formation axé autour des fondamentaux de React et sur les tests, afin que vos équipes puissent créer des applications robustes et performantes."
           }
         />
         <Feature
@@ -101,9 +101,9 @@ export default function SimpleThreeColumns() {
         />
         <Feature
           icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={"Une meilleur communication"}
+          title={"Une meilleure communication"}
           text={
-            "Votre équipe communiquera mieux lorsqu'elle sera sur la même longueur d'onde avec les meilleures pratiques. La programmation dans React est super amusante, mais c'est un nouveau paradigme qui pourrait ne pas être familier aux développeurs même chevronnés. Les ateliers que nous organisons mettent l'accent sur la terminologie, et ainsi rend la communication plus facile."
+            "Votre équipe communiquera mieux lorsqu'elle sera sur la même longueur d'onde avec les meilleures pratiques. La programmation dans React est super amusante, mais c'est un nouveau paradigme qui pourrait ne pas être familier aux développeurs même chevronnés. Les ateliers que nous organisons mettent l'accent sur la terminologie, et ainsi rendent la communication plus facile."
           }
         />
       </SimpleGrid>
@@ -172,7 +172,7 @@ export default function SimpleThreeColumns() {
           <ListItem>
             <strong>Les frameworks</strong> - Plongez dans des frameworks
             populaires tels que Redux, TypeScript, Redux Toolkit, React Query,
-            GraphQL, et découvrez comment ils peuvent améliorer votre flux de
+            GraphQL, et découvrez comment ils puissent améliorer votre flux de
             travail de développement.
           </ListItem>
           <ListItem>
