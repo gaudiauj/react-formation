@@ -54,21 +54,42 @@ export async function createBlog({
   });
 }
 
-export async function getBlogListFromDb() {
+export async function getBlogListFromDb(isAdmin = false) {
   return prisma.blog.findMany({
+    where: isAdmin
+      ? {}
+      : {
+          status: "Done",
+        },
     orderBy: {
-      createdAt: "desc",
+      date: "desc",
+    },
+    include: {
+      blogPage: true,
     },
   });
 }
 
-export async function getBlogPageFromSlug({ slug }: { slug: string }) {
+export async function getBlogPageFromSlug({
+  slug,
+  withBlogPage = true,
+  isAdmin = false,
+}: {
+  slug: string;
+  withBlogPage?: boolean;
+  isAdmin?: boolean;
+}) {
   return prisma.blog.findFirst({
     where: {
       slug,
+      ...(isAdmin
+        ? {}
+        : {
+            status: "Done",
+          }),
     },
     include: {
-      blogPage: true,
+      blogPage: withBlogPage,
     },
   });
 }

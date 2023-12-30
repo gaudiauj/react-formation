@@ -13,7 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { createAndUpdateBlogFromNotion } from "~/utils/createBlogFromNotion.server";
+import { getBlogList } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
 import { countWords } from "~/utils/countWords";
 
@@ -30,7 +30,7 @@ export const meta: MetaFunction = () => {
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const isCurrentUserAdmin = await isAdmin(request);
-  const blogList = await createAndUpdateBlogFromNotion(!!isCurrentUserAdmin);
+  const blogList = await getBlogList({ isAdmin: !!isCurrentUserAdmin });
   return { blogList };
 };
 
@@ -47,6 +47,9 @@ export default function Index() {
   const { blogList } = useLoaderData<typeof loader>();
   const headerColor = useColorModeValue("brand.500", "brand.300");
   const infoColor = useColorModeValue("gray.600", "gray.300");
+  if (!blogList || !blogList.length) {
+    return <div> Oups, il n'y a pas encore de Posts</div>;
+  }
   return (
     <Container maxW={"5xl"} py={12} px={8}>
       <Heading as="h1" color={headerColor} marginBottom={4}>

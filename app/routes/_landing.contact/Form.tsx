@@ -12,7 +12,6 @@ import {
   AlertIcon,
   Input,
   Link,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { Form, Link as RemixLink } from "@remix-run/react";
 import { BsFillBuildingFill, BsPerson } from "react-icons/bs";

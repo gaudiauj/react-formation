@@ -5,13 +5,13 @@ import type {
 } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { useLoaderData, Link } from "@remix-run/react";
-import { getBlogListFromDb, getBlogPageFromSlug } from "~/models/blog.server";
+import { getBlogListFromDb } from "~/models/blog.server";
 import Markdown from "markdown-to-jsx";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import styles from "./blog.css";
 import { useEffect } from "react";
-import { getMarkdownAndUpdateFromNotion } from "~/utils/createBlogFromNotion.server";
+import { getBlogPost } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css";
 import type { blog } from "@prisma/client";
@@ -84,8 +84,7 @@ export const links: LinksFunction = () => [
 export const handle = {
   getSitemapEntries: async () => {
     const blogs = await getBlogListFromDb();
-    const onlineBlogs = blogs.filter((blog) => blog.status === "Done");
-    return onlineBlogs.map((blog) => ({
+    return blogs.map((blog) => ({
       url: `/blog/${blog.slug}`,
       lastmod: blog.lastChange || blog.date,
       priority: 0.7,
@@ -95,21 +94,22 @@ export const handle = {
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const isCurrentUserAdmin = await isAdmin(request);
-  const pageContent = await getMarkdownAndUpdateFromNotion(
-    params.slug || "",
-    !!isCurrentUserAdmin
-  );
-  const blogData = await getBlogPageFromSlug({ slug: params.slug || "" });
+
+  const blogData = await getBlogPost({
+    slug: params.slug || "",
+    isAdmin: !!isCurrentUserAdmin,
+  });
 
   if (!blogData) {
     return redirect("/404");
   }
 
-  return { markdown: pageContent?.markdown || "", blogData };
+  return { blogData };
 };
 
 export default function Index() {
-  const { markdown, blogData } = useLoaderData<typeof loader>();
+  const { blogData } = useLoaderData<typeof loader>();
+  const markdown = blogData?.blogPage?.markdown;
   const infoColor = useColorModeValue("gray.600", "gray.300");
   const BreadcrumbColor = useColorModeValue("brand.700", "brand.300");
   useEffect(() => {
@@ -130,14 +130,14 @@ export default function Index() {
 
         <BreadcrumbItem isCurrentPage>
           <BreadcrumbLink as={Link} to="#">
-            <Text noOfLines={1}> {blogData.title}</Text>
+            <Text noOfLines={1}> {blogData?.title}</Text>
           </BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
       <AspectRatio maxW="4xl" ratio={4 / 3}>
         <Img
           src={
-            blogData.image ||
+            blogData?.image ||
             "https://react-formation.fr/blogEffectDependencies.webp"
           }
           alt=""
@@ -147,7 +147,7 @@ export default function Index() {
           height={"100%"}
         />
       </AspectRatio>
-      {!!blogData.date && (
+      {!!blogData?.date && (
         <Text color={infoColor} size="sm">
           <time dateTime={blogData.date}>{formatDate(blogData.date)}</time>
         </Text>
@@ -158,7 +158,7 @@ export default function Index() {
         {Math.round(countWords(blogData?.blogPage?.markdown || "") / 200)} min
       </Text>
       <Container maxW="3xl" padding={0}>
-        <Markdown className="blog">{markdown}</Markdown>
+        <Markdown className="blog">{markdown || ""}</Markdown>
       </Container>
     </Container>
   );

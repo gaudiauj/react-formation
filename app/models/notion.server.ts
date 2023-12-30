@@ -25,13 +25,14 @@ export const getDatabaseBlog = async () => {
 
 export const getPageContent = async ({ id }: { id: string }) => {
   try {
-    const cachedPage = myCache.get(`page-${id}`);
+    const cachedPage = myCache.get(`blog-page-${id}`);
     if (cachedPage) return cachedPage;
     const page = await notion.blocks.children.list({ block_id: id });
-    //@ts-expect-error
-    const markdown = page.results[0].code.rich_text[0].plain_text;
-    myCache.set(`page-${id}`, markdown, 60 * 60 * 24);
-    return markdown;
+    const markdown =
+      //@ts-expect-error
+      page.results[0] && page.results[0].code.rich_text[0].plain_text;
+    myCache.set(`blog-page-${id}`, markdown);
+    return markdown || "";
   } catch (error) {
     console.error(error);
   }
