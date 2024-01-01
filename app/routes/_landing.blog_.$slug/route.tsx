@@ -24,6 +24,13 @@ import {
   AspectRatio,
   Img,
   useColorModeValue,
+  Card,
+  Avatar,
+  Box,
+  CardBody,
+  CardHeader,
+  Flex,
+  Heading,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { countWords } from "~/utils/countWords";
@@ -179,6 +186,41 @@ export default function Index() {
       </Text>
       <Container maxW="3xl" padding={0}>
         <Markdown className="blog">{markdown || ""}</Markdown>
+        <Card display="flex">
+          <CardHeader>
+            <Heading size="md" as="h3">
+              A propos de l'auteur
+            </Heading>
+          </CardHeader>
+          <CardBody padding={"0 16px 16px 16px"}>
+            <Flex>
+              <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
+                <Avatar
+                  name="Jean Gaudiau"
+                  src="https://media.licdn.com/dms/image/C4D03AQFOmF3pgFBkKQ/profile-displayphoto-shrink_400_400/0/1530119054708?e=1709769600&v=beta&t=se54yp3ALhoBVMCyMLGt7K_-HvECoRbFj4Un8v8EKGM"
+                />
+                <Box>
+                  <Heading size="sm" as="h3">
+                    Jean Gaudiau
+                  </Heading>
+                  <Text color={infoColor} margin={0}>
+                    freelance, formateur
+                  </Text>
+                </Box>
+              </Flex>
+            </Flex>
+            <Text>
+              Je suis un expert React.js pour qui la qualité et la fiabilité des
+              applications est ma priorité. Je suis disponible en tant que
+              freelance pour renforcer vos équipes, ou bien en tant que
+              formateur sur React tout niveau. Vous pouvez me contacter via mon{" "}
+              <Link to={"https://www.linkedin.com/in/jean-gaudiau-50b10439/"}>
+                Linkedin
+              </Link>{" "}
+              ou la page de <Link to={"/contact"}>contact</Link>
+            </Text>
+          </CardBody>
+        </Card>
       </Container>
     </Container>
   );
