@@ -48,6 +48,50 @@ export const meta: MetaFunction = ({ data }) => {
       content: blogData.metaDescription || blogData.title,
     },
     {
+      property: "og:title",
+      content: blogData.metaDescription || blogData.title,
+    },
+    {
+      property: "og:image",
+      content: blogData.image || "https://react-formation.fr/logo.jpg",
+    },
+    {
+      property: "og:type",
+      content: `article`,
+    },
+    {
+      property: "og:description",
+      content: blogData.metaDescription,
+    },
+    {
+      property: "og:image",
+      content: blogData.image || "https://react-formation.fr/logo.jpg",
+    },
+    {
+      property: "og:site_name",
+      content: "react-formation",
+    },
+    {
+      name: "twitter:title",
+      content: blogData.metaDescription || blogData.title,
+    },
+    {
+      name: "twitter:image",
+      content: blogData.image || "https://react-formation.fr/logo.jpg",
+    },
+    {
+      name: "twitter:card",
+      content: `summary_large_image`,
+    },
+    {
+      name: "twitter:description",
+      content: blogData.metaDescription,
+    },
+    {
+      name: "og:image",
+      content: blogData.image || "https://react-formation.fr/logo.jpg",
+    },
+    {
       name: "image",
       content: blogData.image || "https://react-formation.fr/logo.jpg",
     },
