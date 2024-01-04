@@ -76,12 +76,14 @@ export default function SplitWithImage() {
           >
             Qui somme nous ?
           </Text>
-          <Heading as="h1">Une entreprise dédiée à la formation</Heading>
+          <Heading as="h1">
+            Une entreprise dédiée à la formation et au mentoring
+          </Heading>
           <Text color={textColor} fontSize={"lg"}>
-            Je suis Jean fondateur de React-Formation. Mon aventure dans le
-            monde du développement web commence à mes 12 ans, où je découvre sur
-            le vieil ordinateur familial, la programmation. Adepte du site du
-            zéro maintenant devenu depuis{" "}
+            Je suis Jean Gaudiau, fondateur de React-Formation. Mon aventure
+            dans le monde du développement web commence à mes 12 ans, où je
+            découvre sur le vieil ordinateur familial, la programmation. Adepte
+            du site du zéro maintenant devenu depuis{" "}
             <Link href="https://openclassrooms.com/fr/" isExternal>
               openclassroom
             </Link>
@@ -101,12 +103,12 @@ export default function SplitWithImage() {
             j'aime échanger, partager et apprendre.
           </Text>
           <Text color={textColor} fontSize={"lg"}>
-            Je me décide donc à lancer mon entreprise de formation sur mon sujet
-            de prédilection, React. Mon objectif, aider les entreprises à
-            construire des applications, robustes, rapides et bien testées, mais
-            surtout aider les développeurs à mieux comprendre le fonctionnement
-            de React et à être plus confiants, plus rapides et plus impliqués
-            dans leur travail.
+            Je me décide donc à lancer mon entreprise de formation et mentoring
+            sur mon sujet de prédilection, React. Mon objectif, aider les
+            entreprises à construire des applications, robustes, rapides et bien
+            testées, mais surtout aider les développeurs à mieux comprendre le
+            fonctionnement de React et à être plus confiants, plus rapides et
+            plus impliqués dans leur travail.
           </Text>
           <Stack
             spacing={8}
@@ -124,12 +126,12 @@ export default function SplitWithImage() {
                 <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />
               }
               iconBg={useColorModeValue("yellow.100", "yellow.900")}
-              text={"Une formation par un formateur spécialiste et passionné"}
+              text={"Un suivi par un spécialiste et passionné"}
             />
             <Feature
               icon={<Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />}
               iconBg={useColorModeValue("green.100", "green.900")}
-              text={"Une formation sur mesure pour vos collaborateurs"}
+              text={"Un suivi sur mesure pour vos collaborateurs"}
             />
           </Stack>
         </Stack>

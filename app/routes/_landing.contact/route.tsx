@@ -27,7 +27,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Contactez l'équipe de React-Formation pour obtenir des informations supplémentaires sur nos formations en entreprise sur React. Réservez dès maintenant votre session de formation personnalisée et développez les compétences de vos équipes en développement web.",
+        "Contactez l'équipe de React-Formation pour obtenir des informations supplémentaires sur nos formations et nos offres de mentorat en entreprise sur React. Réservez dès maintenant votre session de formation personnalisée et développez les compétences de vos équipes en développement web.",
     },
   ];
 };
@@ -168,9 +168,9 @@ export default function ContactFormWithSocialButtons() {
                   }}
                   mb={4}
                 >
-                  Faites-nous savoir vos besoins, demandes de formation, ou
-                  questions générales. Nous répondons généralement dans un délai
-                  d'un jour.
+                  Faites-nous savoir vos besoins, demandes de mentorat
+                  ,formation, ou questions générales. Nous répondons
+                  généralement dans un délai d'un jour.
                 </Heading>
                 <Form isLoading={isCreating} actionData={actionData} />
               </Box>

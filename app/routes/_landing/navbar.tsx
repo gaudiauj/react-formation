@@ -14,21 +14,38 @@ import {
   useDisclosure,
   useColorMode,
   useTheme,
+  useOutsideClick,
 } from "@chakra-ui/react";
 import { SkipNavLink } from "@chakra-ui/skip-nav";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon,
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
 import Logo from "~/assets/logo";
-import { NavLink as RemixLink } from "@remix-run/react";
+import {
+  NavLink as RemixLink,
+  useLocation,
+  useNavigation,
+} from "@remix-run/react";
+import { useEffect, useRef } from "react";
 
 export default function WithSubnavigation() {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+  const ref = useRef(null);
+  useOutsideClick({
+    ref,
+    handler: () => onClose(),
+  });
+  const navigation = useNavigation();
+  useEffect(() => {
+    if (navigation.state === "loading") {
+      onClose();
+    }
+  }, [navigation.state, onClose]);
+
   const { colorMode, toggleColorMode } = useColorMode();
   const theme = useTheme();
 
@@ -39,6 +56,7 @@ export default function WithSubnavigation() {
         aria-label="Navigation principal"
         position={"fixed"}
         w={"100%"}
+        ref={ref}
         zIndex={9999}
       >
         <SkipNavLink>Skip to content</SkipNavLink>
@@ -122,6 +140,7 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const location = useLocation();
 
   return (
     <Stack direction={"row"} spacing={4} as="ul" style={{ listStyle: "none" }}>
@@ -129,22 +148,36 @@ const DesktopNav = () => {
         <Box key={navItem.label} as="li">
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-              <Link
-                p={2}
-                as={RemixLink}
-                prefetch="intent"
-                to={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
-                _activeLink={{ fontWeight: "bold" }}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-              >
-                {navItem.label}
-              </Link>
+              <Box p={2}>
+                <Link
+                  as={RemixLink}
+                  prefetch="intent"
+                  to={navItem.children ? "#" : navItem.href}
+                  fontSize={"sm"}
+                  fontWeight={500}
+                  onClick={(e) => {
+                    if (navItem.children) {
+                      e.preventDefault();
+                    }
+                  }}
+                  color={linkColor}
+                  _activeLink={{ fontWeight: navItem.children ? "" : "bold" }}
+                  sx={{
+                    fontWeight:
+                      navItem.children &&
+                      location.pathname.includes(navItem.href || "")
+                        ? "bold"
+                        : "",
+                  }}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+                {navItem.children && <ChevronDownIcon></ChevronDownIcon>}
+              </Box>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -171,6 +204,8 @@ const DesktopNav = () => {
 };
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  const textColor = useColorModeValue("gray.600", "gray.200");
+
   return (
     <Link
       to={href || ""}
@@ -178,32 +213,18 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("brand.100", "brand.700") }}
+      _activeLink={{ fontWeight: "bold" }}
       as={RemixLink}
       prefetch="intent"
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
-          <Text
-            transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
-            fontWeight={500}
-          >
+          <Text transition={"all .3s ease"} color={textColor}>
             {label}
           </Text>
           <Text fontSize={"sm"}>{subLabel}</Text>
         </Box>
-        <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}
-        >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
-        </Flex>
       </Stack>
     </Link>
   );
@@ -226,17 +247,23 @@ const MobileNav = () => {
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
+  const textColor = useColorModeValue("gray.600", "gray.200");
 
   return (
-    <Stack spacing={4} onClick={() => children && onToggle}>
+    <Stack spacing={4} onClick={() => children && onToggle()}>
       <Flex
         py={2}
         as={RemixLink}
-        to={href ?? "#"}
+        to={children ? href : "#"}
+        onClick={(e) => {
+          if (children) {
+            e.preventDefault();
+          }
+        }}
         justify={"space-between"}
         align={"center"}
         _hover={{
-          textDecoration: "none",
+          textDecoration: "underline",
         }}
       >
         <Text
@@ -272,6 +299,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                 py={2}
                 to={child.href || ""}
                 as={RemixLink}
+                color={textColor}
                 prefetch="intent"
                 _activeLink={{ fontWeight: "bold" }}
               >
@@ -293,8 +321,40 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
+    label: "Mentorat",
+    href: "/mentorat",
+    children: [
+      {
+        label: "Mentorat",
+        href: "mentorat/index",
+      },
+      {
+        label: "Qu'attendre du mentorat ?",
+        href: "mentorat/liste",
+      },
+      {
+        label: "Prix",
+        href: "mentorat/prix",
+      },
+    ],
+  },
+  {
     label: "La formation",
     href: "/formations",
+    children: [
+      {
+        label: "Plan de la formation",
+        href: "formations/plan",
+      },
+      {
+        label: "Formation FAQ",
+        href: "formations/faq",
+      },
+      {
+        label: "Prix",
+        href: "formations/prix",
+      },
+    ],
   },
   {
     label: "Qui somme nous ?",

@@ -10,7 +10,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { Link as RemixLink } from "@remix-run/react";
-import { FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import type { ReactNode } from "react";
 import Logo from "../../assets/logo";
 
@@ -75,7 +75,7 @@ export default function SmallCentered() {
             code de conduite
           </Link>
           <Link as={RemixLink} to={"/rgpd"}>
-            rgpd
+            RGPD
           </Link>
         </Stack>
       </Container>
@@ -94,7 +94,7 @@ export default function SmallCentered() {
           justify={{ base: "center", md: "space-between" }}
           align={{ base: "center", md: "center" }}
         >
-          <Text>© 2023 React Formation</Text>
+          <Text>© 2024 React Formation</Text>
           <Stack direction={"row"} spacing={6} alignItems="center">
             <Link href="mailto:contact@react-formation.fr" color={linkColor}>
               contact@react-formation.fr
@@ -105,8 +105,11 @@ export default function SmallCentered() {
             >
               <FaLinkedin />
             </SocialButton>
-            <SocialButton label={"YouTube"} href={"#"}>
-              <FaYoutube />
+            <SocialButton
+              label={"X | Twitter"}
+              href={"https://twitter.com/JGaudiau"}
+            >
+              <FaTwitter />
             </SocialButton>
           </Stack>
         </Container>
