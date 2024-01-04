@@ -130,7 +130,7 @@ export default function Index() {
                     as={Link}
                     variant={"link"}
                     size={"sm"}
-                    to="/formations"
+                    to="/mentorat/index"
                   >
                     Détail du mentorat
                   </Button>
