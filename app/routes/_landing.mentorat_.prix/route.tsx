@@ -46,7 +46,7 @@ export default function SimpleThreeColumns() {
       >
         <Box textAlign="center">
           <chakra.h2 fontSize="2xl" fontWeight="bold">
-            Formation sur mesure
+            Mentorat sur mesure
           </chakra.h2>
           <Box fontSize="5xl" fontWeight="bold">
             <Text fontSize="3xl" fontWeight="normal" top="-1em">
@@ -100,7 +100,7 @@ export default function SimpleThreeColumns() {
           rounded="md"
           w="100%"
         >
-          Réservez votre formation
+          Reservez votre mentor
         </Button>
       </Box>
       <Heading

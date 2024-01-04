@@ -98,7 +98,7 @@ export default function SimpleThreeColumns() {
           rounded="md"
           w="100%"
         >
-          Reservez votre mentor
+          Réservez votre formation
         </Button>
       </Box>
       <Heading

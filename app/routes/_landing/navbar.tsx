@@ -254,7 +254,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
       <Flex
         py={2}
         as={RemixLink}
-        to={children ? href : "#"}
+        to={children ? "#" : href}
         onClick={(e) => {
           if (children) {
             e.preventDefault();
