@@ -219,7 +219,7 @@ export default function Index() {
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
-              est-ce que la formation est en personne ou à distance ?
+              Est-ce que la formation est en personne ou à distance ?
             </Heading>
             <Text>
               Notre formation peut être en présentiel ou à distance. Si possible
