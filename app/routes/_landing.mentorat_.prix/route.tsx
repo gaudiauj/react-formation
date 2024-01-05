@@ -113,12 +113,9 @@ export default function SimpleThreeColumns() {
       </Heading>
       <Text>
         Chez React-formation, nous comprenons que chaque équipe a des besoins
-        uniques. C'est pourquoi nous proposons des formations React entièrement
-        personnalisées, avec des tarifs ajustés en fonction de vos exigences
-        spécifiques et du nombre de participants. Que vous cherchiez une
-        introduction aux bases de React pour quelques membres de votre équipe ou
-        une formation approfondie pour un groupe plus large, nous sommes là pour
-        répondre à vos besoins avec flexibilité et expertise.
+        uniques. C'est pourquoi nous proposons une tarification à l'heure. Pas
+        de soucis à vous faire, si vous lors de nos sessions nous passons 1H10
+        ou même 1H20 au lieu d'une heure, nous ne vous facturerons pas 2H.
       </Text>
       <Heading
         as="h2"
@@ -126,30 +123,15 @@ export default function SimpleThreeColumns() {
         fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
         color={"brand.400"}
       >
-        Une Formation de Qualité
+        flexibilité
       </Heading>
       <Text>
-        Nous tenons à informer nos clients que, bien que nous offrions des
-        formations de haute qualité, nous ne disposons pas (encore) de la
-        certification Qualiopi. Cependant, notre engagement envers l'excellence
-        pédagogique et la satisfaction client reste notre priorité absolue. Nous
-        continuons à fournir des formations React exceptionnelles, axées sur des
-        résultats concrets et une amélioration tangible des compétences de votre
-        équipe.
-      </Text>
-      <Heading
-        as="h2"
-        my={4}
-        fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-        color={"brand.400"}
-      >
-        Contactez-Nous
-      </Heading>
-      <Text>
-        Pour plus d'informations sur nos tarifs, ou pour discuter de vos besoins
-        de formation spécifiques, n'hésitez pas à nous contacter. Nous sommes là
-        pour vous aider à élaborer un plan de formation qui répond parfaitement
-        à vos attentes et à votre budget.
+        Notre objectif est de vous offrir une flexibilité maximale pour répondre
+        à vos besoins en mentorat en entreprise. Si vous souhaitez discuter des
+        tarifs spécifiques pour votre entreprise ou si vous avez des questions
+        sur nos services, n'hésitez pas à nous contacter. Nous serions ravis de
+        vous fournir un devis personnalisé et de discuter de la manière dont
+        nous pouvons vous aider à atteindre vos objectifs.
       </Text>
       <Center w="full" mt={4}>
         <Button
@@ -160,7 +142,7 @@ export default function SimpleThreeColumns() {
           size="sm"
           rounded="md"
         >
-          Contactez nous
+          Reservez votre mentor
         </Button>
       </Center>
     </Container>
