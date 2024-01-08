@@ -41,20 +41,21 @@ export default function SimpleThreeColumns() {
         m={{ base: 5, md: 10, lg: 10 }}
         color={"brand.400"}
       >
-        La formation React
+        Formation React
       </Heading>
       <Heading as={"h2"} mb={4} mt={8} fontSize={"xl"} color={"brand.400"}>
-        Une formation adaptée à tous les niveaux
+        Une formation React adaptée à tous les niveaux
       </Heading>
       <Text>
         Que vous souhaitiez maîtriser les bases ou explorer des aspects plus
-        complexes de React, notre formation est structurée pour couvrir un large
-        éventail de sujets. Des fondamentaux de React aux techniques avancées et
-        aux meilleures pratiques, chaque module est conçu pour renforcer les
-        compétences de vos équipes et améliorer la qualité de vos projets.
+        complexes de React, notre formation React est structurée pour couvrir un
+        large éventail de sujets. Des fondamentaux de React aux techniques
+        avancées et aux meilleures pratiques, chaque module est conçu pour
+        renforcer les compétences de vos équipes et améliorer la qualité de vos
+        projets.
       </Text>
       <Heading as={"h2"} mb={4} mt={8} fontSize={"xl"} color={"brand.400"}>
-        Orienté vers la pratique !
+        Une formation orientée vers la pratique !
       </Heading>
       <Text>
         Nous croyons fermement à l'apprentissage par la pratique. C'est pourquoi
@@ -65,7 +66,7 @@ export default function SimpleThreeColumns() {
         acquises.
       </Text>
       <Heading as={"h2"} mb={4} mt={8} fontSize={"xl"} color={"brand.400"}>
-        Axée sur l'architecture logicielle
+        Une formation axée sur l'architecture logicielle
       </Heading>
       <Text>
         Notre formation met un accent particulier sur l'architecture logicielle,

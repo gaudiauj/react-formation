@@ -26,18 +26,17 @@ export default function MentoratPage() {
         Mentorat en entreprise sur React
       </Heading>
       <Heading as="h2" fontSize="2xl" mb={4} color={"brand.400"}>
-        Un expert React pour votre entreprise
+        Un mentor expert React pour votre entreprise
       </Heading>
       <Text fontSize="lg" mb={6}>
         Notre offre de mentorat en entreprise vise à fournir aux start-ups et
         aux petites entreprises l'assistance d'un développeur senior expérimenté
-        en développement React, sans avoir à en embaucher un à temps plein. Nos
-        services de mentorat sont conçus pour répondre à vos besoins spécifiques
-        en matière de développement et d'amélioration de vos compétences en
-        React.
+        sur React, sans avoir à en embaucher un à temps plein. Nos services de
+        mentorat sont conçus pour répondre à vos besoins spécifiques en matière
+        de développement et d'amélioration de vos compétences en React.
       </Text>
       <Heading as="h2" fontSize="2xl" mb={4} color={"brand.400"}>
-        Disponible directement via chat ou en personne
+        Un mentor disponible directement via chat ou en personne
       </Heading>
       <Text fontSize="lg" mb={6}>
         Vous pouvez nous contacter via les plateformes de messagerie
