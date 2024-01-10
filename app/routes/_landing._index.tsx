@@ -24,7 +24,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Bénéficiez de notre expertise en TypeScript et JavaScript avec des exercices pratiques. Découvrez notre service de mentorat en entreprise : coaching personnalisé, revues de code, et support flexible sans engagement à long terme. Payez uniquement pour les interventions réalisées. Transformez votre équipe avec une formation adaptée à vos besoins en React.",
+        "Bénéficiez de notre formation React tous niveaux. Ou découvrez notre service de mentorat en entreprise : coaching personnalisé, revues de code, et support flexible sans engagement à long terme.",
     },
   ];
 };
@@ -92,7 +92,7 @@ export default function Index() {
                 w={"md"}
               >
                 <Heading mb={8} color={"brand.400"} fontSize="2xl">
-                  Mentorat en entreprise sur demande
+                  Mentorat et coaching React en entreprise sur demande
                 </Heading>
                 <List spacing={3} fontSize={"xl"}>
                   <ListItem>
@@ -112,7 +112,7 @@ export default function Index() {
                   </ListItem>
                   <ListItem>
                     <ListIcon as={CheckIcon} color="blue.400" />
-                    Payer seulement pour les interventions réalisées
+                    Payez seulement pour les interventions réalisées
                   </ListItem>
                 </List>
                 <Stack
@@ -143,7 +143,7 @@ export default function Index() {
                 w="md"
               >
                 <Heading mb={8} color={"brand.400"} fontSize="2xl">
-                  Des Formations sur mesures
+                  Des Formations React sur mesures
                 </Heading>
                 <List spacing={3} fontSize={"xl"}>
                   <ListItem>
