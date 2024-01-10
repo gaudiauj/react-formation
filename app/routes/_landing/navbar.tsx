@@ -145,39 +145,40 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4} as="ul" style={{ listStyle: "none" }}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label} as="li">
+        <Box key={navItem.label} as="li" display={"flex"} alignItems="center">
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-              <Box p={2}>
-                <Link
-                  as={RemixLink}
-                  prefetch="intent"
-                  to={navItem.children ? "#" : navItem.href}
-                  fontSize={"sm"}
-                  fontWeight={500}
-                  onClick={(e) => {
-                    if (navItem.children) {
-                      e.preventDefault();
-                    }
-                  }}
-                  color={linkColor}
-                  _activeLink={{ fontWeight: navItem.children ? "" : "bold" }}
-                  sx={{
-                    fontWeight:
-                      navItem.children &&
-                      location.pathname.includes(navItem.href || "")
-                        ? "bold"
-                        : "",
-                  }}
-                  _hover={{
-                    textDecoration: "none",
-                    color: linkHoverColor,
-                  }}
-                >
-                  {navItem.label}
-                </Link>
-                {navItem.children && <ChevronDownIcon></ChevronDownIcon>}
-              </Box>
+              <Link
+                p={2}
+                as={RemixLink}
+                prefetch="intent"
+                to={navItem.children ? "#" : navItem.href}
+                fontSize={"sm"}
+                fontWeight={500}
+                onClick={(e) => {
+                  if (navItem.children) {
+                    e.preventDefault();
+                  }
+                }}
+                color={linkColor}
+                _activeLink={{ fontWeight: navItem.children ? "" : "bold" }}
+                sx={{
+                  fontWeight:
+                    navItem.children &&
+                    location.pathname.includes(navItem.href || "")
+                      ? "bold"
+                      : "",
+                }}
+                _hover={{
+                  textDecoration: "none",
+                  color: linkHoverColor,
+                }}
+              >
+                {navItem.label}
+                {navItem.children && (
+                  <ChevronDownIcon marginLeft={2}></ChevronDownIcon>
+                )}
+              </Link>
             </PopoverTrigger>
 
             {navItem.children && (

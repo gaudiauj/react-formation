@@ -24,7 +24,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Bénéficiez de notre formation React tous niveaux. Ou découvrez notre service de mentorat en entreprise : coaching personnalisé, revues de code, et support flexible sans engagement à long terme.",
+        "Rejoignez React-Formation.fr pour des formations spécialisées et du mentorat en entreprise sur React. Profitez d'un coaching sur mesure, de revues de code et d'un support flexible. Parfait pour les équipes cherchant à exceller en React.js, avec des options de formation React à distance et en présentiel",
     },
   ];
 };
