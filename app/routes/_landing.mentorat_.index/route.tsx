@@ -59,6 +59,15 @@ export default function MentoratPage() {
         N'hésitez pas à nous contacter pour discuter de vos besoins et pour
         réserver votre session de mentorat en entreprise.
       </Text>
+      <Heading as="h2" fontSize="2xl" mb={4} color={"brand.400"}>
+        Aide au recrutement React
+      </Heading>
+      <Text fontSize="lg">
+        Vous voulez recruter un nouveau developpeur React ? Nous pouvons vous
+        aider à évaluer les compétences des candidats et à identifier les
+        meilleurs profils. Nous discutons avec vous de vos besoins et de vos
+        attententes, et nous vous aidons à trouver le candidat idéal.
+      </Text>
       <Flex justifyContent={"center"} mt={8}>
         <Button as={Link} rounded={"full"} to="/contact">
           Contactez-nous pour un devis

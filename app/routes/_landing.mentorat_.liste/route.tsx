@@ -89,6 +89,13 @@ export default function Liste() {
           aidera à identifier et à résoudre rapidement les bugs.
         </ListItem>
         <ListItem>
+          <strong>Aide au recrutement :</strong> Vous voulez recruter un nouveau
+          developpeur React ? Nous pouvons vous aider à évaluer les compétences
+          des candidats et à identifier les meilleurs profils. Nous proposons
+          des tests personnalisés pour évaluer les compétences des candidats via
+          des entretiens techniques et des exercices pratiques.
+        </ListItem>
+        <ListItem>
           <strong>Aide à l'amélioration de la performance :</strong> Nos mentors
           peuvent vous aider à optimiser les performances de votre application
           React de deux manières :
