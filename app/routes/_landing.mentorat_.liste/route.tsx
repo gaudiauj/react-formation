@@ -27,6 +27,9 @@ export default function Liste() {
   return (
     <Container as={"main"} maxW={"3xl"} py={12}>
       <Heading as="h2" fontSize="2xl" mb={4} color={"brand.400"}>
+        Un mentor React pour votre entreprise
+      </Heading>
+      <Heading as="h2" fontSize="xl" mb={4} color={"brand.400"}>
         Liste des services possible
       </Heading>
       <Box
