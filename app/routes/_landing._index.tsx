@@ -47,30 +47,37 @@ export default function Index() {
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <Stack spacing={6} w={"full"} maxW={"full"}>
             <Box>
-              <Heading as="h1" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-                <Text
-                  as={"span"}
-                  position={"relative"}
-                  css={{
-                    zIndex: 1,
-                  }}
-                  _after={{
-                    content: "''",
-                    width: "full",
-                    height: height,
-                    position: "absolute",
-                    bottom: 1,
-                    left: 0,
-                    bg: "brand.300",
-                    zIndex: -1,
-                  }}
-                >
-                  React
-                </Text>
-                <br />{" "}
+              <Heading
+                as="h1"
+                fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+                display={"flex"}
+                flexDirection={"column-reverse"}
+              >
                 <Text color={"brand.400"} as={"span"}>
                   Formation
                 </Text>{" "}
+                <Box>
+                  <Text
+                    as={"span"}
+                    position={"relative"}
+                    width={"100%"}
+                    css={{
+                      zIndex: 1,
+                    }}
+                    _after={{
+                      content: "''",
+                      width: "full",
+                      height: height,
+                      position: "absolute",
+                      bottom: 1,
+                      left: 0,
+                      bg: "brand.300",
+                      zIndex: -1,
+                    }}
+                  >
+                    React
+                  </Text>
+                </Box>
               </Heading>
               <Heading
                 as="h2"
