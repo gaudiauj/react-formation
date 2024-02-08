@@ -13,6 +13,7 @@ import {
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import { WarningTwoIcon } from "@chakra-ui/icons";
+import Testimonial from "~/components/Testimonial";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,6 +22,100 @@ export const meta: MetaFunction = () => {
       name: "description",
       content:
         "Pourquoi suivre une formation React avec react-formation ? découvrez notre formation react sur mesure et gagner en productivité et en efficacité. Consultez notre plan de formation détaillé sur React en entreprise. Adaptez votre parcours d'apprentissage avec React-Formation et maîtrisez les concepts et les techniques avancées du développement web avec React.",
+    },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org/",
+        "@id": "https://react-formation.fr/formations/plan",
+        "@type": "Course",
+        name: "Formez vous sur React",
+        description:
+          "Une formation sur react en entreprises pour gagner en productivité et en efficacité. Contenu sur mesure adapté à tous les niveaux, du débutant à l'expert.",
+        publisher: {
+          "@type": "Organization",
+          name: "react-formation",
+          url: "react-formation.fr",
+        },
+        provider: {
+          "@type": "Organization",
+          name: "react-formation",
+          url: "react-formation.fr",
+        },
+        image: [
+          `https://react-formation.fr/resized/pourquoi-useeffect-ne-se-declenche-pas-avec-une-ref_100.png`,
+          `https://react-formation.fr/resized/pourquoi-useeffect-ne-se-declenche-pas-avec-une-ref_133.png`,
+          `https://react-formation.fr/resized/pourquoi-useeffect-ne-se-declenche-pas-avec-une-ref_178.png`,
+        ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: 4.7,
+          bestRating: 5,
+          worstRating: 0,
+          ratingCount: 1,
+          reviewCount: 1,
+        },
+        offers: [
+          {
+            "@type": "Offer",
+            category: "Paid",
+            priceCurrency: "EUR",
+            price: 500,
+          },
+        ],
+        educationalLevel: "Advanced",
+        about: [
+          "React",
+          "front-end",
+          "javascript",
+          "typescript",
+          "web development",
+        ],
+        teaches: [
+          "Les bonnes pratiques de React",
+          "Les hooks avancés",
+          "Les modèles (patterns) avancés",
+          "Optimiser les performances",
+          "Tester les applications React",
+          "Les frameworks",
+          "L'accessibilité",
+        ],
+        inLanguage: "fr",
+        availableLanguage: ["fr"],
+        review: [
+          {
+            "@type": "Review",
+            author: {
+              "@type": "Person",
+              name: "Bastien ho",
+            },
+            datePublished: "2024-02-08",
+            reviewRating: {
+              "@type": "Rating",
+              bestRating: 5,
+              ratingValue: 4.7,
+            },
+          },
+        ],
+        coursePrerequisites: [
+          "Connaissance sur Javascript",
+          "Connaissance sur HTML/CSS",
+        ],
+        hasCourseInstance: [
+          {
+            // Online self-paced course that takes 2 days to complete.
+            "@type": "CourseInstance",
+            courseMode: "Online",
+            courseWorkload: "P2D",
+            instructor: [
+              {
+                "@type": "Person",
+                name: "Jean Gaudiau",
+                description: "Formateur expert React",
+              },
+            ],
+          },
+        ],
+      },
     },
   ];
 };
@@ -63,7 +158,7 @@ export default function SimpleThreeColumns() {
         permettent de saisir en profondeur les concepts clés de React. Chaque
         sujet est abordé avec une approche orientée vers l'action, assurant une
         compréhension complète et une application immédiate des connaissances
-        acquises.
+        obtenues.
       </Text>
       <Heading as={"h2"} mb={4} mt={8} fontSize={"xl"} color={"brand.400"}>
         Une formation axée sur l'architecture logicielle
@@ -132,7 +227,7 @@ export default function SimpleThreeColumns() {
           </ListItem>
           <ListItem>
             <strong>Les hooks</strong> - Plongez dans les hooks, notamment
-            useState, useEffect, useRef, et explorez leur utilisation avancée.
+            useState, useEffect, useRef, et explorez leur utilisations avancée.
           </ListItem>
           <ListItem>
             <strong>Le cycle de vie d'un composant</strong> - Comprenez le cycle
@@ -183,11 +278,45 @@ export default function SimpleThreeColumns() {
           </ListItem>
         </UnorderedList>
       </Stack>
-      <Flex justifyContent={"center"} mt={8}>
+      <Flex
+        mt={8}
+        display="flex"
+        flexDirection={"column"}
+        alignItems={"center"}
+        gap={2}
+      >
         <Button as={Link} rounded={"full"} to="/contact">
           Réservez votre formation React
         </Button>
+        <Link
+          to="/formations/prix"
+          style={{
+            textDecoration: "underline",
+          }}
+        >
+          Voir les tarifs
+        </Link>
       </Flex>
+      <Stack display={"flex"} gap={4} marginBottom={"16px"} marginTop={"16px"}>
+        <Heading
+          as="h2"
+          fontSize={{ base: "4xl", md: "3xl", lg: "2xl" }}
+          color={"brand.400"}
+        >
+          Témoignages
+        </Heading>
+        <Testimonial
+          {...{
+            username: "Bastien Ho",
+            position: "Directeur technique",
+            company: "Avec NOUS",
+            link: "https://www.avecnous.eu/",
+            note: 4.7,
+            content:
+              "Jean a su adapter sa formation à nos différents profils. NOUS avons pu ainsi bénéficier d'une formation sur mesure tant sur le contenu que pour les modalités sans  rogner sur la qualité et la précision. Je recommande vivement.",
+          }}
+        ></Testimonial>
+      </Stack>
     </Container>
   );
 }

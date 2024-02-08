@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "@remix-run/react";
 import { CheckIcon } from "@chakra-ui/icons";
+import Testimonial from "~/components/Testimonial";
 
 export const meta: MetaFunction = () => {
   return [
@@ -41,7 +42,6 @@ export default function Index() {
     <>
       <Stack
         minH={"calc(100vh - 40px)"}
-        direction={{ base: "column", md: "row" }}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
@@ -155,11 +155,11 @@ export default function Index() {
                 <List spacing={3} fontSize={"xl"}>
                   <ListItem>
                     <ListIcon as={CheckIcon} color="blue.400" />
-                    Des formations sur React.js à distance où en présentiel
+                    Des formations sur React.js à distance ou en présentiel
                   </ListItem>
                   <ListItem>
                     <ListIcon as={CheckIcon} color="blue.400" />
-                    Enseignement des fondamentaux et des sujets avancé
+                    Enseignement des fondamentaux et des sujets avancés
                   </ListItem>
                   <ListItem>
                     <ListIcon as={CheckIcon} color="blue.400" />
@@ -198,6 +198,32 @@ export default function Index() {
             </Flex>
           </Stack>
         </Flex>
+        <Stack
+          display={"flex"}
+          alignItems={"center"}
+          gap={4}
+          marginBottom={"16px"}
+        >
+          <Heading
+            as="h2"
+            fontSize={{ base: "2xl", md: "lg", lg: "xl" }}
+            color={"brand.400"}
+            textAlign={"center"}
+          >
+            Témoignages
+          </Heading>
+          <Testimonial
+            {...{
+              username: "Bastien Ho",
+              position: "Directeur technique",
+              company: "Avec NOUS",
+              link: "https://www.avecnous.eu/",
+              note: 4.7,
+              content:
+                "Jean a su adapter sa formation à nos différents profils. NOUS avons pu ainsi bénéficier d'une formation sur mesure tant sur le contenu que pour les modalités sans  rogner sur la qualité et la précision. Je recommande vivement.",
+            }}
+          ></Testimonial>
+        </Stack>
       </Stack>
     </>
   );

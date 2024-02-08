@@ -74,7 +74,7 @@ export default function SimpleThreeColumns() {
           <HStack spacing={3}>
             <Icon as={CheckIcon} h={4} w={4} color="green.500" />
             <Text fontSize="sm" color="gray.500">
-              Enseignement des fondamentaux et des sujets avancé
+              Enseignement des fondamentaux et des sujets avancés
             </Text>
           </HStack>
           <HStack spacing={3}>

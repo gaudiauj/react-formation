@@ -113,9 +113,12 @@ export default function SimpleThreeColumns() {
       </Heading>
       <Text>
         Chez React-formation, nous comprenons que chaque équipe a des besoins
-        uniques. C'est pourquoi nous proposons une tarification à l'heure. Pas
-        de soucis à vous faire, si vous lors de nos sessions nous passons 1H10
-        ou même 1H20 au lieu d'une heure, nous ne vous facturerons pas 2H.
+        uniques. C'est pourquoi nous proposons une tarification à l'heure. Vous
+        ne payez que pour le temps que vous utilisez. Cela vous permet de
+        bénéficier de l'expertise d'un développeur senior sans avoir à embaucher
+        un développeur à temps plein. Nous sommes là pour vous aider à améliorer
+        la qualité de vos projets, à résoudre des problèmes spécifiques ou à
+        accélérer le développement de votre projet.
       </Text>
       <Heading
         as="h2"
@@ -127,11 +130,11 @@ export default function SimpleThreeColumns() {
       </Heading>
       <Text>
         Notre objectif est de vous offrir une flexibilité maximale pour répondre
-        à vos besoins en mentorat en entreprise. Si vous souhaitez discuter des
-        tarifs spécifiques pour votre entreprise ou si vous avez des questions
-        sur nos services, n'hésitez pas à nous contacter. Nous serions ravis de
-        vous fournir un devis personnalisé et de discuter de la manière dont
-        nous pouvons vous aider à atteindre vos objectifs.
+        à vos besoins. Si vous souhaitez discuter des tarifs spécifiques pour
+        votre entreprise ou si vous avez des questions sur nos services,
+        n'hésitez pas à nous contacter. Nous serions ravis de vous fournir un
+        devis personnalisé et de discuter de la manière dont nous pouvons vous
+        aider à atteindre vos objectifs.
       </Text>
       <Center w="full" mt={4}>
         <Button

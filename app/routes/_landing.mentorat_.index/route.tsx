@@ -52,7 +52,7 @@ export default function MentoratPage() {
       <Heading as="h2" fontSize="2xl" mb={4} color={"brand.400"}>
         Des conseils d'experts pour améliorer votre application
       </Heading>
-      <Text fontSize="lg">
+      <Text fontSize="lg" mb={6}>
         Si vous cherchez à améliorer la qualité de votre application, à résoudre
         des problèmes spécifiques ou à accélérer le développement de votre
         projet, notre équipe de mentors expérimentés est là pour vous guider.
@@ -66,12 +66,26 @@ export default function MentoratPage() {
         Vous voulez recruter un nouveau developpeur React ? Nous pouvons vous
         aider à évaluer les compétences des candidats et à identifier les
         meilleurs profils. Nous discutons avec vous de vos besoins et de vos
-        attententes, et nous vous aidons à trouver le candidat idéal.
+        attentes et nous vous aidons à trouver le candidat idéal.
       </Text>
-      <Flex justifyContent={"center"} mt={8}>
+      <Flex
+        display="flex"
+        flexDirection={"column"}
+        alignItems={"center"}
+        gap={2}
+        mt={8}
+      >
         <Button as={Link} rounded={"full"} to="/contact">
           Contactez-nous pour un devis
         </Button>
+        <Link
+          to="/mentorat/prix"
+          style={{
+            textDecoration: "underline",
+          }}
+        >
+          Voir les tarifs
+        </Link>
       </Flex>
     </Container>
   );
