@@ -348,10 +348,6 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "formations/plan",
       },
       {
-        label: "Formation FAQ",
-        href: "formations/faq",
-      },
-      {
         label: "Prix",
         href: "formations/prix",
       },
