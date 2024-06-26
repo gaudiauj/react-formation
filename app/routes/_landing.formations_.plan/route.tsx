@@ -526,34 +526,6 @@ export default function SimpleThreeColumns() {
               .
             </Text>
           </Box>
-          <Box
-            bg={useColorModeValue("gray.50", "gray.900")}
-            px={6}
-            py={10}
-            rounded={"md"}
-          >
-            <Heading
-              as="h3"
-              color={"brand.400"}
-              mb={4}
-              fontSize={{ base: "lg", md: "lg", lg: "xl" }}
-            >
-              La formation React est-elle utile pour mon entreprise ?
-            </Heading>
-            <Text>
-              Former vos collaborateurs est toujours utiles. Vos projets seront
-              de meilleure qualité, vos développeurs seront plus productifs. Si
-              vous avez des questions, n'hésitez pas à nous{" "}
-              <UiLink to={"/contact"} as={Link}>
-                contacter
-              </UiLink>{" "}
-              pour en discuter ou à regarder le détails de la{" "}
-              <UiLink to={"/formations"} as={Link}>
-                formation
-              </UiLink>
-              .
-            </Text>
-          </Box>
         </SimpleGrid>
       </Stack>
     </>
