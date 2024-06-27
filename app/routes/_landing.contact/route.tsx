@@ -143,7 +143,7 @@ export default function ContactFormWithSocialButtons() {
                     aria-label="linkedin"
                     variant="ghost"
                     size="lg"
-                    icon={<InfoIcon size="28px" />}
+                    icon={<InfoIcon />}
                     _hover={{
                       bg: "blue.500",
                       color: useColorModeValue("white", "gray.700"),

@@ -1,4 +1,4 @@
-import { type DataFunctionArgs } from "@remix-run/node";
+// @ts-nocheck
 import { getDomainUrl } from "~/utils/getDomainUrl";
 
 export const toXmlSitemap = (data: any[]) => {

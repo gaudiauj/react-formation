@@ -6,6 +6,7 @@
     "types": ["@remix-run/node", "vite/client"],
     "skipLibCheck": true,
     "module": "ESNext",
+    "moduleResolution": "Node",
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",

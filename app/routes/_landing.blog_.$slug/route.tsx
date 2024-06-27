@@ -15,6 +15,7 @@ import { getBlogPost } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
 import allyDark from "highlight.js/styles/a11y-dark.min.css?url";
 import type { blog } from "@prisma/client";
+// @ts-ignore
 import { serverOnly$ } from "vite-env-only/macros";
 
 import {
