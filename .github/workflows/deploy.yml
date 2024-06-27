@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v4
         with:
           node-version: 20
 
@@ -39,13 +39,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v4
         with:
           node-version: 20
 
@@ -62,13 +62,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⎔ Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -100,16 +100,16 @@ jobs:
   #         - 5455:5432
   #   steps:
   #     - name: 🛑 Cancel Previous Runs
-  #       uses: styfle/cancel-workflow-action@0.11.0
+  #       uses: styfle/cancel-workflow-action@0.12.1
 
   #     - name: ⬇️ Checkout repo
-  #       uses: actions/checkout@v3
+  #       uses: actions/checkout@v4
 
   #     - name: 🏄 Copy test env vars
   #       run: cp .env.example .env
 
   #     - name: ⎔ Setup node
-  #       uses: actions/setup-node@v3
+  #       uses: actions/checkout@v4
   #       with:
   #         node-version: 20
 
@@ -139,10 +139,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 👀 Read app name
         uses: SebRollen/toml-action@v1.0.2
@@ -200,10 +200,10 @@ jobs:
 
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 👀 Read app name
         uses: SebRollen/toml-action@v1.0.2
