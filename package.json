@@ -3,9 +3,9 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "run-s build:*",
-    "dev": "remix dev --manual",
-    "start": "remix-serve ./build/index.js",
+    "dev": "remix vite:dev",
+    "build": "remix vite:build",
+    "start": "remix-serve ./build/server/index.js",
     "build:remix": "remix build",
     "dev:remix": "cross-env NODE_ENV=development binode -- @remix-run/dev:remix dev",
     "format": "prettier --write .",
@@ -35,11 +35,10 @@
     "@nasa-gcn/remix-seo": "^2.0.0",
     "@notionhq/client": "^2.2.14",
     "@prisma/client": "^4.9.0",
-    "@remix-run/css-bundle": "^2.4.1",
-    "@remix-run/node": "2.3.1",
-    "@remix-run/react": "2.3.1",
-    "@remix-run/serve": "2.3.1",
-    "@remix-run/server-runtime": "2.3.1",
+    "@remix-run/node": "^2.10.0",
+    "@remix-run/react": "^2.10.0",
+    "@remix-run/serve": "^2.10.0",
+    "@remix-run/server-runtime": "^2.10.0",
     "bcryptjs": "^2.4.3",
     "framer-motion": "^10.16.16",
     "highlight.js": "^11.9.0",
@@ -56,8 +55,8 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@remix-run/dev": "2.3.1",
-    "@remix-run/eslint-config": "2.3.1",
+    "@remix-run/dev": "^2.10.0",
+    "@remix-run/eslint-config": "^2.10.0",
     "@testing-library/cypress": "^8.0.7",
     "@testing-library/dom": "^8.20.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -92,13 +91,15 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.4",
-    "vite": "^4.0.4",
+    "vite": "^5.3.1",
+    "vite-env-only": "^3.0.1",
     "vite-tsconfig-paths": "^3.6.0",
     "vitest": "^0.27.2"
   },
   "engines": {
     "node": ">=18"
   },
+  "type": "module",
   "prisma": {
     "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
   }

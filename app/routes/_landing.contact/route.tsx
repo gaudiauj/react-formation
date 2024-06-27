@@ -12,8 +12,7 @@ import {
 } from "@chakra-ui/react";
 import invariant from "tiny-invariant";
 import { useActionData, useNavigation } from "@remix-run/react";
-import { BsLinkedin } from "react-icons/bs";
-import { EmailIcon } from "@chakra-ui/icons";
+import { EmailIcon, InfoIcon } from "@chakra-ui/icons";
 import { json } from "@remix-run/node";
 import { sendContactMail } from "~/utils/email.server";
 
@@ -144,7 +143,7 @@ export default function ContactFormWithSocialButtons() {
                     aria-label="linkedin"
                     variant="ghost"
                     size="lg"
-                    icon={<BsLinkedin size="28px" />}
+                    icon={<InfoIcon size="28px" />}
                     _hover={{
                       bg: "blue.500",
                       color: useColorModeValue("white", "gray.700"),

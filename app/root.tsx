@@ -2,7 +2,6 @@ import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -16,7 +15,6 @@ import { withEmotionCache } from "@emotion/react";
 import type { DocumentProps } from "postcss";
 import { useContext, useEffect, useMemo } from "react";
 import { ServerStyleContext, ClientStyleContext } from "./uiContext";
-import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   ChakraProvider,
   cookieStorageManagerSSR,
@@ -83,7 +81,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
 export const links: LinksFunction = () => {
   return [
-    ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
     // ...
   ];
 };
@@ -204,7 +201,6 @@ const Document = withEmotionCache(
           </ChakraProvider>
           <ScrollRestoration />
           <Scripts />
-          <LiveReload />
         </body>
       </html>
     );
@@ -276,7 +272,6 @@ export function ErrorBoundary() {
               {error.status} {error.data.message}
             </h1>
           </div>
-          <LiveReload />
         </body>
       </html>
     );

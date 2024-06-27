@@ -1,5 +1,4 @@
 import type { urlView } from "@prisma/client";
-
 import { prisma } from "~/db.server";
 
 // export async function getAllUser(id: User["id"]) {

@@ -4,11 +4,9 @@ import {
   Flex,
   Box,
   Avatar,
-  Icon,
   Link,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { ImQuotesRight } from "react-icons/im";
 import { Rating } from "react-simple-star-rating";
 
 interface TestimonialAttributes {
@@ -62,7 +60,6 @@ const Testimonials = (testimonial: TestimonialAttributes) => {
               </Text>
             </Flex>
           </HStack>
-          <Icon as={ImQuotesRight} w={8} h={8} />
         </Flex>
       </Flex>
     </>

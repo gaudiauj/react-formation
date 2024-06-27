@@ -1,4 +1,3 @@
-import { routes } from "@remix-run/dev/server-build";
 import { type DataFunctionArgs } from "@remix-run/node";
 import { getDomainUrl } from "~/utils/getDomainUrl";
 
@@ -28,7 +27,14 @@ export const toXmlSitemap = (data: any[]) => {
 };
 
 export async function loader({ request }: DataFunctionArgs) {
-  const routesNotFlat = Object.entries(routes).map(async (route) => {
+  let build = await (import.meta.env.DEV
+    ? import("../../build/server/index.js")
+    : import(
+        /* @vite-ignore */
+        import.meta.resolve("../../build/server/index.js")
+      ));
+
+  const routesNotFlat = Object.entries(build.routes).map(async (route) => {
     const routeData = route[1];
     // @ts-expect-error
     const sitMapEntries = await routeData.module.handle?.getSitemapEntries(

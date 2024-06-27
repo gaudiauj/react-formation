@@ -1,4 +1,9 @@
-import { PhoneIcon, EmailIcon } from "@chakra-ui/icons";
+import {
+  PhoneIcon,
+  EmailIcon,
+  AttachmentIcon,
+  ChatIcon,
+} from "@chakra-ui/icons";
 import {
   VStack,
   FormControl,
@@ -14,7 +19,6 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { Form, Link as RemixLink } from "@remix-run/react";
-import { BsFillBuildingFill, BsPerson } from "react-icons/bs";
 
 export type ContactFormProps = {
   isLoading: boolean;
@@ -34,7 +38,7 @@ export default function ({ isLoading, actionData }: ContactFormProps) {
           <FormLabel>Société (facultatif)</FormLabel>
 
           <InputGroup>
-            <InputLeftElement children={<BsFillBuildingFill />} />
+            <InputLeftElement children={<AttachmentIcon />} />
             <Input
               type="text"
               name="firm"
@@ -60,7 +64,7 @@ export default function ({ isLoading, actionData }: ContactFormProps) {
           <FormLabel>Nom</FormLabel>
 
           <InputGroup>
-            <InputLeftElement children={<BsPerson />} />
+            <InputLeftElement children={<ChatIcon />} />
             <Input
               type="text"
               name="name"

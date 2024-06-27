@@ -9,12 +9,14 @@ import { getBlogListFromDb } from "~/models/blog.server";
 import Markdown from "markdown-to-jsx";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
-import styles from "./blog.css";
+import styles from "./blog.css?url";
 import { useEffect } from "react";
 import { getBlogPost } from "~/utils/createBlogFromNotion.server";
 import isAdmin from "~/utils/isAdmin.server";
-import allyDark from "highlight.js/styles/a11y-dark.min.css";
+import allyDark from "highlight.js/styles/a11y-dark.min.css?url";
 import type { blog } from "@prisma/client";
+import { serverOnly$ } from "vite-env-only/macros";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -153,14 +155,14 @@ export const links: LinksFunction = () => [
 ];
 
 export const handle = {
-  getSitemapEntries: async () => {
+  getSitemapEntries: serverOnly$(async () => {
     const blogs = await getBlogListFromDb();
     return blogs.map((blog) => ({
       url: `/blog/${blog.slug}`,
       lastmod: blog.lastChange || blog.date,
       priority: 0.7,
     }));
-  },
+  }),
 };
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {

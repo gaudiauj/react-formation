@@ -10,7 +10,6 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { Link as RemixLink } from "@remix-run/react";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import type { ReactNode } from "react";
 import Logo from "../../assets/logo";
 
@@ -103,13 +102,13 @@ export default function SmallCentered() {
               label={"Linkedin"}
               href={"https://fr.linkedin.com/in/jean-gaudiau-50b10439"}
             >
-              <FaLinkedin />
+              linkedin
             </SocialButton>
             <SocialButton
               label={"X | Twitter"}
               href={"https://twitter.com/JGaudiau"}
             >
-              <FaTwitter />
+              twitter
             </SocialButton>
           </Stack>
         </Container>
