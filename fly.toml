@@ -1,5 +1,5 @@
 app = "react-formation"
-
+swap_size_mb = 512
 [mounts]
 source = "data"
 destination = "/data"
