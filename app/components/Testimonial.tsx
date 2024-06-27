@@ -7,7 +7,7 @@ import {
   Link,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Rating } from "react-simple-star-rating";
+import { StarIcon } from "@chakra-ui/icons";
 
 interface TestimonialAttributes {
   username: string;
@@ -45,14 +45,20 @@ const Testimonials = (testimonial: TestimonialAttributes) => {
             <Avatar name={testimonial.username} src={testimonial.image} />
 
             <Flex direction="column">
-              <Text fontWeight="bold" fontSize="lg">
-                {testimonial.username}{" "}
-                <Rating
-                  initialValue={testimonial.note}
-                  readonly
-                  allowFraction
-                  SVGstyle={{ display: "inline-block" }}
-                />
+              <Text fontWeight="bold" fontSize="lg" display="flex" gap={"12px"}>
+                {testimonial.username}
+                <Flex
+                  justifyContent={"center"}
+                  alignItems="center"
+                  color={"yellow"}
+                  as="span"
+                >
+                  <StarIcon />
+                  <StarIcon />
+                  <StarIcon />
+                  <StarIcon />
+                  <StarIcon />
+                </Flex>
               </Text>
               <Text fontSize="md">
                 {testimonial.position} chez{" "}

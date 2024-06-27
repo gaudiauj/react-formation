@@ -20,12 +20,12 @@ import Testimonial from "~/components/Testimonial";
 export const meta: MetaFunction = () => {
   return [
     {
-      title: `Formation et mentorat en entreprise sur React | React-Formation`,
+      title: `Formation en entreprise sur React | React-Formation`,
     },
     {
       name: "description",
       content:
-        "Rejoignez React-Formation.fr pour des formations spécialisées et du mentorat en entreprise sur React. Profitez d'un coaching sur mesure, de revues de code et d'un support flexible. Parfait pour les équipes cherchant à exceller en React.js, avec des options de formation React à distance et en présentiel",
+        "Rejoignez React-Formation.fr pour des formations spécialisées en entreprise sur React. Profitez d'un coaching sur mesure, de revues de code et d'un support flexible. Parfait pour les équipes cherchant à exceller en React.js, avec des options de formation React à distance et en présentiel",
     },
   ];
 };
@@ -92,57 +92,6 @@ export default function Index() {
             </Box>
 
             <Flex gap={8} wrap="wrap" justifyContent="space-around">
-              <Box
-                bg={useColorModeValue("white", "gray.900")}
-                px={6}
-                py={10}
-                w={"md"}
-              >
-                <Heading mb={8} color={"brand.400"} fontSize="2xl">
-                  Mentorat et coaching React en entreprise sur demande
-                </Heading>
-                <List spacing={3} fontSize={"xl"}>
-                  <ListItem>
-                    <ListIcon as={CheckIcon} color="blue.400" />
-                    Coaching Personnalisé : Bénéficiez d'une aide sur mesure
-                    pour vos équipes.
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon as={CheckIcon} color="blue.400" />
-                    Revues de Code : Assurez-vous que votre code est optimisé,
-                    propre et conforme aux meilleures pratiques.
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon as={CheckIcon} color="blue.400" />
-                    Support Flexible : Nous sommes disponibles quand vous en
-                    avez besoin, sans engagement à long terme.
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon as={CheckIcon} color="blue.400" />
-                    Payez seulement pour les interventions réalisées
-                  </ListItem>
-                </List>
-                <Stack
-                  direction={"column"}
-                  spacing={3}
-                  mt={4}
-                  align={"center"}
-                  alignSelf={"center"}
-                  position={"relative"}
-                >
-                  <Button as={Link} rounded={"full"} to="/contact">
-                    Nous contacter
-                  </Button>
-                  <Button
-                    as={Link}
-                    variant={"link"}
-                    size={"sm"}
-                    to="/mentorat/index"
-                  >
-                    Détail du mentorat
-                  </Button>
-                </Stack>{" "}
-              </Box>
               <Box
                 bg={useColorModeValue("white", "gray.900")}
                 px={6}

@@ -19,11 +19,13 @@ import Testimonial from "~/components/Testimonial";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Plan de formation sur React en entreprise | React-Formation" },
+    {
+      title: "Formation React en Entreprise | Cours et Ateliers Personnalisés",
+    },
     {
       name: "description",
       content:
-        "Pourquoi suivre une formation React avec react-formation ? découvrez notre formation react sur mesure et gagner en productivité et en efficacité. Consultez notre plan de formation détaillé sur React en entreprise. Adaptez votre parcours d'apprentissage avec React-Formation et maîtrisez les concepts et les techniques avancées du développement web avec React.",
+        "Améliorez vos compétences en React avec nos formations adaptées aux entreprises. Apprentissage pratique et sur mesure pour maîtriser React efficacement.  Contenu sur mesure adapté à tous les niveaux, du débutant au senior",
     },
     {
       "script:ld+json": {
@@ -32,7 +34,7 @@ export const meta: MetaFunction = () => {
         "@type": "Course",
         name: "Formez vous sur React",
         description:
-          "Une formation sur react en entreprises pour gagner en productivité et en efficacité. Contenu sur mesure adapté à tous les niveaux, du débutant à l'expert.",
+          "Une formation sur react en entreprises pour gagner en productivité et en efficacité. Contenu sur mesure adapté à tous les niveaux, du débutant au senior.",
         publisher: {
           "@type": "Organization",
           name: "react-formation",
@@ -139,10 +141,10 @@ export default function SimpleThreeColumns() {
           m={{ base: 5, md: 10, lg: 10 }}
           color={"brand.400"}
         >
-          Formation React
+          Formation React en Entreprise
         </Heading>
         <Heading as={"h2"} mb={4} mt={8} fontSize={"xl"} color={"brand.400"}>
-          Une formation React adaptée à tous les niveaux
+          Pourquoi choisir notre formation React ?
         </Heading>
         <Text>
           Que vous souhaitiez maîtriser les bases ou explorer des aspects plus
@@ -153,7 +155,7 @@ export default function SimpleThreeColumns() {
           vos projets.
         </Text>
         <Heading as={"h2"} mb={4} mt={8} fontSize={"xl"} color={"brand.400"}>
-          Une formation orientée vers la pratique !
+          Une formation React orientée vers la pratique !
         </Heading>
         <Text>
           Nous croyons fermement à l'apprentissage par la pratique. C'est
@@ -194,7 +196,7 @@ export default function SimpleThreeColumns() {
           fontSize={{ base: "2xl", md: "2xl" }}
           color={"brand.400"}
         >
-          Plan de la formation React
+          Programme de la formation
         </Heading>
         <Box
           bg={useColorModeValue("#eef9fd", "brand.700")}
@@ -339,7 +341,7 @@ export default function SimpleThreeColumns() {
           fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
           color={"brand.400"}
         >
-          Questions fréquentes
+          FAQ sur notre formation React
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Box
@@ -350,7 +352,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -372,7 +374,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -393,7 +395,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -417,7 +419,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -438,7 +440,7 @@ export default function SimpleThreeColumns() {
             <Heading
               as="h3"
               mb={4}
-              color={"brand.400"}
+              color={"brand.500"}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
               Est-ce que vous faites des formations Next.js ?
@@ -458,7 +460,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -482,7 +484,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -506,7 +508,7 @@ export default function SimpleThreeColumns() {
           >
             <Heading
               as="h3"
-              color={"brand.400"}
+              color={"brand.500"}
               mb={4}
               fontSize={{ base: "lg", md: "lg", lg: "xl" }}
             >
@@ -523,10 +525,17 @@ export default function SimpleThreeColumns() {
               <UiLink to={"/formations"} as={Link}>
                 formation
               </UiLink>
-              .
             </Text>
           </Box>
         </SimpleGrid>
+
+        <p>
+          Consultez la{" "}
+          <UiLink href="https://react.dev/" target="_blank">
+            documentation officielle de React
+          </UiLink>{" "}
+          pour plus d'informations.
+        </p>
       </Stack>
     </>
   );
